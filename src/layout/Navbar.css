@@ -192,21 +192,24 @@ body.drawer-open .nav {
   pointer-events: auto;
 }
 
-/* ---- mobile drawer ---- */
+/* ---- mobile drawer ----
+   Full-viewport sheet, identical geometry in LTR and RTL: pinned to both
+   inline edges + top/bottom so width and position are derived from the
+   viewport, not from a side-anchored max-width. The open animation is a
+   short downward slide so it has no preferred side either. RTL only flips
+   text direction inside content — never the drawer shell. */
 .nav__drawer {
   position: fixed;
   top: var(--navbar-h);
-  inset-inline-end: 0;
+  inset-inline: 0;
   bottom: 0;
-  width: 100vw;
-  max-width: 380px;
   background: var(--color-bg);
-  border-inline-start: 1px solid var(--color-border);
-  box-shadow: -24px 0 60px -24px rgba(10, 13, 20, 0.32);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -24px 60px -24px rgba(10, 13, 20, 0.32);
   display: flex;
   flex-direction: column;
   padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom));
-  transform: translateX(8%);
+  transform: translateY(-8px);
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -220,23 +223,12 @@ body.drawer-open .nav {
   -webkit-overflow-scrolling: touch;
 }
 
-[dir='rtl'] .nav__drawer {
-  transform: translateX(-8%);
-  border-inline-start: 0;
-  border-inline-end: 1px solid var(--color-border);
-  box-shadow: 24px 0 60px -24px rgba(10, 13, 20, 0.32);
-}
-
 [data-theme='dark'] .nav__drawer {
-  box-shadow: -24px 0 60px -16px rgba(0, 0, 0, 0.6);
-}
-
-[data-theme='dark'][dir='rtl'] .nav__drawer {
-  box-shadow: 24px 0 60px -16px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 -24px 60px -16px rgba(0, 0, 0, 0.6);
 }
 
 .nav__drawer--open {
-  transform: translateX(0);
+  transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
