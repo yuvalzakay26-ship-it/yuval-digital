@@ -45,6 +45,26 @@ const ShieldIcon = () => (
   </svg>
 );
 
+const SparkleIcon = () => (
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3l1.8 4.6L18.5 9.5l-4.7 1.9L12 16l-1.8-4.6L5.5 9.5l4.7-1.9L12 3z" />
+    <path d="M19 14.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7L19 14.5z" />
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M5 12h14" />
+    <path d="M13 6l6 6-6 6" />
+  </svg>
+);
+
+const TRUST_ICONS = {
+  reply: ClockIcon,
+  free: SparkleIcon,
+  private: ShieldIcon
+};
+
 const CheckCircleIcon = () => (
   <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <circle cx="12" cy="12" r="10" />
@@ -64,6 +84,8 @@ export default function Contact() {
   const projectTypeOptions = dict.contactExtra.projectTypeOptions;
   const budgetOptions = dict.contactExtra.budgetOptions;
   const timelineOptions = dict.contactExtra.timelineOptions;
+  const trustItems = dict.contactExtra.trust;
+  const optionalLabel = t('contactExtra.optional');
 
   return (
     <section id="contact" className="contact section">
@@ -141,20 +163,66 @@ export default function Contact() {
             </div>
           ) : (
             <form className="contact__form surface" onSubmit={handleSubmit} noValidate>
+              <ul className="contact__trust" aria-label={t('contactExtra.trustAriaLabel')}>
+                {trustItems.map(item => {
+                  const Icon = TRUST_ICONS[item.id] || ClockIcon;
+                  return (
+                    <li key={item.id} className="contact__trust-item">
+                      <span className="contact__trust-icon" aria-hidden><Icon /></span>
+                      <span>{item.text}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+
               <div className="contact__field">
-                <label htmlFor="cf-name">{t('contact.name')}</label>
-                <input id="cf-name" name="name" type="text" required autoComplete="name" />
+                <label htmlFor="cf-name">
+                  <span>{t('contact.name')}</span>
+                  <span className="contact__field-required" aria-hidden>*</span>
+                </label>
+                <input
+                  id="cf-name"
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  placeholder={t('contactExtra.namePlaceholder')}
+                />
               </div>
               <div className="contact__field">
-                <label htmlFor="cf-email">{t('contact.email')}</label>
-                <input id="cf-email" name="email" type="email" required autoComplete="email" />
+                <label htmlFor="cf-email">
+                  <span>{t('contact.email')}</span>
+                  <span className="contact__field-required" aria-hidden>*</span>
+                </label>
+                <input
+                  id="cf-email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  placeholder={t('contactExtra.emailPlaceholder')}
+                  dir="ltr"
+                />
               </div>
               <div className="contact__field">
-                <label htmlFor="cf-phone">{t('contact.phone')}</label>
-                <input id="cf-phone" name="phone" type="tel" autoComplete="tel" />
+                <label htmlFor="cf-phone">
+                  <span>{t('contact.phone')}</span>
+                  <span className="contact__field-meta">{optionalLabel}</span>
+                </label>
+                <input
+                  id="cf-phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  placeholder={t('contactExtra.phonePlaceholder')}
+                  dir="ltr"
+                />
               </div>
               <div className="contact__field">
-                <label htmlFor="cf-business">{t('contactExtra.businessTypeLabel')}</label>
+                <label htmlFor="cf-business">
+                  <span>{t('contactExtra.businessTypeLabel')}</span>
+                  <span className="contact__field-meta">{optionalLabel}</span>
+                </label>
                 <input
                   id="cf-business"
                   name="businessType"
@@ -164,7 +232,10 @@ export default function Contact() {
                 />
               </div>
               <div className="contact__field">
-                <label htmlFor="cf-project">{t('contactExtra.projectTypeLabel')}</label>
+                <label htmlFor="cf-project">
+                  <span>{t('contactExtra.projectTypeLabel')}</span>
+                  <span className="contact__field-meta">{optionalLabel}</span>
+                </label>
                 <select id="cf-project" name="projectType" defaultValue="">
                   {projectTypeOptions.map(o => (
                     <option key={o.value || 'placeholder'} value={o.value} disabled={o.value === ''}>
@@ -174,7 +245,10 @@ export default function Contact() {
                 </select>
               </div>
               <div className="contact__field">
-                <label htmlFor="cf-budget">{t('contactExtra.budgetLabel')}</label>
+                <label htmlFor="cf-budget">
+                  <span>{t('contactExtra.budgetLabel')}</span>
+                  <span className="contact__field-meta">{optionalLabel}</span>
+                </label>
                 <select id="cf-budget" name="budget" defaultValue="">
                   {budgetOptions.map(o => (
                     <option key={o.value || 'placeholder'} value={o.value} disabled={o.value === ''}>
@@ -184,7 +258,10 @@ export default function Contact() {
                 </select>
               </div>
               <div className="contact__field contact__field--full">
-                <label htmlFor="cf-timeline">{t('contactExtra.timelineLabel')}</label>
+                <label htmlFor="cf-timeline">
+                  <span>{t('contactExtra.timelineLabel')}</span>
+                  <span className="contact__field-meta">{optionalLabel}</span>
+                </label>
                 <select id="cf-timeline" name="timeline" defaultValue="">
                   {timelineOptions.map(o => (
                     <option key={o.value || 'placeholder'} value={o.value} disabled={o.value === ''}>
@@ -194,8 +271,17 @@ export default function Contact() {
                 </select>
               </div>
               <div className="contact__field contact__field--full">
-                <label htmlFor="cf-message">{t('contact.message')}</label>
-                <textarea id="cf-message" name="message" rows="5" required />
+                <label htmlFor="cf-message">
+                  <span>{t('contact.message')}</span>
+                  <span className="contact__field-required" aria-hidden>*</span>
+                </label>
+                <textarea
+                  id="cf-message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder={t('contactExtra.messagePlaceholder')}
+                />
               </div>
 
               <div className="contact__privacy">
@@ -208,7 +294,14 @@ export default function Contact() {
                   <ClockIcon />
                   {t('contact.response')}
                 </span>
-                <Button type="submit" variant="gradient" size="lg" disabled={submitted}>
+                <Button
+                  type="submit"
+                  variant="gradient"
+                  size="lg"
+                  disabled={submitted}
+                  iconEnd={<ArrowIcon />}
+                  className="contact__submit-btn"
+                >
                   {submitted ? t('contact.submitted') : t('contact.submit')}
                 </Button>
               </div>

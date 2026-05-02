@@ -317,24 +317,24 @@ const en = {
     ]
   },
   contact: {
-    eyebrow: "Let's talk",
-    title: "Have an idea, a new website, or a process to improve? Let's build it right.",
+    eyebrow: 'Start the conversation',
+    title: "Tell me about your idea — I'll come back with a real plan.",
     subtitle:
-      "Have an idea for your business, a new website, or a process to improve? Tell me briefly — I'll be back within 24 hours. First conversation, no obligation.",
+      "A short message is all I need. I read every one personally and reply the same day with honest feedback, a clear timeline and a realistic plan. No sales pitch, no obligation.",
     microcopy:
-      "Available by phone, WhatsApp or email. Let's discuss your idea and build it properly.",
-    reassurance: 'Free intro call · Reply within 24 hours · Hebrew or English',
+      "Prefer to talk live? WhatsApp, phone or email — pick whatever's easiest for you.",
+    reassurance: 'Free intro call · Same-day reply · Hebrew or English',
     name: 'Full name',
     email: 'Email',
     phone: 'Phone',
     message: 'Tell me briefly about the idea',
-    submit: 'Send message',
+    submit: 'Send my message',
     submitted: "Thank you! I'll be in touch soon.",
     or: 'Or reach out directly',
     emailLabel: 'Email',
     phoneLabel: 'Phone',
     whatsapp: 'WhatsApp',
-    response: 'Average response time: under 24 hours'
+    response: 'Most messages get a reply the same day'
   },
   fab: {
     whatsapp: 'Chat on WhatsApp'
@@ -514,6 +514,19 @@ const en = {
     }
   },
   contactExtra: {
+    trust: [
+      { id: 'reply',   text: 'Same-day reply' },
+      { id: 'free',    text: 'Free 20-min intro call' },
+      { id: 'private', text: 'Stays only with me' }
+    ],
+    trustAriaLabel: 'What to expect after you send',
+    optional: 'optional',
+    requiredHint: 'Required',
+    secureSend: 'Sent securely · used only to reply to you',
+    namePlaceholder: 'First and last',
+    emailPlaceholder: 'name@example.com',
+    phonePlaceholder: '054-000-0000',
+    messagePlaceholder: "A few sentences are enough — I'll follow up with the right questions.",
     businessTypeLabel: 'Business type',
     businessTypePlaceholder: 'e.g. clinic, restaurant, services company',
     projectTypeLabel: 'Project type',
@@ -545,9 +558,9 @@ const en = {
       { value: '3m',       label: 'Within three months' },
       { value: 'planning', label: 'Still planning' }
     ],
-    privacyNote: 'Your details stay only with me. No mailing list, no third parties.',
-    successTitle: "Thanks! I've got your message.",
-    successBody: "I'll be back within 24 hours. In the meantime, WhatsApp or phone work too."
+    privacyNote: 'Your details stay only with me. No mailing list, no third parties — ever.',
+    successTitle: "Got it — your message is in.",
+    successBody: "I'll come back personally, usually the same day. If it's urgent, WhatsApp or a quick call work too."
   },
   stickyCta: {
     label: "Let's talk",
