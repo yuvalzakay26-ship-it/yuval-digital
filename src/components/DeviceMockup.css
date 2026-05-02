@@ -1,0 +1,227 @@
+/* ==========================================================================
+   Device chrome wrappers (browser + phone)
+   Token-driven so it adapts to dark / contrast modes.
+   ========================================================================== */
+
+.mock {
+  position: relative;
+  background: var(--mock-surface, #0f1422);
+  color: var(--mock-text, #e6eaf2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 30px 60px -24px rgba(10, 13, 20, 0.45),
+    0 8px 20px -8px rgba(10, 13, 20, 0.32);
+  font-family: var(--font-sans-en);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  letter-spacing: 0.005em;
+  contain: paint;
+}
+
+/* ---------- Browser ---------- */
+.mock--browser {
+  --mock-surface: #0f1422;
+  --mock-chrome: #161c2c;
+  --mock-text: #e6eaf2;
+  --mock-text-soft: #a4adc1;
+  --mock-line: rgba(255, 255, 255, 0.08);
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+[data-theme='light'] .mock--browser,
+:root:not([data-theme='dark']) .mock--browser {
+  --mock-surface: #ffffff;
+  --mock-chrome: #f3f5f9;
+  --mock-text: #0a0d14;
+  --mock-text-soft: #4b5566;
+  --mock-line: rgba(10, 13, 20, 0.06);
+}
+
+.mock__chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--mock-chrome);
+  border-bottom: 1px solid var(--mock-line);
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.mock__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.mock__dot--r { background: #ff5f57; }
+.mock__dot--y { background: #ffbd2e; }
+.mock__dot--g { background: #28c840; }
+
+.mock__url {
+  margin-inline-start: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--mock-text-soft);
+  background: var(--mock-surface);
+  border: 1px solid var(--mock-line);
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  font-feature-settings: 'tnum' 1;
+  flex: 1 1 auto;
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mock__url-lock {
+  display: inline-flex;
+  color: var(--mock-text-soft);
+  opacity: 0.7;
+}
+
+.mock__screen {
+  position: relative;
+  height: calc(100% - 36px);
+  padding: 14px;
+  background: var(--mock-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.mock--phone .mock__screen {
+  height: calc(100% - 16px);
+  padding: 12px 10px 10px;
+  border-radius: 28px;
+}
+
+/* ---------- Phone ---------- */
+.mock--phone {
+  --mock-surface: #0a0d14;
+  --mock-text: #f3f5f9;
+  --mock-text-soft: #98a0b3;
+  --mock-line: rgba(255, 255, 255, 0.10);
+  width: 130px;
+  aspect-ratio: 9 / 19;
+  border-radius: 24px;
+  padding: 6px;
+  background: linear-gradient(150deg, #1a2030 0%, #0a0d14 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 30px 60px -20px rgba(10, 13, 20, 0.55),
+    0 8px 16px rgba(10, 13, 20, 0.35);
+}
+
+.mock--phone .mock__screen {
+  background: var(--mock-surface);
+  border-radius: 18px;
+  height: 100%;
+  padding: 24px 10px 10px;
+}
+
+.mock__phone-notch {
+  position: absolute;
+  top: 10px;
+  inset-inline: 0;
+  margin-inline: auto;
+  width: 44px;
+  height: 12px;
+  background: #07090f;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Generic UI primitives reused by per-project mockups
+   ========================================================================== */
+.mu-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mu-row--between { justify-content: space-between; }
+
+.mu-line {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--mock-line);
+}
+.mu-line--lg { height: 10px; border-radius: 5px; }
+.mu-line--strong { background: color-mix(in oklab, var(--mock-text) 25%, transparent); }
+.mu-line--brand { background: var(--mock-accent, #2563eb); }
+
+.mu-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--mock-line);
+  color: var(--mock-text-soft);
+}
+
+.mu-pill--brand {
+  background: color-mix(in oklab, var(--mock-accent, #2563eb) 18%, transparent);
+  color: var(--mock-accent, #2563eb);
+}
+
+.mu-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: var(--mock-accent, #2563eb);
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mu-cta--ghost {
+  background: transparent;
+  color: var(--mock-text);
+  border: 1px solid var(--mock-line);
+}
+
+.mu-card {
+  background: var(--mock-chrome, color-mix(in oklab, var(--mock-text) 6%, var(--mock-surface)));
+  border: 1px solid var(--mock-line);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.mu-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--mock-accent, #2563eb), var(--mock-accent-2, #7c3aed));
+  flex-shrink: 0;
+}
+
+.mu-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.mu-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}

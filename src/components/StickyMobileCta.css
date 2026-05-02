@@ -1,0 +1,94 @@
+.sticky-cta {
+  position: fixed;
+  z-index: var(--z-overlay);
+  inset-inline: clamp(8px, 3vw, 16px);
+  bottom: max(env(safe-area-inset-bottom), 12px);
+  display: none;
+  gap: 8px;
+  padding: 8px;
+  background: color-mix(in oklab, var(--color-bg) 92%, transparent);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md);
+  transform: translateY(120%);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--dur-base) var(--ease-spring),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.sticky-cta--visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sticky-cta__btn {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.005em;
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  min-height: 44px;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.sticky-cta__btn:active {
+  transform: scale(0.97);
+}
+
+.sticky-cta__btn--call {
+  color: var(--color-text);
+}
+
+.sticky-cta__btn--call:hover {
+  background: var(--color-surface);
+}
+
+.sticky-cta__btn--wa {
+  background: rgba(34, 197, 94, 0.14);
+  color: #16a34a;
+}
+
+[data-theme='dark'] .sticky-cta__btn--wa {
+  background: rgba(34, 197, 94, 0.20);
+  color: #4ade80;
+}
+
+.sticky-cta__btn--primary {
+  background: var(--gradient-accent);
+  color: #fff;
+  flex: 1.4 1 auto;
+}
+
+.sticky-cta__btn-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sticky-cta__btn-label {
+  letter-spacing: 0.012em;
+}
+
+@media (max-width: 720px) {
+  .sticky-cta { display: flex; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta { transition: opacity var(--dur-base) var(--ease-out); transform: none; }
+}

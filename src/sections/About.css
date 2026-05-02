@@ -1,0 +1,100 @@
+.about {
+  background: var(--color-bg-alt);
+  border-block: 1px solid var(--color-border);
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.about__lede {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: sticky;
+  top: calc(var(--navbar-h) + var(--space-8));
+}
+
+.about__title {
+  font-size: clamp(1.85rem, 4.2vw, var(--fs-4xl));
+  font-weight: var(--fw-black);
+  letter-spacing: -0.028em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.about__body {
+  font-size: var(--fs-md);
+  color: var(--color-text-soft);
+  line-height: 1.85;
+  letter-spacing: 0.005em;
+  text-wrap: pretty;
+}
+
+.about__pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+/* ============================================================
+   About pillar card — elite spacing
+   Padding: 28px desktop  ·  20px mobile
+   Internal rhythm: number → 12 → title → 12 → body
+   ============================================================ */
+.about-pillar {
+  padding: var(--space-7);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.about-pillar:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.about-pillar__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-1);
+}
+
+.about-pillar__title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  line-height: 1.28;
+  letter-spacing: -0.018em;
+}
+
+.about-pillar__body {
+  font-size: var(--fs-sm);
+  color: var(--color-text-soft);
+  line-height: 1.78;
+  letter-spacing: 0.005em;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .about__inner { grid-template-columns: 1fr; gap: var(--space-10); }
+  .about__lede  { position: static; }
+}
+
+@media (max-width: 600px) {
+  .about__pillars { grid-template-columns: 1fr; gap: var(--space-4); }
+  .about-pillar   { padding: var(--space-5); }
+}

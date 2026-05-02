@@ -1,0 +1,287 @@
+/* ==========================================================================
+   Globals — yuval-digital
+   ========================================================================== */
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans, var(--font-sans-he));
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-soft);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1;
+  width: 100%;
+  /* `clip` (not `hidden`) prevents horizontal scroll without establishing a
+     scroll container, so position: sticky on the navbar continues to work. */
+  overflow-x: clip;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+
+[dir='ltr'] body {
+  font-family: var(--font-sans-en);
+}
+
+[dir='rtl'] body {
+  font-family: var(--font-sans-he);
+}
+
+/* ---------- Headings ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7.2vw, var(--fs-6xl));
+  font-weight: var(--fw-black);
+  line-height: 1.02;
+  letter-spacing: var(--tracking-tightest);
+}
+h2 {
+  font-size: clamp(1.85rem, 4.4vw, var(--fs-4xl));
+  font-weight: var(--fw-black);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tighter);
+}
+h3 {
+  font-size: clamp(1.4rem, 2.4vw, var(--fs-2xl));
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-tight);
+}
+h4 {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-tight);
+}
+h5 { font-size: var(--fs-lg); font-weight: var(--fw-semibold); line-height: 1.35; }
+h6 { font-size: var(--fs-md); font-weight: var(--fw-semibold); line-height: 1.4; }
+
+p {
+  color: var(--color-text-soft);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-soft);
+  text-wrap: pretty;
+}
+
+p + p {
+  margin-top: 0.85em;
+}
+
+/* ---------- Container ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+/* ---------- Section ---------- */
+.section {
+  padding-block: var(--section-py);
+  position: relative;
+}
+
+.section--bleed {
+  padding-block: var(--section-py);
+}
+
+/* ---------- Eyebrow / kicker ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-border);
+  align-self: flex-start;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+
+/* ---------- Gradient text helper ---------- */
+.text-gradient {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ---------- Surfaces ---------- */
+.surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              background-color var(--dur-base) var(--ease-out);
+}
+
+.surface--interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-strong);
+}
+
+/* ---------- Focus ring (refined) ---------- */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-bg), 0 0 0 5px var(--color-accent);
+  border-radius: var(--radius-sm);
+  transition: box-shadow var(--dur-fast) var(--ease-out);
+}
+
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-bg), 0 0 0 5px var(--color-accent);
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+[data-theme='dark'] ::selection {
+  background: var(--color-accent-glow);
+  color: var(--color-text);
+}
+
+/* ---------- Smooth transitions on all interactive elements ---------- */
+a, button {
+  transition:
+    color var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Scrollbar (subtle) ---------- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- Hairline divider helper ---------- */
+.hairline {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border) 16%,
+    var(--color-border-strong) 50%,
+    var(--color-border) 84%,
+    transparent
+  );
+  border: 0;
+  opacity: 0.7;
+}
+
+/* ---------- Premium initial-load fade (page-level) ---------- */
+@keyframes pagePremiumFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  animation: pagePremiumFadeIn var(--dur-slow) var(--ease-out) both;
+}
+
+/* ---------- Anchor offset (account for sticky navbar) ---------- */
+:where(section[id]) {
+  scroll-margin-top: calc(var(--navbar-h) + var(--space-4));
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: fixed;
+  inset-inline-start: var(--space-3);
+  top: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  transform: translateY(-150%);
+  transition: transform var(--dur-base) var(--ease-out);
+  z-index: var(--z-modal);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ---------- Utility helpers ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Reserve space for the mobile sticky CTA bar so it never overlaps. */
+@media (max-width: 720px) {
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+}

@@ -1,0 +1,102 @@
+.wa-fab {
+  position: fixed;
+  z-index: var(--z-overlay);
+  inset-inline-end: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vw, 28px);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  height: 56px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(22, 163, 74, 0.30), 0 4px 12px rgba(22, 163, 74, 0.18);
+  isolation: isolate;
+  overflow: hidden;
+  transform: translateY(20px) scale(0.92);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--dur-base) var(--ease-spring),
+    opacity var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    width var(--dur-base) var(--ease-out);
+  width: 56px;
+}
+
+.wa-fab--visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wa-fab:hover {
+  width: 200px;
+  box-shadow: 0 20px 48px rgba(22, 163, 74, 0.45), 0 8px 16px rgba(22, 163, 74, 0.26);
+}
+
+.wa-fab__pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: rgba(34, 197, 94, 0.45);
+  z-index: -1;
+  animation: pulseGlow 2.6s var(--ease-out) 3;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+
+.wa-fab--visible .wa-fab__pulse {
+  opacity: 1;
+  animation-iteration-count: 3;
+}
+
+.wa-fab__icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+
+.wa-fab__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.wa-fab:hover .wa-fab__icon {
+  transform: rotate(-8deg);
+}
+
+.wa-fab__label {
+  white-space: nowrap;
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.01em;
+  opacity: 0;
+  max-width: 0;
+  padding-inline-end: 0;
+  overflow: hidden;
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    max-width var(--dur-base) var(--ease-out),
+    padding-inline-end var(--dur-base) var(--ease-out);
+}
+
+.wa-fab:hover .wa-fab__label {
+  opacity: 1;
+  max-width: 160px;
+  padding-inline-end: var(--space-5);
+}
+
+@media (max-width: 720px) {
+  /* Sticky mobile CTA bar takes over on phones — hide the FAB. */
+  .wa-fab { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-fab__pulse { animation: none; }
+}

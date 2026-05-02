@@ -1,0 +1,92 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-text);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  user-select: none;
+  min-width: 0;
+}
+
+.logo__mark {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--dur-base) var(--ease-spring), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.logo:hover .logo__mark {
+  transform: rotate(-6deg) scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
+.logo__mark svg {
+  width: 70%;
+  height: 70%;
+}
+
+/* Wordmark — direction-aware spacing.
+   Hebrew: "יובל דיגיטל" with airy gap between the two words.
+   English: "YUVAL.digital" with the accent dot. */
+.logo__wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-size: var(--fs-md);
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.logo__name {
+  font-weight: var(--fw-black);
+  letter-spacing: 0.06em;
+}
+
+.logo__dot {
+  color: var(--color-accent);
+  font-weight: var(--fw-black);
+  margin-inline: 1px;
+}
+
+.logo__suffix {
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* RTL: full Hebrew brand "יובל דיגיטל" — clean, premium, airy. */
+.logo--rtl .logo__name {
+  letter-spacing: 0.005em;
+}
+
+.logo--rtl .logo__suffix {
+  margin-inline-start: 0.42em;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-soft);
+  letter-spacing: 0.005em;
+}
+
+/* Short fallback shown only at extreme narrow widths. */
+.logo__short {
+  display: none;
+  font-weight: var(--fw-black);
+  letter-spacing: 0.06em;
+}
+
+/* Drawer variant — bigger, more presence. */
+.logo--drawer .logo__mark {
+  width: 40px;
+  height: 40px;
+}
+
+.logo--drawer .logo__wordmark {
+  font-size: var(--fs-lg);
+}
+
+/* Nav variant — slight tightening on narrow phones happens in Navbar.css. */
