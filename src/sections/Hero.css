@@ -1,7 +1,11 @@
 .hero {
   position: relative;
   isolation: isolate;
+  /* `clip` is preferred (it doesn't establish a scroll container the way
+     `hidden` does, so it never fights position: sticky or RTL writing
+     mode), with `hidden` as the fallback for iOS < 16 / older browsers. */
   overflow: hidden;
+  overflow: clip;
   padding-block: clamp(5rem, 12vw, 9rem);
   background: var(--color-bg);
 }
@@ -175,32 +179,63 @@
   }
   .hero__subtitle { line-height: 1.7; }
 
-  /* Force every direct child of the hero column onto the same centered
-     axis. The global .eyebrow rule sets align-self: flex-start, which in
-     an RTL flex column slams the kicker pill against the right edge
-     while the headline below renders truly centered — producing the
-     "pushed right / off-balance" asymmetry on real devices. */
-  .hero__inner > * {
+  /* Mobile centering lock — every direct child of the hero column is forced
+     onto the same vertical axis. Specificity 0,2,0 (.hero .hero__inner > *)
+     beats the global .eyebrow rule's align-self: flex-start (0,1,0) so the
+     kicker, the headline, and the rest can never drift apart on RTL. */
+  .hero .hero__inner > * {
     align-self: center;
+    margin-inline: auto;
+    max-width: 100%;
+  }
+
+  .hero .hero__title {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    /* Aggressive break-on-anywhere so a long Hebrew compound (e.g. with a
+       prefix glued to a long noun) can never spill past the start edge and
+       hit the section's overflow clip — which is what produces the
+       "headline cut on the right" symptom on real devices. */
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .hero .hero__title-lead,
+  .hero .hero__title-highlight {
+    width: 100%;
+    text-align: center;
     margin-inline: auto;
   }
 
-  .hero__subtitle {
+  .hero .hero__title-highlight {
+    /* Generous breathing for the gradient text-fill. Negative letter-spacing
+       pulls glyph advance edges inside the bounding box; without enough
+       padding the right-most (line-start in RTL) Hebrew glyph appears
+       trimmed by the parent's overflow clip. */
+    padding-inline: 0.18em;
+    letter-spacing: -0.022em;
+  }
+
+  .hero .hero__subtitle {
     width: 100%;
     max-width: 100%;
     text-align: center;
     text-wrap: pretty;
+    margin-inline: auto;
   }
 
-  .hero__microtrust {
+  .hero .hero__microtrust {
     width: 100%;
     justify-content: center;
     text-align: center;
+    margin-inline: auto;
   }
 
-  .hero__cta {
+  .hero .hero__cta {
     width: 100%;
     justify-content: center;
+    margin-inline: auto;
   }
 }
 

@@ -528,6 +528,40 @@ body.drawer-open .nav {
   .nav__inner { gap: var(--space-3); }
   .nav .logo__wordmark { font-size: var(--fs-base); }
   .nav .logo__mark { width: 34px; height: 34px; }
+
+  /* Mobile drawer — premium horizontal breathing.
+     Bumping inline padding from 16 → 20px protects the gradient CTA's
+     shadow halo from being clipped by the drawer's `overflow-y: auto`
+     (browsers compute overflow-x as auto when overflow-y is non-visible),
+     and gives the utility card a confident anchor away from the wall. */
+  .nav__drawer {
+    padding-inline: var(--space-5);
+  }
+
+  /* Premium card padding — slightly more inline so the chips never hug
+     the card edge on Hebrew RTL. */
+  .nav__drawer-utils {
+    padding: 6px var(--space-4);
+  }
+
+  /* In Hebrew RTL the label IS the anchor on the right edge of the row.
+     Lock its alignment to the inline-start explicitly so no inherited
+     text-align (or browser-level direction quirk) can shift it. */
+  .nav__drawer-util-label {
+    text-align: start;
+  }
+
+  .nav__drawer-util {
+    /* A hair of inline padding inside each row keeps the label off the
+       card's right border and the control off the card's left border. */
+    padding-inline: 2px;
+  }
+
+  /* Foot wrapper — a small inline pad so the CTA's gradient + shadow
+     never touch the drawer overflow clip on the smallest devices. */
+  .nav__drawer-foot {
+    padding-inline: 2px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -537,8 +571,10 @@ body.drawer-open .nav {
   .nav .logo__mark { width: 32px; height: 32px; }
   .nav .logo--rtl .logo__suffix { margin-inline-start: 0.32em; }
 
-  /* iPhone SE-class width: shave a touch more so the CTA stays above the fold. */
-  .nav__drawer { padding-top: var(--space-2); }
+  /* iPhone SE-class width: shave a touch more so the CTA stays above the
+     fold AND keep the drawer inline padding a notch tighter so the card
+     content has more horizontal real estate. */
+  .nav__drawer { padding-top: var(--space-2); padding-inline: var(--space-4); }
   .nav__drawer-head { padding-bottom: var(--space-3); }
   .nav__drawer-link { min-height: 44px; padding: 8px var(--space-3); font-size: var(--fs-base); }
   .nav__drawer-util { min-height: 38px; }
