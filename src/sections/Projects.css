@@ -269,9 +269,9 @@
 }
 
 @media (max-width: 720px) {
-  .project-card__stage { height: 250px; padding: var(--space-5) var(--space-5) 0; }
-  .project-card__inner--featured .project-card__stage { height: 320px; padding: var(--space-6) var(--space-6) 0; }
-  .project-card__inner--compact .project-card__stage { height: 230px; padding: var(--space-5) var(--space-5) 0; }
+  .project-card__stage { height: 250px; padding: var(--space-5); }
+  .project-card__inner--featured .project-card__stage { height: 320px; padding: var(--space-6); }
+  .project-card__inner--compact .project-card__stage { height: 230px; padding: var(--space-5); }
 }
 
 .project-card__stage-bg {
@@ -906,6 +906,45 @@
   .project-card__inner--featured .project-card__body {
     padding: var(--space-8);
   }
+
+  /* Mobile/tablet: vertically center mockup composition inside stage */
+  .project-card__stage,
+  .project-card__inner--featured .project-card__stage,
+  .project-card__inner--compact .project-card__stage {
+    padding-bottom: var(--space-6);
+  }
+  .project-card__devices {
+    align-items: center;
+  }
+  .project-card__desktop,
+  .project-card__inner--featured .project-card__desktop,
+  .project-card__inner--compact .project-card__desktop {
+    transform: rotateX(6deg);
+  }
+  .project-card__phone,
+  .project-card__inner--featured .project-card__phone,
+  .project-card__inner--compact .project-card__phone {
+    inset-block-end: 6%;
+    transform: rotate(4deg);
+  }
+  [dir='rtl'] .project-card__phone,
+  [dir='rtl'] .project-card__inner--featured .project-card__phone,
+  [dir='rtl'] .project-card__inner--compact .project-card__phone {
+    transform: rotate(-4deg);
+  }
+  /* Re-tune hover so it composes with the new centered base (no translateY) */
+  .project-card__inner:hover .project-card__desktop,
+  .project-card__inner--featured:hover .project-card__desktop {
+    transform: rotateX(4deg) scale(1.04);
+  }
+  .project-card__inner:hover .project-card__phone,
+  .project-card__inner--featured:hover .project-card__phone {
+    transform: rotate(2deg) scale(1.06);
+  }
+  [dir='rtl'] .project-card__inner:hover .project-card__phone,
+  [dir='rtl'] .project-card__inner--featured:hover .project-card__phone {
+    transform: rotate(-2deg) scale(1.06);
+  }
 }
 
 @media (max-width: 980px) {
@@ -934,12 +973,10 @@
   .projects__intro p { font-size: var(--fs-xs); }
 
   .project-card__phone {
-    inset-block-end: -6px;
     width: 84px;
   }
   .project-card__desktop {
     width: 92%;
-    transform: translateY(20px) rotateX(6deg);
   }
   .project-card__body {
     padding: var(--space-6);
@@ -952,7 +989,6 @@
   .project-card__inner--featured .project-card__desktop {
     width: 92%;
     max-width: 100%;
-    transform: translateY(22px) rotateX(6deg);
   }
   .project-card__inner--featured .project-card__phone {
     width: 92px;
@@ -960,7 +996,6 @@
   .project-card__inner--compact .project-card__desktop {
     width: 92%;
     max-width: 100%;
-    transform: translateY(18px) rotateX(6deg);
   }
   .project-card__inner--compact .project-card__phone {
     width: 78px;
