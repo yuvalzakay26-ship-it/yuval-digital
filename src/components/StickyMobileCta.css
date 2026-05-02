@@ -89,6 +89,14 @@
   .sticky-cta { display: flex; }
 }
 
+/* Hide the sticky CTA while the mobile drawer is open — the drawer has its
+   own footer CTA, and the bar would otherwise compete with it visually. */
+body.drawer-open .sticky-cta {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(120%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sticky-cta { transition: opacity var(--dur-base) var(--ease-out); transform: none; }
 }

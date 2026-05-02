@@ -77,6 +77,20 @@
   }
 }
 
+/* While the mobile drawer is open the FAB would overlap its corner —
+   fade it out so the drawer reads as the primary surface. The toolbar
+   panel itself can still be reopened after closing the drawer. */
+body.drawer-open .a11y-fab,
+body.drawer-open .a11y-panel,
+body.drawer-open .a11y-panel__scrim {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    visibility 0s linear var(--dur-fast);
+}
+
 /* ---- Panel ---- */
 .a11y-panel {
   position: fixed;

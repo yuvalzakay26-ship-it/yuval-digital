@@ -17,7 +17,11 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.classList.toggle('no-scroll', open);
-    return () => document.body.classList.remove('no-scroll');
+    document.body.classList.toggle('drawer-open', open);
+    return () => {
+      document.body.classList.remove('no-scroll');
+      document.body.classList.remove('drawer-open');
+    };
   }, [open]);
 
   useEffect(() => {
