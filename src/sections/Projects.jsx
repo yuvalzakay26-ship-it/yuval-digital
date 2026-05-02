@@ -26,7 +26,7 @@ const StarIcon = () => (
 );
 
 const PROJECT_URLS = {
-  marzipan: 'marzipan-bakery.com',
+  marzipan: 'marzipan-bakery.vercel.app',
   yuval: 'yuval.digital',
   clinic: 'clinic.demo',
   restaurant: 'menu.demo',
@@ -59,10 +59,12 @@ export default function Projects() {
             const Mockup = projectMockups[item.id];
             const url = PROJECT_URLS[item.id] ?? '';
 
+            const hasCaseStudy = !!item.caseStudyUrl && item.caseStudyUrl !== '#';
             const liveHref = item.liveUrl && item.liveUrl !== '#' ? item.liveUrl : '#contact';
-            const caseHref = item.caseStudyUrl && item.caseStudyUrl !== '#' ? item.caseStudyUrl : '#contact';
+            const caseHref = hasCaseStudy ? item.caseStudyUrl : liveHref;
             const liveExternal = isExternalUrl(liveHref);
             const caseExternal = isExternalUrl(caseHref);
+            const secondaryLabel = hasCaseStudy ? t('projects.caseStudy') : t('projects.viewProjectAlt');
 
             return (
               <Reveal
@@ -106,12 +108,12 @@ export default function Projects() {
                     <div className="project-card__devices">
                       <div className="project-card__desktop">
                         <DeviceMockup variant="browser" url={url}>
-                          {Mockup ? <Mockup /> : null}
+                          {Mockup ? <Mockup variant="browser" /> : null}
                         </DeviceMockup>
                       </div>
                       <div className="project-card__phone">
                         <DeviceMockup variant="phone">
-                          {Mockup ? <Mockup /> : null}
+                          {Mockup ? <Mockup variant="phone" /> : null}
                         </DeviceMockup>
                       </div>
                     </div>
@@ -171,7 +173,7 @@ export default function Projects() {
                           target={caseExternal ? '_blank' : undefined}
                           rel={caseExternal ? 'noreferrer noopener' : undefined}
                         >
-                          <span>{t('projects.caseStudy')}</span>
+                          <span>{secondaryLabel}</span>
                         </a>
                       </div>
                     ) : (
