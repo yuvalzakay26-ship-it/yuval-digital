@@ -114,13 +114,27 @@
   display: flex;
   flex-direction: column;
   gap: 0.14em;
+  /* width: 100% guarantees the title never exceeds the centered container,
+     even when its intrinsic content width (20ch at large font sizes) would
+     spill past the viewport. max-width is the desktop visual cap. */
+  width: 100%;
   max-width: 20ch;
+  margin-inline: auto;
   font-size: clamp(2.6rem, 7.4vw, var(--fs-6xl));
   line-height: 1.0;
   letter-spacing: -0.038em;
   font-weight: var(--fw-black);
   margin-top: var(--space-2);
   text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.hero__title-lead,
+.hero__title-highlight {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .hero__title-lead {
@@ -128,10 +142,13 @@
 }
 
 .hero__title-highlight {
-  display: inline-block;
   background-size: 200% 100%;
   animation: gradientShift 10s var(--ease-in-out) infinite;
   letter-spacing: -0.04em;
+  /* Tiny inline padding gives the gradient text-fill breathing room so the
+     last glyph never appears trimmed when negative letter-spacing pulls the
+     advance edge inside the bounding box. */
+  padding-inline: 0.06em;
 }
 
 .hero__subtitle {
@@ -143,13 +160,35 @@
   text-wrap: pretty;
 }
 
+/* ---- mobile hero typography scale ----
+   Dedicated steps for 430 / 390 / 375 / 360 / 320-class viewports. Each
+   step keeps clamp() bounded so the headline never grows past the container
+   width, while preserving strong visual weight. text-wrap: pretty is more
+   forgiving than balance for Hebrew on narrow widths. */
 @media (max-width: 480px) {
   .hero__title {
-    font-size: clamp(2.2rem, 9vw, 3rem);
-    letter-spacing: -0.032em;
-    line-height: 1.04;
+    font-size: clamp(2rem, 8.6vw, 2.55rem);
+    letter-spacing: -0.028em;
+    line-height: 1.06;
+    max-width: 100%;
+    text-wrap: pretty;
   }
   .hero__subtitle { line-height: 1.7; }
+}
+
+@media (max-width: 390px) {
+  .hero__title {
+    font-size: clamp(1.85rem, 9vw, 2.3rem);
+    letter-spacing: -0.022em;
+    line-height: 1.08;
+  }
+}
+
+@media (max-width: 340px) {
+  .hero__title {
+    font-size: clamp(1.65rem, 9.4vw, 2rem);
+    letter-spacing: -0.018em;
+  }
 }
 
 .hero__cta {

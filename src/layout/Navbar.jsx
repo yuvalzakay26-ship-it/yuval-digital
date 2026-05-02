@@ -96,8 +96,20 @@ export default function Navbar() {
         aria-label={t('nav.home')}
       >
         <div className="nav__drawer-head">
-          <Logo variant="drawer" onClick={close} />
-          <p className="nav__drawer-subtitle">{t('brand.shortTagline')}</p>
+          <div className="nav__drawer-head-brand">
+            <Logo variant="drawer" onClick={close} />
+            <p className="nav__drawer-subtitle">{t('brand.shortTagline')}</p>
+          </div>
+          <button
+            type="button"
+            className="nav__drawer-close"
+            onClick={close}
+            aria-label={t('a11y.toolbar.close')}
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
         </div>
 
         <nav className="nav__drawer-nav" aria-label="Mobile primary">
@@ -107,7 +119,7 @@ export default function Navbar() {
                 <a href={link.href} className="nav__drawer-link" onClick={close}>
                   <span className="nav__drawer-link-text">{t(`nav.${link.key}`)}</span>
                   <span className="nav__drawer-link-chev" aria-hidden>
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 6l6 6-6 6" />
                     </svg>
                   </span>
@@ -122,6 +134,7 @@ export default function Navbar() {
             <span className="nav__drawer-util-label">{t('language.switch')}</span>
             <LanguageSwitcher />
           </div>
+          <div className="nav__drawer-util-divider" aria-hidden />
           <div className="nav__drawer-util">
             <span className="nav__drawer-util-label">{t('theme.toggle')}</span>
             <ThemeToggle />
