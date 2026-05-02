@@ -174,6 +174,34 @@
     text-wrap: pretty;
   }
   .hero__subtitle { line-height: 1.7; }
+
+  /* Force every direct child of the hero column onto the same centered
+     axis. The global .eyebrow rule sets align-self: flex-start, which in
+     an RTL flex column slams the kicker pill against the right edge
+     while the headline below renders truly centered — producing the
+     "pushed right / off-balance" asymmetry on real devices. */
+  .hero__inner > * {
+    align-self: center;
+    margin-inline: auto;
+  }
+
+  .hero__subtitle {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    text-wrap: pretty;
+  }
+
+  .hero__microtrust {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero__cta {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 390px) {
