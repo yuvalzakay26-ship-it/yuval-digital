@@ -423,6 +423,12 @@ body.drawer-open .nav {
   margin-top: var(--space-5);
   display: flex;
   flex-direction: column;
+  /* Lock the writing direction to the document so flex children inside
+     the rows reverse correctly under [dir='rtl']. Defensive: prevents
+     any future ancestor that sets `direction` from silently breaking
+     the bilingual row layout below. */
+  direction: inherit;
+  text-align: start;
   opacity: 0;
   transform: translateY(8px);
   transition:
@@ -438,6 +444,9 @@ body.drawer-open .nav {
 
 .nav__drawer-prefs-title {
   margin: 0 0 var(--space-2);
+  /* `text-align: start` resolves to right in RTL and left in LTR — the
+     title hugs the same edge as the label below it in either language. */
+  text-align: start;
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
   letter-spacing: 0.1em;
@@ -447,6 +456,14 @@ body.drawer-open .nav {
 
 .nav__drawer-prefs-row {
   display: flex;
+  /* `flex-direction: row` (default) + inherited `direction` is what
+     makes this bilingual: RTL flips the main axis automatically, so the
+     first child (label) lands at the inline-start (right in Hebrew,
+     left in English) and the last child (control) at the inline-end.
+     Do NOT add `row-reverse` here — it would cancel the RTL auto-flip
+     and put controls on the wrong side again. */
+  flex-direction: row;
+  direction: inherit;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
@@ -454,6 +471,10 @@ body.drawer-open .nav {
 }
 
 .nav__drawer-prefs-label {
+  /* Logical-property alignment: `start` follows writing direction, so
+     no `[dir='rtl']` override is ever needed for the label text. */
+  text-align: start;
+  direction: inherit;
   font-size: var(--fs-md);
   font-weight: var(--fw-medium);
   color: var(--color-text);
