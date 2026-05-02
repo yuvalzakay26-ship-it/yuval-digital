@@ -435,20 +435,35 @@ body.drawer-open .nav {
   transition-delay: 220ms;
 }
 
+/* Two-column grid: label takes its natural width at the inline-start,
+   control sits immediately after with a controlled gap. The remainder of
+   the row is intentional negative space at the inline-end — never an
+   awkward gulf in the middle. RTL inherits this naturally because the
+   grid axis follows the writing direction. */
 .nav__drawer-util {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, max-content) max-content;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  min-height: 36px;
+  column-gap: var(--space-4);
+  min-height: 34px;
   padding-inline: 0;
 }
 
 .nav__drawer-util-label {
+  /* Lock the label to the inline-start of its track so it never floats
+     toward the gap, regardless of inherited text-align. */
+  justify-self: start;
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
   letter-spacing: 0.005em;
   color: var(--color-text);
+}
+
+.nav__drawer-util > .lang-switch,
+.nav__drawer-util > .theme-toggle {
+  /* Keep the control snug against the label's gap edge instead of
+     stretching across whatever track width is available. */
+  justify-self: start;
 }
 
 /* Hairline between the two rows. `border-soft` (not `border`) keeps it
@@ -488,7 +503,7 @@ body.drawer-open .nav {
 }
 
 .nav__drawer-foot {
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
   padding-top: var(--space-4);
   border-top: 1px solid var(--color-border-soft);
   display: flex;
@@ -566,8 +581,10 @@ body.drawer-open .nav {
 
   .nav__drawer-util {
     /* A hair of inline padding inside each row keeps the label off the
-       card's right border and the control off the card's left border. */
+       card's right border, plus a wider column gap so the label/control
+       pair reads as a deliberate cluster rather than two crammed siblings. */
     padding-inline: 2px;
+    column-gap: var(--space-5);
   }
 
   /* Foot wrapper — slightly more inline pad so the CTA's gradient + shadow
@@ -591,7 +608,7 @@ body.drawer-open .nav {
   .nav__drawer-head { padding-bottom: var(--space-3); }
   .nav__drawer-link { min-height: 44px; padding: 8px var(--space-3); font-size: var(--fs-base); }
   .nav__drawer-utils { padding: 3px var(--space-3); }
-  .nav__drawer-util { min-height: 34px; }
+  .nav__drawer-util { min-height: 32px; column-gap: var(--space-4); }
   .nav__drawer-util-label { font-size: var(--fs-xs); }
   .nav__drawer-foot { margin-top: var(--space-4); padding-top: var(--space-3); }
   .nav__drawer-cta { min-height: 48px; }
