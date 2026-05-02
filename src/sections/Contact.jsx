@@ -286,7 +286,13 @@ export default function Contact() {
 
               <div className="contact__privacy">
                 <span className="contact__privacy-icon" aria-hidden><ShieldIcon /></span>
-                <span>{t('contactExtra.privacyNote')}</span>
+                <span>
+                  {t('contactExtra.privacyConsentLead')}
+                  <a href="#/page/privacy" className="contact__privacy-link">
+                    {t('contactExtra.privacyConsentLink')}
+                  </a>
+                  {t('contactExtra.privacyConsentTrail')}
+                </span>
               </div>
 
               <div className="contact__submit">

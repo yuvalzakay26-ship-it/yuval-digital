@@ -559,6 +559,9 @@ const en = {
       { value: 'planning', label: 'Still planning' }
     ],
     privacyNote: 'Your details stay only with me. No mailing list, no third parties.',
+    privacyConsentLead: 'By submitting this form you agree to the ',
+    privacyConsentLink: 'Privacy Policy',
+    privacyConsentTrail: '. Your details are kept only to reply to you and will not be shared.',
     successTitle: 'Got it. Your message is in.',
     successBody: "I'll come back personally — usually the same day. If it's urgent, WhatsApp or a quick call work too."
   },
@@ -604,14 +607,19 @@ const en = {
         "Yuval Digital is committed to making its services and content accessible to everyone, including people with disabilities, in an effective and respectful way. Continuous effort is made to keep the site experience equal, simple and comfortable for all users.",
       sections: [
         {
+          title: 'Legal commitment',
+          body:
+            'Yuval Digital is made accessible in accordance with the Israeli Equal Rights for Persons with Disabilities Law, 5758-1998, and the Equal Rights for Persons with Disabilities (Service Accessibility) Regulations, 5773-2013. Accessibility is implemented to Israeli Standard SI 5568 at level AA, and informed by the international WCAG 2.1 guidelines at the same level.'
+        },
+        {
           title: 'Adjustments already in place',
           body:
-            'A built-in accessibility menu is available on every page, allowing users to adjust text size, enable high contrast, switch to grayscale, underline links, choose a readable font for dyslexia, and pause animations. The site is built with semantic landmarks, ARIA labels, full keyboard navigation, clear heading hierarchy, visible focus states, and adequate color contrast.'
+            'A built-in accessibility menu is available on every page, allowing users to adjust text size (five steps), enable high contrast, switch to grayscale, underline links, choose a readable font for dyslexia, and pause animations. The site is built with semantic landmarks, ARIA labels, full keyboard navigation, clear heading hierarchy, visible focus states, adequate color contrast, and full RTL support for Hebrew readers.'
         },
         {
           title: 'Compliance',
           body:
-            'The site mainly conforms to the Israeli accessibility standard SI 5568 at level AA, and to the WCAG 2.1 guidelines at level AA. Ongoing testing is performed in modern browsers — Chrome, Edge, Firefox and Safari — across the common operating systems.'
+            'The site mainly conforms to the Israeli accessibility standard SI 5568 at level AA, and to the WCAG 2.1 guidelines at level AA. Ongoing testing is performed in modern browsers — Chrome, Edge, Firefox and Safari — across the common operating systems (Windows, macOS, iOS, Android).'
         },
         {
           title: 'Screen reader and keyboard support',
@@ -641,32 +649,37 @@ const en = {
       title: 'Privacy Policy',
       updated: 'Last updated',
       intro:
-        'I take your privacy seriously. This page explains what data is collected on Yuval Digital, why it is collected, and what is done with it.',
+        'I take your privacy seriously. This page explains what data is collected on Yuval Digital, why it is collected, and what is done with it — in line with the Israeli Protection of Privacy Law, 5741-1981.',
       sections: [
+        {
+          title: 'Database controller',
+          body:
+            'The database controller and site owner is Yuval Zakay, an independent freelancer based in Israel, and the only point of contact for any inquiry. There are no representatives, intermediaries or external sales staff.'
+        },
         {
           title: 'What is collected',
           body:
-            'When you submit the contact form, I receive the details you fill in: name, email, phone, business type, project type, estimated budget, timeline and a free-text message. All information is provided voluntarily by you.'
+            'When you submit the contact form, I receive the details you fill in: name, email, phone, business type, project type, estimated budget, timeline and a free-text message. All information is provided voluntarily by you, and submitting the form constitutes consent to collect it for the purposes described in this policy.'
         },
         {
           title: 'Why it is collected',
           body:
-            'The information is kept only with me, used to reply personally to your inquiry and assess project fit. There is no marketing use, no automated mailing, and no transfer to third parties.'
+            'The information is kept only with me, used to reply personally to your inquiry and assess project fit. There is no marketing use, no automated mailing, and no transfer to third parties. You will not receive promotional messages from me without separate explicit opt-in, in line with Section 30A of the Israeli Communications Law.'
         },
         {
-          title: 'Storage and security',
+          title: 'Storage, security and retention',
           body:
-            'Your details are stored in encrypted, professional tools. Reasonable security measures are used to protect the information from unauthorized access, loss or modification.'
+            'Your details are stored in encrypted, professional cloud tools (Gmail and standard communication platforms). Reasonable security measures are used to protect the information from unauthorized access, loss or modification. Inquiries that did not turn into a project are kept for up to 24 months and then deleted; active client records are kept for the duration of the project plus one year, for service and follow-up support.'
         },
         {
           title: 'Cookies and analytics',
           body:
-            'The site uses localStorage only to remember your personal preferences (language, dark/light mode, accessibility settings). These values stay in your browser and are not used to identify you.'
+            'The site does not use marketing analytics, pixels or third-party identification systems. Your browser uses localStorage only to remember personal preferences (language, dark/light mode, accessibility settings). These values stay on your device, are not sent to any server, and can be cleared at any time from your browser settings.'
         },
         {
-          title: 'Your rights',
+          title: 'Your rights under Israeli law',
           body:
-            'You have the right to know what personal details are stored, request a correction, or request a complete deletion. Any such request will be handled in a reasonable timeframe and without unnecessary friction.'
+            'Under Sections 13 and 14 of the Protection of Privacy Law, you have the right to inspect the information stored about you, request a correction if it is inaccurate, incomplete or outdated, and request its complete deletion. Any such request will be handled within 30 days and without unnecessary friction, via email or WhatsApp.'
         },
         {
           title: 'Changes to this policy',
@@ -676,7 +689,7 @@ const en = {
         {
           title: 'Contact',
           body:
-            'For any privacy-related question or request, you can reach me through one of the channels below. I commit to responding promptly.'
+            'For any privacy-related question, exercise of rights, or removal request — you can reach me through one of the channels below. I commit to responding promptly, and in any event no later than 30 days.'
         }
       ],
       back: 'Back to home'
@@ -694,7 +707,9 @@ const en = {
     services: 'Services',
     contact: 'Get in touch',
     quickWhatsapp: 'Quick WhatsApp',
-    ownerName: 'Yuval Zakay'
+    ownerName: 'Yuval Zakay',
+    ownership: 'Yuval Zakay · Independent freelancer based in Israel',
+    serviceArea: 'Serving businesses across Israel · Hebrew & English'
   }
 };
 

@@ -4,7 +4,9 @@
       "Bash(npm run *)",
       "Bash(findstr *)",
       "Bash(timeout 8 powershell *)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(npm run *)"
     ]
   }
 }

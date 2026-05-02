@@ -97,6 +97,12 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="footer__transparency">
+          <span className="footer__transparency-owner">{t('footer.ownership')}</span>
+          <span className="footer__transparency-dot" aria-hidden>·</span>
+          <span className="footer__transparency-area">{t('footer.serviceArea')}</span>
+        </div>
+
         <nav className="footer__legal" aria-label={t('legal.privacy')}>
           <ul>
             <li>

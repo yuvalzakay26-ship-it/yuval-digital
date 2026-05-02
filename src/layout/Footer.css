@@ -158,10 +158,42 @@
   font-feature-settings: 'tnum' 1;
 }
 
+/* ---- Business transparency row ---- */
+.footer__transparency {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  padding-block: var(--space-5) var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.footer__transparency-owner {
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-soft);
+}
+
+.footer__transparency-dot {
+  opacity: 0.5;
+}
+
+@media (max-width: 540px) {
+  .footer__transparency {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .footer__transparency-dot { display: none; }
+}
+
 /* ---- Legal row ---- */
 .footer__legal {
-  padding-block: var(--space-5);
-  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-4) var(--space-5);
+  border-top: 1px dashed var(--color-border);
 }
 
 .footer__legal ul {

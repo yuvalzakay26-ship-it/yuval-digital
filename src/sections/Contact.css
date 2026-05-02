@@ -375,6 +375,19 @@
   color: var(--color-success);
 }
 
+.contact__privacy-link {
+  color: var(--color-accent);
+  font-weight: var(--fw-semibold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.contact__privacy-link:hover {
+  color: var(--color-accent-strong);
+}
+
 .contact__submit {
   grid-column: span 2;
   display: flex;
