@@ -210,6 +210,17 @@ const en = {
     realLabel: 'Real project',
     conceptLabel: 'Concept demo',
     featuredLabel: 'Featured project',
+    intro: 'Every project is built with business thinking, UX and real goals.',
+    stats: [
+      { value: 'Real', label: 'Live projects' },
+      { value: '100%', label: 'Responsive builds' },
+      { value: 'Focused', label: 'On conversion' }
+    ],
+    finalCta: {
+      title: 'Want to be the next success story?',
+      body: "A short discovery call, no obligation. Let's see if your project is the next one to ship.",
+      button: "Let's Talk"
+    },
     items: [
       {
         id: 'marzipan',
