@@ -1,6 +1,12 @@
 .about {
   background: var(--color-bg-alt);
   border-block: 1px solid var(--color-border);
+  /* Defensive containment: a descendant Reveal's entrance translate must not
+     visually escape the section in RTL. `clip` keeps position: sticky on the
+     navbar working (unlike `hidden`, which would establish a scroll
+     container); `hidden` is the fallback for browsers without `clip`. */
+  overflow: hidden;
+  overflow: clip;
 }
 
 .about__inner {

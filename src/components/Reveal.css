@@ -24,6 +24,22 @@
   filter: none;
 }
 
+/* On mobile (≤960px) most reveal containers become full-width.
+   Horizontal entrance offsets then push the visible bounding box past the
+   viewport edge — visible as a "section starts outside viewport" symptom in
+   RTL when the global body { overflow-x: clip } either is unsupported or
+   isn't honored on a transformed descendant. Switch the horizontal variants
+   to a vertical entrance on small widths; the slide-in feel is preserved
+   and no descendant can ever overflow inline-start/inline-end. */
+@media (max-width: 960px) {
+  .reveal--left,
+  .reveal--right,
+  [dir='rtl'] .reveal--left,
+  [dir='rtl'] .reveal--right {
+    transform: translateY(20px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;
