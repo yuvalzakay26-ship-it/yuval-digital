@@ -3,6 +3,11 @@
  * Keys must match the `id` field of each project entry in src/i18n/{he,en}.js.
  */
 export const projectVisuals = {
+  marzipan: {
+    accent: 'linear-gradient(135deg, #9f1239 0%, #f59e0b 100%)',
+    glow: 'rgba(159, 18, 57, 0.42)',
+    chip: 'Bakery'
+  },
   yuval: {
     accent: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
     glow: 'rgba(37, 99, 235, 0.40)',

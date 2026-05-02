@@ -19,6 +19,11 @@
   display: flex;
 }
 
+/* Featured card spans the full row, on its own line above the standard grid. */
+.project-card--featured {
+  grid-column: 1 / -1;
+}
+
 /* ============================================================
    Card shell
    ============================================================ */
@@ -48,6 +53,77 @@
 }
 
 /* ============================================================
+   Featured card — premium hero layout
+   ============================================================ */
+.project-card__inner--featured {
+  --card-radius: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: stretch;
+  border-color: color-mix(in oklab, var(--color-border-strong) 70%, transparent);
+  box-shadow: var(--shadow-md);
+}
+
+.project-card__inner--featured:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 36px 80px -28px var(--card-glow, rgba(37, 99, 235, 0.45)),
+    var(--shadow-lg);
+}
+
+/* Animated gradient ring on hover */
+.project-card__inner--featured::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--card-accent);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card__inner--featured:hover::before {
+  opacity: 0.85;
+}
+
+/* "Featured project" floating ribbon (top-end) */
+.project-card__featured-flag {
+  position: absolute;
+  inset-block-start: 18px;
+  inset-inline-end: 18px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--card-accent);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  box-shadow:
+    0 10px 24px -10px var(--card-glow, rgba(37, 99, 235, 0.55)),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.project-card__featured-flag-icon {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+}
+
+/* ============================================================
    STAGE — mockup canvas with gradient + grid
    ============================================================ */
 .project-card__stage {
@@ -58,8 +134,14 @@
   isolation: isolate;
 }
 
+.project-card__inner--featured .project-card__stage {
+  height: 460px;
+  padding: var(--space-8) var(--space-8) 0;
+}
+
 @media (max-width: 720px) {
   .project-card__stage { height: 260px; padding: var(--space-5) var(--space-5) 0; }
+  .project-card__inner--featured .project-card__stage { height: 300px; padding: var(--space-6) var(--space-6) 0; }
 }
 
 .project-card__stage-bg {
@@ -83,6 +165,9 @@
 [data-theme='dark'] .project-card__stage-bg {
   opacity: 0.32;
 }
+
+.project-card__inner--featured .project-card__stage-bg { opacity: 0.22; }
+[data-theme='dark'] .project-card__inner--featured .project-card__stage-bg { opacity: 0.4; }
 
 .project-card__stage-grid {
   position: absolute;
@@ -174,6 +259,12 @@
   z-index: 1;
 }
 
+.project-card__inner--featured .project-card__desktop {
+  width: 80%;
+  max-width: 540px;
+  transform: translateY(34px) rotateX(8deg);
+}
+
 [data-theme='dark'] .project-card__desktop {
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
 }
@@ -188,9 +279,20 @@
   z-index: 2;
 }
 
+.project-card__inner--featured .project-card__phone {
+  width: 116px;
+  inset-inline-end: 6%;
+  transform: translateY(24px) rotate(4deg);
+}
+
 [dir='rtl'] .project-card__phone {
   inset-inline-end: 8%;
   transform: translateY(20px) rotate(-4deg);
+}
+
+[dir='rtl'] .project-card__inner--featured .project-card__phone {
+  inset-inline-end: 6%;
+  transform: translateY(24px) rotate(-4deg);
 }
 
 .project-card__phone .mock {
@@ -210,6 +312,18 @@
   transform: translateY(8px) rotate(-2deg) scale(1.05);
 }
 
+.project-card__inner--featured:hover .project-card__desktop {
+  transform: translateY(20px) rotateX(3deg) scale(1.04);
+}
+
+.project-card__inner--featured:hover .project-card__phone {
+  transform: translateY(10px) rotate(2deg) scale(1.07);
+}
+
+[dir='rtl'] .project-card__inner--featured:hover .project-card__phone {
+  transform: translateY(10px) rotate(-2deg) scale(1.07);
+}
+
 /* ============================================================
    BODY
    ============================================================ */
@@ -220,6 +334,12 @@
   gap: var(--space-5);
   padding: var(--space-7) var(--space-7) var(--space-7);
   flex: 1;
+}
+
+.project-card__inner--featured .project-card__body {
+  padding: var(--space-9) var(--space-9) var(--space-9);
+  gap: var(--space-6);
+  justify-content: center;
 }
 
 .project-card__header {
@@ -236,12 +356,21 @@
   color: var(--color-text-muted);
 }
 
+.project-card__inner--featured .project-card__category {
+  color: var(--color-text-soft);
+}
+
 .project-card__title {
   font-size: var(--fs-2xl);
   font-weight: var(--fw-black);
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--color-text);
+}
+
+.project-card__inner--featured .project-card__title {
+  font-size: clamp(1.75rem, 2.4vw + 0.5rem, 2.6rem);
+  letter-spacing: -0.035em;
 }
 
 .project-card__desc {
@@ -252,7 +381,53 @@
   letter-spacing: 0.005em;
 }
 
-/* ---- Features pills ---- */
+.project-card__subtitle {
+  margin-top: var(--space-2);
+  color: var(--color-text-soft);
+  font-size: var(--fs-md);
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  max-width: 52ch;
+}
+
+/* ---- Skill badges (featured) ---- */
+.project-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.project-card__skill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  background: color-mix(in oklab, var(--color-surface-soft) 70%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.project-card__inner--featured:hover .project-card__skill {
+  border-color: color-mix(in oklab, var(--color-border-strong) 90%, transparent);
+}
+
+.project-card__skill:hover {
+  background: var(--card-accent);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ---- Features pills (concept cards) ---- */
 .project-card__features {
   display: flex;
   flex-wrap: wrap;
@@ -291,7 +466,7 @@
   color: var(--color-accent);
 }
 
-/* ---- CTA ---- */
+/* ---- Standard CTA (concept cards) ---- */
 .project-card__cta {
   margin-top: auto;
   display: inline-flex;
@@ -335,6 +510,73 @@
   transform: scaleX(-1) translateX(4px);
 }
 
+/* ---- Featured dual-button actions ---- */
+.project-card__actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.project-card__btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+  white-space: nowrap;
+}
+
+.project-card__btn--primary {
+  background: var(--card-accent);
+  color: #fff;
+  box-shadow:
+    0 12px 28px -12px var(--card-glow, rgba(37, 99, 235, 0.55)),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+
+.project-card__btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 38px -12px var(--card-glow, rgba(37, 99, 235, 0.6)),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.project-card__btn--ghost {
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.project-card__btn--ghost:hover {
+  transform: translateY(-2px);
+  background: var(--color-surface-soft);
+  border-color: var(--color-text);
+}
+
+.project-card__btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+[dir='rtl'] .project-card__btn-arrow { transform: scaleX(-1); }
+
+.project-card__btn:hover .project-card__btn-arrow { transform: translateX(4px); }
+[dir='rtl'] .project-card__btn:hover .project-card__btn-arrow { transform: scaleX(-1) translateX(4px); }
+
 /* ============================================================
    Reduced motion
    ============================================================ */
@@ -346,14 +588,32 @@
   .project-card__badge--real .project-card__badge-dot {
     animation: none !important;
   }
+  .project-card__inner,
+  .project-card__btn,
+  .project-card__skill {
+    transition: none !important;
+  }
 }
 
 /* ============================================================
    Responsive
    ============================================================ */
+@media (max-width: 1080px) {
+  .project-card__inner--featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .project-card__inner--featured .project-card__stage {
+    height: 380px;
+  }
+  .project-card__inner--featured .project-card__body {
+    padding: var(--space-8);
+  }
+}
+
 @media (max-width: 980px) {
   .projects__grid { grid-template-columns: 1fr; gap: var(--space-6); }
   .project-card__inner { max-width: 640px; margin-inline: auto; }
+  .project-card__inner--featured { max-width: 760px; }
 }
 
 @media (max-width: 720px) {
@@ -369,9 +629,41 @@
     padding: var(--space-6);
     gap: var(--space-4);
   }
+  .project-card__inner--featured .project-card__body {
+    padding: var(--space-6);
+    gap: var(--space-5);
+  }
+  .project-card__inner--featured .project-card__desktop {
+    width: 92%;
+    max-width: 100%;
+    transform: translateY(22px) rotateX(6deg);
+  }
+  .project-card__inner--featured .project-card__phone {
+    width: 92px;
+  }
+  .project-card__featured-flag {
+    inset-block-start: 14px;
+    inset-inline-end: 14px;
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+  .project-card__btn {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--fs-xs);
+  }
+  .project-card__actions {
+    width: 100%;
+  }
+  .project-card__btn {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 }
 
 @media (max-width: 480px) {
   .project-card__title { font-size: var(--fs-xl); }
+  .project-card__inner--featured .project-card__title { font-size: var(--fs-xl); }
   .project-card__phone { inset-inline-end: 4%; }
+  .project-card__subtitle { font-size: var(--fs-sm); }
+  .project-card__skill { padding: 6px 11px; font-size: 10px; }
 }

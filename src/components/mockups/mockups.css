@@ -524,3 +524,154 @@
   font-size: 8px;
   font-weight: 800;
 }
+
+/* ==========================================================================
+   Marzipan Bakery mockup — premium catalog + ordering
+   ========================================================================== */
+.mu-marzipan {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  background:
+    radial-gradient(120% 80% at 100% 0%, color-mix(in oklab, var(--mock-accent) 22%, transparent), transparent 55%),
+    radial-gradient(80% 60% at 0% 100%, color-mix(in oklab, var(--mock-accent-2) 20%, transparent), transparent 60%),
+    var(--mock-surface);
+  padding: 4px;
+  border-radius: 6px;
+  isolation: isolate;
+}
+
+.mu-marzipan__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 10px;
+}
+
+.mu-marzipan__brand {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--mock-text);
+}
+
+.mu-marzipan__since {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mock-text-soft);
+}
+
+.mu-marzipan__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 10px 0;
+  align-items: flex-start;
+}
+
+.mu-marzipan__title {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--mock-text);
+  margin: 2px 0 0;
+}
+.mu-marzipan__title span {
+  background: linear-gradient(135deg, var(--mock-accent), var(--mock-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.mu-marzipan__sub {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.mu-marzipan__products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.mu-marzipan__product {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 8px;
+  align-items: center;
+  background: color-mix(in oklab, var(--mock-text) 4%, var(--mock-surface));
+  border: 1px solid var(--mock-line);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.mu-marzipan__product-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--mock-accent), var(--mock-accent-2));
+}
+.mu-marzipan__product-thumb[data-shade='0'] { background: linear-gradient(135deg, #b45309, #f59e0b); }
+.mu-marzipan__product-thumb[data-shade='1'] { background: linear-gradient(135deg, #84cc16, #fbbf24); }
+.mu-marzipan__product-thumb[data-shade='2'] { background: linear-gradient(135deg, #d97706, #fde68a); }
+.mu-marzipan__product-thumb[data-shade='3'] { background: linear-gradient(135deg, #9f1239, #f59e0b); }
+
+.mu-marzipan__product-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.mu-marzipan__product-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--mock-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mu-marzipan__product-price {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--mock-accent);
+  font-feature-settings: 'tnum' 1;
+}
+
+.mu-marzipan__cart {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 8px 10px;
+  background: color-mix(in oklab, var(--mock-text) 4%, var(--mock-surface));
+  border: 1px solid var(--mock-line);
+  border-radius: 10px;
+}
+
+.mu-marzipan__cart-label {
+  font-size: 9px;
+  color: var(--mock-text-soft);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.mu-marzipan__cart-total {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--mock-text);
+  font-feature-settings: 'tnum' 1;
+}

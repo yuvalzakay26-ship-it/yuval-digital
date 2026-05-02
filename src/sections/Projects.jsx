@@ -19,12 +19,23 @@ const CheckIcon = () => (
   </svg>
 );
 
+const StarIcon = () => (
+  <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden>
+    <path d="M12 2l2.9 6.9L22 10l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.3L2 10l7.1-1.1L12 2z" />
+  </svg>
+);
+
 const PROJECT_URLS = {
+  marzipan: 'marzipan-bakery.com',
   yuval: 'yuval.digital',
   clinic: 'clinic.demo',
   restaurant: 'menu.demo',
   leadgen: 'offer.demo',
 };
+
+function isExternalUrl(url) {
+  return typeof url === 'string' && /^https?:\/\//i.test(url);
+}
 
 export default function Projects() {
   const { dict, t } = useLanguage();
@@ -43,24 +54,40 @@ export default function Projects() {
           {items.map((item, i) => {
             const visual = projectVisuals[item.id] || projectVisuals.default;
             const isReal = item.kind === 'real';
+            const isFeatured = !!item.featured;
             const kindLabel = isReal ? t('projects.realLabel') : t('projects.conceptLabel');
             const Mockup = projectMockups[item.id];
             const url = PROJECT_URLS[item.id] ?? '';
+
+            const liveHref = item.liveUrl && item.liveUrl !== '#' ? item.liveUrl : '#contact';
+            const caseHref = item.caseStudyUrl && item.caseStudyUrl !== '#' ? item.caseStudyUrl : '#contact';
+            const liveExternal = isExternalUrl(liveHref);
+            const caseExternal = isExternalUrl(caseHref);
 
             return (
               <Reveal
                 key={item.id}
                 variant="up"
                 delay={i * 90}
-                className="project-card"
+                className={cn('project-card', { 'project-card--featured': isFeatured })}
               >
                 <article
-                  className={cn('project-card__inner', { 'project-card__inner--real': isReal })}
+                  className={cn('project-card__inner', {
+                    'project-card__inner--real': isReal,
+                    'project-card__inner--featured': isFeatured,
+                  })}
                   style={{
                     '--card-glow': visual.glow,
                     '--card-accent': visual.accent,
                   }}
                 >
+                  {isFeatured && (
+                    <span className="project-card__featured-flag">
+                      <span className="project-card__featured-flag-icon" aria-hidden><StarIcon /></span>
+                      <span>{t('projects.featuredLabel')}</span>
+                    </span>
+                  )}
+
                   {/* === VISUAL STAGE (mockup + glow) === */}
                   <div className="project-card__stage">
                     <div className="project-card__stage-bg" aria-hidden />
@@ -95,10 +122,25 @@ export default function Projects() {
                     <header className="project-card__header">
                       <span className="project-card__category">{item.category}</span>
                       <h3 className="project-card__title">{item.title}</h3>
-                      <p className="project-card__desc">{item.solution}</p>
+                      {item.subtitle ? (
+                        <p className="project-card__subtitle">{item.subtitle}</p>
+                      ) : (
+                        <p className="project-card__desc">{item.solution}</p>
+                      )}
                     </header>
 
-                    {item.features && item.features.length > 0 && (
+                    {isFeatured && item.skills && item.skills.length > 0 && (
+                      <ul
+                        className="project-card__skills"
+                        aria-label={t('projects.skillsLabel')}
+                      >
+                        {item.skills.map(s => (
+                          <li key={s} className="project-card__skill">{s}</li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {!isFeatured && item.features && item.features.length > 0 && (
                       <ul
                         className="project-card__features"
                         aria-label={t('projects.featuresLabel')}
@@ -112,10 +154,32 @@ export default function Projects() {
                       </ul>
                     )}
 
-                    <a className="project-card__cta" href="#contact">
-                      <span>{t('projects.viewProject')}</span>
-                      <span className="project-card__cta-arrow" aria-hidden><ArrowIcon /></span>
-                    </a>
+                    {isFeatured ? (
+                      <div className="project-card__actions">
+                        <a
+                          className="project-card__btn project-card__btn--primary"
+                          href={liveHref}
+                          target={liveExternal ? '_blank' : undefined}
+                          rel={liveExternal ? 'noreferrer noopener' : undefined}
+                        >
+                          <span>{t('projects.liveDemo')}</span>
+                          <span className="project-card__btn-arrow" aria-hidden><ArrowIcon /></span>
+                        </a>
+                        <a
+                          className="project-card__btn project-card__btn--ghost"
+                          href={caseHref}
+                          target={caseExternal ? '_blank' : undefined}
+                          rel={caseExternal ? 'noreferrer noopener' : undefined}
+                        >
+                          <span>{t('projects.caseStudy')}</span>
+                        </a>
+                      </div>
+                    ) : (
+                      <a className="project-card__cta" href="#contact">
+                        <span>{t('projects.viewProject')}</span>
+                        <span className="project-card__cta-arrow" aria-hidden><ArrowIcon /></span>
+                      </a>
+                    )}
                   </div>
                 </article>
               </Reveal>

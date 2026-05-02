@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(findstr *)",
+      "Bash(timeout 8 powershell *)"
     ]
   }
 }
