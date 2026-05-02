@@ -34,6 +34,11 @@ const en = {
     he: 'עברית',
     en: 'English'
   },
+  preferences: {
+    title: 'Preferences',
+    language: 'Language',
+    theme: 'Theme'
+  },
   hero: {
     badge: 'Outstanding practical software graduate · open to new projects',
     eyebrow: 'Websites · automation · AI-assisted solutions',

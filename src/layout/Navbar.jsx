@@ -129,17 +129,19 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        <div className="nav__drawer-utils" aria-label="Preferences">
-          <div className="nav__drawer-util">
-            <span className="nav__drawer-util-label">{t('language.switch')}</span>
+        <section className="nav__drawer-prefs" aria-label={t('preferences.title')}>
+          <h3 className="nav__drawer-prefs-title">{t('preferences.title')}</h3>
+
+          <div className="nav__drawer-prefs-row">
+            <span className="nav__drawer-prefs-label">{t('preferences.language')}</span>
             <LanguageSwitcher />
           </div>
-          <div className="nav__drawer-util-divider" aria-hidden />
-          <div className="nav__drawer-util">
-            <span className="nav__drawer-util-label">{t('theme.toggle')}</span>
+
+          <div className="nav__drawer-prefs-row">
+            <span className="nav__drawer-prefs-label">{t('preferences.theme')}</span>
             <ThemeToggle />
           </div>
-        </div>
+        </section>
 
         <div className="nav__drawer-foot">
           <Button as="a" href="#contact" variant="gradient" onClick={close} className="nav__drawer-cta">

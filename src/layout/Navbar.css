@@ -412,20 +412,17 @@ body.drawer-open .nav {
   transform: scaleX(-1) translateX(2px);
 }
 
-/* ---- drawer utility card (slim premium control surface) ----
-   Two rows (language + theme) separated by a hairline divider. The card
-   keeps utility controls visually distinct from nav links, but trims every
-   ounce of unnecessary height so the CTA stays above the fold. */
-.nav__drawer-utils {
+/* ---- drawer preferences (language + theme) ----
+   Two flush rows under a small section title. Each row uses
+   space-between so the label sits at the inline-start and the control
+   at the inline-end — RTL alignment falls out of writing direction
+   alone, no per-direction overrides needed. The divider above the CTA
+   is provided by `.nav__drawer-foot`'s border-top, so this section
+   ships no card chrome of its own. */
+.nav__drawer-prefs {
+  margin-top: var(--space-5);
   display: flex;
   flex-direction: column;
-  gap: 0;
-  margin-top: var(--space-4);
-  padding: 2px var(--space-3);
-  background: var(--color-surface-soft);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xs);
   opacity: 0;
   transform: translateY(8px);
   transition:
@@ -433,77 +430,33 @@ body.drawer-open .nav {
     transform var(--dur-base) var(--ease-out);
 }
 
-.nav__drawer--open .nav__drawer-utils {
+.nav__drawer--open .nav__drawer-prefs {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 220ms;
 }
 
-/* Two-column grid: label takes its natural width at the inline-start,
-   control sits immediately after with a controlled gap. The remainder of
-   the row is intentional negative space at the inline-end — never an
-   awkward gulf in the middle. RTL inherits this naturally because the
-   grid axis follows the writing direction. */
-.nav__drawer-util {
-  display: grid;
-  grid-template-columns: minmax(0, max-content) max-content;
-  align-items: center;
-  column-gap: var(--space-4);
-  min-height: 34px;
-  padding-inline: 0;
-}
-
-.nav__drawer-util-label {
-  /* Lock the label to the inline-start of its track so it never floats
-     toward the gap, regardless of inherited text-align. */
-  justify-self: start;
-  font-size: var(--fs-sm);
+.nav__drawer-prefs-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
-  letter-spacing: 0.005em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.nav__drawer-prefs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 44px;
+}
+
+.nav__drawer-prefs-label {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
   color: var(--color-text);
-}
-
-.nav__drawer-util > .lang-switch,
-.nav__drawer-util > .theme-toggle {
-  /* Keep the control snug against the label's gap edge instead of
-     stretching across whatever track width is available. */
-  justify-self: start;
-}
-
-/* Hairline between the two rows. `border-soft` (not `border`) keeps it
-   present-but-quiet so the card reads as one slim surface, not two stacked
-   rectangles. Margin-inline 0 contains the divider inside the rows' content
-   area for an intentional, balanced look. */
-.nav__drawer-util-divider {
-  height: 1px;
-  background: var(--color-border-soft);
-  margin-inline: 0;
-}
-
-/* Compact the inner controls so the card reads as a single slim surface,
-   not two oversized chips. Dimensions are derived so each thumb sits with
-   the same 3px inset on both sides of its track in either state. */
-.nav__drawer-utils .lang-switch { padding: 3px; }
-.nav__drawer-utils .lang-switch__btn { padding: 4px 10px; min-width: 32px; }
-.nav__drawer-utils .lang-switch__pill { top: 3px; bottom: 3px; }
-
-.nav__drawer-utils .theme-toggle__track {
-  width: 48px;
-  height: 26px;
-  padding: 0 6px;
-}
-.nav__drawer-utils .theme-toggle__thumb {
-  width: 20px;
-  height: 20px;
-  top: 3px;
-}
-/* Track padding-box width = 48 − 2(border) = 46. With thumb 20 inset 3,
-   the symmetric dark position is 46 − 3 − 20 = 23 → translate by 20px. */
-.nav__drawer-utils .theme-toggle[data-theme='dark'] .theme-toggle__thumb {
-  transform: translateX(20px);
-}
-[dir='rtl'] .nav__drawer-utils .theme-toggle[data-theme='dark'] .theme-toggle__thumb {
-  transform: translateX(-20px);
 }
 
 .nav__drawer-foot {
@@ -560,42 +513,15 @@ body.drawer-open .nav {
   .nav .logo__wordmark { font-size: var(--fs-base); }
   .nav .logo__mark { width: 34px; height: 34px; }
 
-  /* Mobile drawer — premium horizontal breathing.
-     Bumping inline padding from 16 → 20px protects the gradient CTA's
-     shadow halo from being clipped by the drawer's `overflow-y: auto`
-     (browsers compute overflow-x as auto when overflow-y is non-visible),
-     and gives the utility card a confident anchor away from the wall. */
+  /* Mobile drawer — single inline gutter for the entire surface. The
+     drawer's padding-inline is the only horizontal inset; rows and CTA
+     sit flush to its padding-box, so RTL right-edge and LTR left-edge
+     alignment are guaranteed by writing direction alone. */
   .nav__drawer {
     padding-inline: var(--space-4);
   }
 
-  /* Premium card padding — tighter vertical so the card reads as one slim
-     surface, with extra inline so the chips never hug the card edge on
-     Hebrew RTL. */
-  .nav__drawer-utils {
-    padding: 4px var(--space-4);
-  }
-
-  /* In Hebrew RTL the label IS the anchor on the right edge of the row.
-     Lock its alignment to the inline-start explicitly so no inherited
-     text-align (or browser-level direction quirk) can shift it. */
-  .nav__drawer-util-label {
-    text-align: start;
-  }
-
-  .nav__drawer-util {
-    /* A hair of inline padding inside each row keeps the label off the
-       card's right border, plus a wider column gap so the label/control
-       pair reads as a deliberate cluster rather than two crammed siblings. */
-    padding-inline: 2px;
-    column-gap: var(--space-5);
-  }
-
-  /* Foot wrapper has zero inline padding so its inline-start edge — and the
-     CTA inside it — share one column with the utility card above and the
-     nav link surfaces. The drawer's own 20px inline padding is the gutter,
-     and `overflow: auto` clips at the padding-box outer edge, so the CTA's
-     gradient shadow extends safely into the padding zone unclipped. */
+  .nav__drawer-prefs { margin-top: var(--space-4); }
 }
 
 @media (max-width: 380px) {
@@ -611,9 +537,8 @@ body.drawer-open .nav {
   .nav__drawer { padding-top: var(--space-2); padding-inline: var(--space-4); }
   .nav__drawer-head { padding-bottom: var(--space-3); }
   .nav__drawer-link { min-height: 44px; padding: 8px var(--space-3); font-size: var(--fs-base); }
-  .nav__drawer-utils { padding: 3px var(--space-3); }
-  .nav__drawer-util { min-height: 32px; column-gap: var(--space-4); }
-  .nav__drawer-util-label { font-size: var(--fs-xs); }
+  .nav__drawer-prefs { margin-top: var(--space-3); }
+  .nav__drawer-prefs-row { min-height: 40px; }
   .nav__drawer-foot { margin-top: var(--space-4); padding-top: var(--space-3); }
   .nav__drawer-cta { min-height: 48px; }
 }
@@ -643,7 +568,7 @@ body.drawer-open .nav {
   .nav__drawer,
   .nav__drawer-head,
   .nav__drawer-item,
-  .nav__drawer-utils,
+  .nav__drawer-prefs,
   .nav__drawer-foot {
     transition-duration: 0.001ms !important;
   }

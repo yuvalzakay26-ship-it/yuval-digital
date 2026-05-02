@@ -34,6 +34,11 @@ const he = {
     he: 'עברית',
     en: 'English'
   },
+  preferences: {
+    title: 'העדפות',
+    language: 'שפה',
+    theme: 'נושא'
+  },
   hero: {
     badge: 'הנדסאי תוכנה מצטיין · בונה פתרונות חדשים',
     eyebrow: 'אתרים · אוטומציות · פתרונות AI לעסק',
