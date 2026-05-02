@@ -246,13 +246,17 @@ body.drawer-open .nav {
     visibility 0s;
 }
 
-/* ---- drawer head (brand + tagline + close) ---- */
+/* ---- drawer head (brand + tagline + close) ----
+   Inline padding stays 0 so the brand's inline-start edge sits in the same
+   vertical column as the nav links, utility card, and CTA below it. The
+   drawer's own padding-inline is the single source of the inner gutter —
+   no section adds its own inline inset. */
 .nav__drawer-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
-  padding: var(--space-1) var(--space-1) var(--space-4);
+  padding: var(--space-1) 0 var(--space-4);
   margin-bottom: var(--space-1);
   border-bottom: 1px solid var(--color-border);
   opacity: 0;
@@ -587,11 +591,11 @@ body.drawer-open .nav {
     column-gap: var(--space-5);
   }
 
-  /* Foot wrapper — slightly more inline pad so the CTA's gradient + shadow
-     never touch the drawer overflow clip and feel deliberately inset. */
-  .nav__drawer-foot {
-    padding-inline: 4px;
-  }
+  /* Foot wrapper has zero inline padding so its inline-start edge — and the
+     CTA inside it — share one column with the utility card above and the
+     nav link surfaces. The drawer's own 20px inline padding is the gutter,
+     and `overflow: auto` clips at the padding-box outer edge, so the CTA's
+     gradient shadow extends safely into the padding zone unclipped. */
 }
 
 @media (max-width: 380px) {
