@@ -6,6 +6,7 @@ import './About.css';
 export default function About() {
   const { dict, t } = useLanguage();
   const pillars = dict.about.pillars;
+  const bodyParagraphs = t('about.body').split('\n\n');
 
   return (
     <section id="about" className="about section">
@@ -13,7 +14,9 @@ export default function About() {
         <Reveal variant="left" className="about__lede">
           <span className="eyebrow">{t('about.eyebrow')}</span>
           <h2 className="about__title">{t('about.title')}</h2>
-          <p className="about__body">{t('about.body')}</p>
+          {bodyParagraphs.map((para, i) => (
+            <p key={i} className="about__body">{para}</p>
+          ))}
         </Reveal>
 
         <div className="about__pillars">

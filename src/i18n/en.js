@@ -317,20 +317,20 @@ const en = {
     ]
   },
   contact: {
-    eyebrow: 'Start the conversation',
-    title: "Tell me about your idea — I'll come back with a real plan.",
+    eyebrow: 'Talk to me',
+    title: "Need a serious site that actually brings in customers? Let's talk.",
     subtitle:
-      "A short message is all I need. I read every one personally and reply the same day with honest feedback, a clear timeline and a realistic plan. No sales pitch, no obligation.",
+      'Fast personal reply, a clear process, and a solution built around your business. No sales scripts, no fluff.',
     microcopy:
-      "Prefer to talk live? WhatsApp, phone or email — pick whatever's easiest for you.",
-    reassurance: 'Free intro call · Same-day reply · Hebrew or English',
+      'Prefer to talk? WhatsApp, phone or email — whatever works for you.',
+    reassurance: 'Direct line to me · Same-day reply · No middlemen',
     name: 'Full name',
     email: 'Email',
     phone: 'Phone',
-    message: 'Tell me briefly about the idea',
-    submit: 'Send my message',
-    submitted: "Thank you! I'll be in touch soon.",
-    or: 'Or reach out directly',
+    message: 'Tell me briefly about your business and what you need',
+    submit: 'Send me a message',
+    submitted: "Thanks! I'll be in touch soon.",
+    or: 'Or reach out directly —',
     emailLabel: 'Email',
     phoneLabel: 'Phone',
     whatsapp: 'WhatsApp',
@@ -515,9 +515,9 @@ const en = {
   },
   contactExtra: {
     trust: [
-      { id: 'reply',   text: 'Same-day reply' },
-      { id: 'free',    text: 'Free 20-min intro call' },
-      { id: 'private', text: 'Stays only with me' }
+      { id: 'reply',   text: 'Fast reply' },
+      { id: 'free',    text: 'Personal attention' },
+      { id: 'private', text: 'Built for your business' }
     ],
     trustAriaLabel: 'What to expect after you send',
     optional: 'optional',
@@ -558,9 +558,9 @@ const en = {
       { value: '3m',       label: 'Within three months' },
       { value: 'planning', label: 'Still planning' }
     ],
-    privacyNote: 'Your details stay only with me. No mailing list, no third parties — ever.',
-    successTitle: "Got it — your message is in.",
-    successBody: "I'll come back personally, usually the same day. If it's urgent, WhatsApp or a quick call work too."
+    privacyNote: 'Your details stay only with me. No mailing list, no third parties.',
+    successTitle: 'Got it. Your message is in.',
+    successBody: "I'll come back personally — usually the same day. If it's urgent, WhatsApp or a quick call work too."
   },
   stickyCta: {
     label: "Let's talk",
