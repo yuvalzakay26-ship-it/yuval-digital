@@ -36,6 +36,19 @@
   z-index: calc(var(--z-modal) + 2);
 }
 
+/* Drawer-open scroll-lock pins position: sticky behavior. On iOS especially,
+   `body { overflow: hidden }` does not actually freeze the scroll container,
+   so a sticky navbar can drift off the viewport top while the drawer is open.
+   Switch to position: fixed for the duration of the open state — the layout
+   shift it causes underneath is fully covered by the scrim + drawer and
+   reverses cleanly on close. Burger is mobile-only, so drawer-open implies
+   mobile width; no desktop regression. */
+body.drawer-open .nav {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+}
+
 .nav__inner {
   display: flex;
   align-items: center;
