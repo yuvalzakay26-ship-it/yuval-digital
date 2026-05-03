@@ -429,48 +429,33 @@ const en = {
     eyebrow: 'Frequently asked',
     title: 'Questions that come up before we start.',
     subtitle:
-      "These are the questions I hear most often on first calls. If something isn't here — feel free to just write.",
+      "Direct answers to what every business owner asks me on the first call. No fine print, no marketing fluff.",
     contactCta: 'Have a different question? Let’s talk',
     items: [
       {
-        id: 'duration',
-        q: 'How long does it take to build a website?',
-        a: 'Depends on scope. A landing page can go live in 1–2 weeks. A full business site is usually 3–5 weeks. A custom system — based on the spec. Every project starts with a clear timeline we agree on upfront.'
+        id: 'pricing',
+        q: 'How much does a website cost?',
+        a: "Every project is priced individually based on real scope and needs. A focused landing page starts in a lower range; a full business site typically runs from a few thousand to tens of thousands of shekels; a custom system is priced by spec. After a short discovery call, I send a clear quote — what's included, what isn't, and the timeline. No surprises."
       },
       {
-        id: 'start-small',
-        q: 'Can I start with a landing page and grow later?',
-        a: "Absolutely. Many clients start with one focused landing page or a small site, then add pages, systems, automations and bilingual content over time. We architect from day one so you can build on top."
+        id: 'duration',
+        q: 'How long does it take to build a website?',
+        a: 'Depends on scope. A focused landing page can go live in 1–2 weeks. A full business site is usually 3–5 weeks. A custom system — based on the spec. Every project starts with a clear timeline we agree on upfront, and you see weekly progress.'
+      },
+      {
+        id: 'process',
+        q: "What's included in the process?",
+        a: "Five clear stages: a discovery call to understand the need, planning with a written brief and a clear quote, build with live previews you review and approve, launch with QA and domain hookup, and post-launch support. You always know where the project stands and what's next."
       },
       {
         id: 'mobile',
         q: 'Is the site mobile-friendly?',
-        a: "Yes. Everything I build is mobile-first. Most users browse from their phone, so the experience is shaped there first — and then expands to desktop."
+        a: "Yes — and it's not an add-on, it's the default. Every site is built mobile-first because most users in Israel browse from their phone. The experience is shaped on real phone screens at every stage, then expands cleanly to tablet and desktop."
       },
       {
-        id: 'extend',
-        q: 'Can I add a system or automation after the site is live?',
-        a: "Yes. The architecture is built so you can later wire in a CMS, advanced forms, CRM integrations, automations, chatbots, and AI where it actually adds value."
-      },
-      {
-        id: 'small-business',
-        q: 'Do you work with small businesses?',
-        a: "Mostly small and mid-sized. Every client gets personal attention. I don't run dozens of projects in parallel — I work focused, one project at a time."
-      },
-      {
-        id: 'pricing',
-        q: 'How does pricing work?',
-        a: "Each project is priced individually based on scope. On the first discovery call we walk through the need, then I send a clear estimate — what's included, what isn't, and the timeline. No fine print."
-      },
-      {
-        id: 'support',
-        q: 'What happens after launch?',
-        a: "I'm available for fixes, improvements and added capabilities. You can keep me on a small monthly retainer, or just reach out whenever something is needed."
-      },
-      {
-        id: 'existing-site',
-        q: 'I already have a site — can you just improve it?',
-        a: "Definitely. Many clients come with an existing site that needs a refresh: design, speed, mobile, forms, or SEO. We can do a focused upgrade without starting from scratch."
+        id: 'start',
+        q: 'How do we get started?',
+        a: "It's simple. Send me a WhatsApp, email or a quick note through the contact form with a short description of your business and need. I reply the same day, we set up a short discovery call (free, no commitment), and you walk away with a clear quote. From there we decide together if we move forward."
       }
     ]
   },
@@ -559,11 +544,6 @@ const en = {
     privacyConsentTrail: '. Your details are kept only to reply to you and will not be shared.',
     successTitle: 'Got it. Your message is in.',
     successBody: "I'll come back personally — usually the same day. If it's urgent, WhatsApp or a quick call work too."
-  },
-  stickyCta: {
-    label: "Let's talk",
-    whatsapp: 'WhatsApp',
-    call: 'Call'
   },
   a11y: {
     skipLink: 'Skip to main content',

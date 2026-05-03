@@ -96,7 +96,7 @@
 
 /* ---------- Underline links ---------- */
 :root[data-a11y-underline-links='on']
-  a:not(.btn):not(.nav__drawer-cta):not(.a11y-fab):not(.wa-fab):not(.sticky-cta__btn):not(.footer__quick-wa):not(.contact__direct-card):not(.faq__contact):not(.legal__back):not(.skip-link) {
+  a:not(.btn):not(.nav__drawer-cta):not(.a11y-fab):not(.wa-fab):not(.footer__quick-wa):not(.contact__direct-card):not(.faq__contact):not(.legal__back):not(.skip-link) {
   text-decoration: underline !important;
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;

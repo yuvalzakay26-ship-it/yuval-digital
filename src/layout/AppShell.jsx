@@ -1,7 +1,6 @@
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 import WhatsAppFab from '@components/WhatsAppFab.jsx';
-import StickyMobileCta from '@components/StickyMobileCta.jsx';
 import AccessibilityToolbar from '@components/AccessibilityToolbar.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
 import './AppShell.css';
@@ -23,7 +22,6 @@ export default function AppShell({ children }) {
         <Footer />
       </div>
       <WhatsAppFab />
-      <StickyMobileCta />
       <AccessibilityToolbar />
     </div>
   );

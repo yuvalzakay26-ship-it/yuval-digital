@@ -11,19 +11,34 @@ const WhatsAppIcon = () => (
 );
 
 /**
- * Elegant floating WhatsApp button — hidden until the user scrolls past the hero.
+ * Elegant floating WhatsApp button. Appears once the user has scrolled past
+ * the hero, and steps aside while the contact section is on-screen so it
+ * doesn't compete with the inline WhatsApp action there.
  */
 export default function WhatsAppFab() {
   const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    function onScroll() {
+    const contactSection = document.getElementById('contact');
+
+    function update() {
       setVisible(window.scrollY > 320);
+      if (contactSection) {
+        const rect = contactSection.getBoundingClientRect();
+        const inContact = rect.top < window.innerHeight * 0.55 && rect.bottom > 120;
+        setHidden(inContact);
+      }
     }
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   return (
@@ -31,7 +46,10 @@ export default function WhatsAppFab() {
       href={WHATSAPP_HREF}
       target="_blank"
       rel="noreferrer"
-      className={cn('wa-fab', { 'wa-fab--visible': visible })}
+      className={cn('wa-fab', {
+        'wa-fab--visible': visible,
+        'wa-fab--hidden': hidden,
+      })}
       aria-label={t('fab.whatsapp')}
       title={t('fab.whatsapp')}
     >
