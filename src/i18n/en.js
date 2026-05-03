@@ -302,9 +302,9 @@ const en = {
   contact: {
     eyebrow: 'Get in touch',
     availability: 'A limited number of active projects at any given time',
-    title: "Let's build something that works for your business.",
+    title: 'A short call. Free. No commitment.',
     subtitle:
-      'Direct contact with me, a transparent process, and a solution shaped around the real needs of your business — not a template off the shelf.',
+      'You tell me about the business. I listen. You walk away with a clear proposal — no pressure, no middlemen, no commitment.',
     microcopy:
       'Prefer to talk? WhatsApp, phone or email — whatever works for you.',
     reassurance: 'Same-day reply · Directly with me · No middlemen',
@@ -312,9 +312,9 @@ const en = {
     email: 'Email',
     phone: 'Phone',
     message: 'Tell me briefly about your business and what you need',
-    submit: 'Send me a message',
-    submitted: "Thanks! I'll be in touch soon.",
-    or: 'Or reach out directly —',
+    submit: 'Send — I reply today',
+    submitted: "Got it. I'll reply today.",
+    or: 'Or reach out directly — WhatsApp is the fastest',
     emailLabel: 'Email',
     phoneLabel: 'Phone',
     whatsapp: 'WhatsApp',
@@ -528,9 +528,9 @@ const en = {
   },
   contactExtra: {
     trust: [
-      { id: 'reply',   text: 'Fast reply' },
-      { id: 'free',    text: 'Personal attention' },
-      { id: 'private', text: 'Built for your business' }
+      { id: 'reply',   text: 'Same-day reply' },
+      { id: 'free',    text: 'No pressure, no commitment' },
+      { id: 'private', text: 'Directly with me' }
     ],
     trustAriaLabel: 'What to expect after you send',
     optional: 'optional',
