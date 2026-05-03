@@ -331,30 +331,34 @@ const en = {
   },
   packages: {
     eyebrow: 'Starting points',
-    title: 'How to start? Three clear starting points.',
+    title: 'Three clear starting points. Transparent pricing.',
     subtitle:
-      "Picking the right frame is half the work. These are three honest starting points — not rigid price lists, but structured ways to open the conversation.",
+      "Picking the right frame is half the work. Three honest starting points with a transparent price ladder — final scope is sized in a short discovery call.",
     fromLabel: 'For',
     deliverablesLabel: "What's included",
+    priceLabel: 'Starting from',
     cta: "Let's talk about it",
-    note: 'Every project is priced individually on a discovery call, based on real scope and need.',
+    note: 'The prices shown are floors, not ceilings. Final scope is sized on a short discovery call — no surprises, no bloated retainers.',
     plans: [
       {
         id: 'starter',
         name: 'Starter',
-        tagline: 'A focused landing page or a simple site for a business beginning its digital path.',
+        tagline: 'Step online with a focused landing page or a short brand site that earns trust from the first scroll.',
+        price: '₪1,490',
         for: 'Solo professionals, new businesses, first product launches',
         deliverables: [
           'One focused landing page or a short brand site',
           'Clean mobile-first design',
           'Smart contact form',
           'Domain hookup and go-live'
-        ]
+        ],
+        cta: 'Start with Starter'
       },
       {
         id: 'growth',
         name: 'Growth',
-        tagline: 'A full business site with polished UX and a foundation built to grow.',
+        tagline: 'A full business site that turns visitors into real inquiries — polished UX and a foundation built to grow.',
+        price: '₪3,900',
         for: 'Active businesses ready for serious online presence',
         deliverables: [
           'Multi-page brand website',
@@ -364,12 +368,15 @@ const en = {
           'Bilingual content available'
         ],
         highlight: true,
-        badge: 'Most chosen'
+        badge: 'Most chosen',
+        cta: 'Get a Growth quote'
       },
       {
         id: 'custom',
         name: 'Custom Premium',
-        tagline: 'A tailored system, automation or advanced site built around a real workflow.',
+        tagline: 'A tailored system or advanced site built around your real workflow — saves hours, prevents recurring mistakes.',
+        price: '₪7,900',
+        priceNote: 'by scope',
         for: 'Businesses needing a system, integration or complex site',
         deliverables: [
           'Deep discovery of your business workflow',
@@ -377,7 +384,8 @@ const en = {
           'Automations between tools (Make · n8n · APIs)',
           'AI in the workflow where it adds value',
           'Post-launch support'
-        ]
+        ],
+        cta: 'Plan a custom build'
       }
     ]
   },

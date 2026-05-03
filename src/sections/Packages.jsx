@@ -47,6 +47,18 @@ export default function Packages() {
                   <p className="package__tagline">{plan.tagline}</p>
                 </header>
 
+                {plan.price && (
+                  <div className="package__price">
+                    <span className="package__price-label">{t('packages.priceLabel')}</span>
+                    <div className="package__price-row">
+                      <span className="package__price-amount" dir="ltr">{plan.price}</span>
+                      {plan.priceNote && (
+                        <span className="package__price-note">· {plan.priceNote}</span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 <div className="package__for">
                   <span className="package__for-label">{t('packages.fromLabel')}</span>
                   <span className="package__for-text">{plan.for}</span>
@@ -74,7 +86,7 @@ export default function Packages() {
                   className="package__cta"
                   iconEnd={<ArrowIcon />}
                 >
-                  {t('packages.cta')}
+                  {plan.cta || t('packages.cta')}
                 </Button>
               </article>
             </Reveal>

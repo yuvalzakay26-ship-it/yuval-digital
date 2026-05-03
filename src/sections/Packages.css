@@ -118,6 +118,60 @@
   letter-spacing: 0.005em;
 }
 
+/* ---- Price anchor (starting from) ----
+   Sits between header and "for" block. Top + bottom hairline rules echo the
+   .package__for chip but kept open so the number reads as a price, not a chip.
+   The amount uses display font + tabular spacing; on the highlight plan the
+   amount adopts the gradient text-fill. priceNote stays muted (outside the
+   gradient span) so "by scope / לפי היקף" never inherits transparent fill. */
+.package__price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
+  border-block: 1px solid var(--color-border);
+}
+
+.package__price-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.package__price-row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.package__price-amount {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-black);
+  letter-spacing: -0.028em;
+  line-height: 1.05;
+  font-family: var(--font-display);
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.package--highlight .package__price-amount {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.package__price-note {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  letter-spacing: 0.005em;
+}
+
 /* ---- For (target audience) ---- */
 .package__for {
   display: flex;
