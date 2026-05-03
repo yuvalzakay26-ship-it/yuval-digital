@@ -8,7 +8,15 @@
       "PowerShell(Get-ChildItem *)",
       "PowerShell(npm run *)",
       "PowerShell(Get-Content *)",
-      "Bash(dir *)"
+      "Bash(dir *)",
+      "Bash(command -v cwebp)",
+      "Bash(command -v avifenc)",
+      "Bash(command -v ffmpeg)",
+      "Bash(command -v magick)",
+      "Bash(command -v convert)",
+      "Bash(npm install *)",
+      "Bash(node -e \"console.log\\(require\\('sharp'\\).versions\\)\")",
+      "Bash(node scripts/convert-mockup-images.mjs)"
     ]
   }
 }

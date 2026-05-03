@@ -33,6 +33,13 @@ export default defineConfig({
     target: 'es2020',
     sourcemap: false,
     cssCodeSplit: true,
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-dom/client']
+        }
+      }
+    }
   }
 });

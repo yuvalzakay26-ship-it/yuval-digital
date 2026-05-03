@@ -33,10 +33,27 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Font CSS request:
+         - Heebo + Inter only. Rubik/Assistant were CSS fallbacks that never
+           render once Heebo is loaded; dropping them saves ~3 @font-face
+           blocks and avoids loading their woff2 binaries on slow networks.
+         - Weights 300–800 only. Token scale tops out at --fw-black: 800;
+           weight 900 was never referenced.
+         - rel="preload" + onload-swap kicks the CSS download off in the
+           preload scanner pass so font-face declarations land sooner.
+         - <noscript> fallback keeps fonts loading when JS is disabled. -->
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700;800&display=swap"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      />
+    </noscript>
 
     <script type="application/ld+json">
       {

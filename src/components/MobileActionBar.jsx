@@ -33,23 +33,38 @@ export default function MobileActionBar() {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    const contactSection = document.getElementById('contact');
-
-    function update() {
-      setVisible(window.scrollY > 280);
-      if (contactSection) {
-        const rect = contactSection.getBoundingClientRect();
-        setHidden(rect.top < window.innerHeight * 0.55 && rect.bottom > 120);
-      }
+    let raf = 0;
+    function onScroll() {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const next = window.scrollY > 280;
+        setVisible(prev => (prev === next ? prev : next));
+      });
     }
-
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', onScroll);
+      if (raf) cancelAnimationFrame(raf);
     };
+  }, []);
+
+  /* Hide while the contact section is on screen — IntersectionObserver
+     replaces a per-scroll getBoundingClientRect() to avoid layout reads
+     in the scroll path. */
+  useEffect(() => {
+    const target = document.getElementById('contact');
+    if (!target || typeof IntersectionObserver === 'undefined') return undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        const next = entry.isIntersecting;
+        setHidden(prev => (prev === next ? prev : next));
+      },
+      { rootMargin: '-45% 0px -10% 0px', threshold: 0 }
+    );
+    io.observe(target);
+    return () => io.disconnect();
   }, []);
 
   const inactive = !visible || hidden;

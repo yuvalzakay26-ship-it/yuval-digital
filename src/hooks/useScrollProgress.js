@@ -8,12 +8,21 @@ export function useScrollProgress(threshold = 8) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let raf = 0;
     function onScroll() {
-      setScrolled(window.scrollY > threshold);
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const next = window.scrollY > threshold;
+        setScrolled(prev => (prev === next ? prev : next));
+      });
     }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [threshold]);
 
   return { scrolled };

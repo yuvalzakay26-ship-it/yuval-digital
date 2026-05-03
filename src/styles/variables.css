@@ -79,9 +79,13 @@
   --radius-pill: 999px;
   --radius-circle: 50%;
 
-  /* ---------- Typography ---------- */
+  /* ---------- Typography ----------
+     Rubik/Assistant were dropped from the Google Fonts request (they were
+     CSS fallbacks that never rendered once Heebo loaded). The stack still
+     names them so any environment that has them locally installed will
+     keep using them; otherwise system fonts take over via display=swap. */
   --font-sans-en: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-sans-he: 'Heebo', 'Rubik', 'Assistant', system-ui, sans-serif;
+  --font-sans-he: 'Heebo', 'Rubik', 'Assistant', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Heebo', 'Inter', system-ui, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
 
