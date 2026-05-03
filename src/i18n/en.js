@@ -206,6 +206,8 @@ const en = {
     viewProjectAlt: 'View Project',
     liveDemo: 'Live Demo',
     caseStudy: 'View Case Study',
+    currentSiteBadge: "You're already on this site",
+    conceptDemoBadge: 'Concept demo',
     skillsLabel: 'Project capabilities',
     realLabel: 'Real project',
     conceptLabel: 'Concept demo',

@@ -205,6 +205,8 @@ const he = {
     viewProjectAlt: 'ראה פרויקט',
     liveDemo: 'לצפייה באתר',
     caseStudy: 'מקרה לקוח',
+    currentSiteBadge: 'זה האתר שאתה נמצא בו',
+    conceptDemoBadge: 'דוגמה קונספטואלית',
     skillsLabel: 'יכולות בפרויקט',
     realLabel: 'פרויקט אמיתי',
     conceptLabel: 'דוגמת קונספט',

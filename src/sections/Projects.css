@@ -776,6 +776,44 @@
 .project-card__btn:hover .project-card__btn-arrow { transform: translateX(6px); }
 [dir='rtl'] .project-card__btn:hover .project-card__btn-arrow { transform: scaleX(-1) translateX(6px); }
 
+/* ---- Non-interactive status badge (current site / concept demo) ---- */
+.project-card__status {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-text-soft);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.005em;
+  cursor: default;
+  user-select: none;
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out);
+}
+
+.project-card__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--card-accent, var(--color-accent));
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--card-accent, var(--color-accent)) 18%, transparent);
+  flex-shrink: 0;
+}
+
+.project-card__inner:hover .project-card__status {
+  border-color: color-mix(in oklab, var(--card-accent, var(--color-accent)) 55%, var(--color-border-strong));
+  color: var(--color-text);
+  background: var(--color-surface-soft);
+}
+
 /* ============================================================
    Final CTA — "Want to be the next success story?"
    ============================================================ */

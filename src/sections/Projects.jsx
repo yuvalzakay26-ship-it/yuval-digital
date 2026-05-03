@@ -51,12 +51,19 @@ function ProjectCard({ item, index, t, compact = false }) {
   const Mockup = projectMockups[item.id];
   const url = PROJECT_URLS[item.id] ?? '';
 
+  const hasLive = !!item.liveUrl && item.liveUrl !== '#';
   const hasCaseStudy = !!item.caseStudyUrl && item.caseStudyUrl !== '#';
-  const liveHref = item.liveUrl && item.liveUrl !== '#' ? item.liveUrl : '#contact';
-  const caseHref = hasCaseStudy ? item.caseStudyUrl : liveHref;
+  const isConcept = item.kind === 'concept';
+  // Real project without an external live URL = the site you're currently on.
+  const isCurrentSite = !hasLive && !isConcept;
+  const liveHref = hasLive ? item.liveUrl : null;
   const liveExternal = isExternalUrl(liveHref);
-  const caseExternal = isExternalUrl(caseHref);
-  const secondaryLabel = hasCaseStudy ? t('projects.caseStudy') : t('projects.viewProjectAlt');
+  const caseExternal = isExternalUrl(item.caseStudyUrl);
+  const statusLabel = isConcept
+    ? t('projects.conceptDemoBadge')
+    : isCurrentSite
+      ? t('projects.currentSiteBadge')
+      : null;
 
   return (
     <Reveal
@@ -154,29 +161,49 @@ function ProjectCard({ item, index, t, compact = false }) {
 
           {isFeatured ? (
             <div className="project-card__actions">
-              <a
-                className="project-card__btn project-card__btn--primary"
-                href={liveHref}
-                target={liveExternal ? '_blank' : undefined}
-                rel={liveExternal ? 'noreferrer noopener' : undefined}
-              >
-                <span>{t('projects.liveDemo')}</span>
-                <span className="project-card__btn-arrow" aria-hidden><ArrowIcon /></span>
-              </a>
-              <a
-                className="project-card__btn project-card__btn--ghost"
-                href={caseHref}
-                target={caseExternal ? '_blank' : undefined}
-                rel={caseExternal ? 'noreferrer noopener' : undefined}
-              >
-                <span>{secondaryLabel}</span>
-              </a>
+              {hasLive && (
+                <a
+                  className="project-card__btn project-card__btn--primary"
+                  href={liveHref}
+                  target={liveExternal ? '_blank' : undefined}
+                  rel={liveExternal ? 'noreferrer noopener' : undefined}
+                >
+                  <span>{t('projects.liveDemo')}</span>
+                  <span className="project-card__btn-arrow" aria-hidden><ArrowIcon /></span>
+                </a>
+              )}
+              {hasCaseStudy && (
+                <a
+                  className="project-card__btn project-card__btn--ghost"
+                  href={item.caseStudyUrl}
+                  target={caseExternal ? '_blank' : undefined}
+                  rel={caseExternal ? 'noreferrer noopener' : undefined}
+                >
+                  <span>{t('projects.caseStudy')}</span>
+                </a>
+              )}
+              {!hasLive && statusLabel && (
+                <span className="project-card__status" role="status">
+                  <span className="project-card__status-dot" aria-hidden />
+                  <span>{statusLabel}</span>
+                </span>
+              )}
             </div>
-          ) : (
-            <a className="project-card__cta" href="#contact">
-              <span>{t('projects.viewProject')}</span>
+          ) : hasLive ? (
+            <a
+              className="project-card__cta"
+              href={liveHref}
+              target={liveExternal ? '_blank' : undefined}
+              rel={liveExternal ? 'noreferrer noopener' : undefined}
+            >
+              <span>{t('projects.liveDemo')}</span>
               <span className="project-card__cta-arrow" aria-hidden><ArrowIcon /></span>
             </a>
+          ) : (
+            <span className="project-card__status" role="status">
+              <span className="project-card__status-dot" aria-hidden />
+              <span>{statusLabel}</span>
+            </span>
           )}
         </div>
       </article>
