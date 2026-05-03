@@ -48,7 +48,7 @@ export default function Hero() {
           <Button as="a" href="#contact" variant="gradient" size="lg" iconEnd={<ArrowIcon />}>
             {t('hero.primaryCta')}
           </Button>
-          <Button as="a" href="#process" variant="ghost" size="lg" iconStart={<PlayIcon />}>
+          <Button as="a" href="#projects" variant="ghost" size="lg" iconStart={<PlayIcon />}>
             {t('hero.secondaryCta')}
           </Button>
         </div>
