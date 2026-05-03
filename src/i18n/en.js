@@ -438,7 +438,12 @@ const en = {
       {
         id: 'pricing',
         q: 'How much does a website cost?',
-        a: "Every project is priced individually based on real scope and needs. A focused landing page starts in a lower range; a full business site typically runs from a few thousand to tens of thousands of shekels; a custom system is priced by spec. After a short discovery call, I send a clear quote — what's included, what isn't, and the timeline. No surprises."
+        a: "Each tier in the Packages section shows a starting point: ₪1,490 (Starter), ₪3,900 (Growth), ₪7,900 (Custom Premium). The final number is sized to your real scope on a short discovery call — no inflated retainers, no hidden add-ons. The proposal lists exactly what's included, what isn't, and the agreed timeline."
+      },
+      {
+        id: 'payment',
+        q: 'Can I pay in stages?',
+        a: 'Yes. For any project beyond Starter, the price is split into stages — typically a deposit at kickoff, a milestone payment mid-project, and the balance before go-live. The exact structure is written into the proposal upfront, with no surprises.'
       },
       {
         id: 'duration',
@@ -449,6 +454,31 @@ const en = {
         id: 'process',
         q: "What's included in the process?",
         a: "Five clear stages: a discovery call to understand the need, planning with a written brief and a clear quote, build with live previews you review and approve, launch with QA and domain hookup, and post-launch support. You always know where the project stands and what's next."
+      },
+      {
+        id: 'content',
+        q: "What if I don't have content, images or a logo?",
+        a: "Common — and not a blocker. I help shape the copy from one or two conversations about your business, point you to professional stock libraries for imagery, and connect you to a logo designer if you need one. You don't need to come prepared — we build the foundation together."
+      },
+      {
+        id: 'notTechnical',
+        q: "I'm not technical — is that a problem?",
+        a: "Not at all. Most of the people I work with aren't developers. My job is to translate your business needs into the right technical solution — and to walk you through progress in plain language, no jargon. You make the business decisions; I handle the technical side."
+      },
+      {
+        id: 'ownership',
+        q: 'Do I own the website after launch?',
+        a: 'Fully. The code, domain and content are yours. I build with industry-standard tools — not a closed platform of mine — so if you ever choose to work with another developer, they can pick up from where I left off without friction.'
+      },
+      {
+        id: 'afterLaunch',
+        q: 'What happens after launch — can the site keep growing?',
+        a: "Yes. The site is built so new pages, content, features and integrations can be added later — without starting over. After launch I stay available for small fixes, improvements and additional phases of development, on demand. You're not locked in to working with me — but I'm there if you want to keep building."
+      },
+      {
+        id: 'existingSite',
+        q: 'Can you improve an existing site instead of starting from scratch?',
+        a: 'Depends on the state. If the foundation is solid, I can update design, fix mobile, improve performance and sharpen content — no rebuild needed. If the base is broken or stuck on a limiting platform, a clean start is often cheaper and healthier in the long run. A short call clarifies which path makes sense for you.'
       },
       {
         id: 'mobile',
