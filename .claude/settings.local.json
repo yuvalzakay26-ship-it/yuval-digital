@@ -7,7 +7,8 @@
       "Bash(npx vite *)",
       "PowerShell(Get-ChildItem *)",
       "PowerShell(npm run *)",
-      "PowerShell(Get-Content *)"
+      "PowerShell(Get-Content *)",
+      "Bash(dir *)"
     ]
   }
 }

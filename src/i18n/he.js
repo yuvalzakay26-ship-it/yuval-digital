@@ -336,6 +336,12 @@ const he = {
   fab: {
     whatsapp: 'דיבור ב-WhatsApp'
   },
+  mab: {
+    ariaLabel: 'פעולות מהירות',
+    call: 'התקשרו',
+    whatsapp: 'WhatsApp',
+    quote: 'בואו נדבר'
+  },
   packages: {
     eyebrow: 'נקודות התחלה',
     title: 'איך מתחילים? שלוש נקודות התחלה ברורות.',

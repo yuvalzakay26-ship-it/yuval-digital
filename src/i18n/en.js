@@ -335,6 +335,12 @@ const en = {
   fab: {
     whatsapp: 'Chat on WhatsApp'
   },
+  mab: {
+    ariaLabel: 'Quick actions',
+    call: 'Call',
+    whatsapp: 'WhatsApp',
+    quote: 'Get Quote'
+  },
   packages: {
     eyebrow: 'Starting points',
     title: 'How to start? Three clear starting points.',

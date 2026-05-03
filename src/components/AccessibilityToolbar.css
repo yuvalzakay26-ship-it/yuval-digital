@@ -67,17 +67,25 @@
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
 }
 
-/* Sit exactly 12px above the sticky CTA bar on phones.
+/* Sit exactly 12px above the MobileActionBar (.mab) on phones.
    Bar bottom = max(env(safe-area-inset-bottom), 12px); bar height = 62px
-   (8px padding + 44px button + 8px padding + 2 × 1px border). Mirroring the
-   bar's own max(...) keeps the gap constant across devices with and without
-   a home-indicator inset. */
+   (8 + 44 + 8 + 2px border). Mirroring the bar's own max(...) keeps the gap
+   constant across devices with and without a home-indicator inset.
+   Shrunk to 44px so it reads as supporting UI, not a competing action. */
 @media (max-width: 720px) {
   .a11y-fab {
     bottom: calc(max(env(safe-area-inset-bottom), 12px) + 74px);
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     inset-inline-start: 12px;
+  }
+
+  .a11y-fab__icon svg { width: 22px; height: 22px; }
+  .a11y-fab__dot {
+    top: 3px;
+    inset-inline-end: 3px;
+    width: 10px;
+    height: 10px;
   }
 }
 

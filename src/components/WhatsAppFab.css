@@ -92,44 +92,10 @@
   padding-inline-end: var(--space-5);
 }
 
-/* ---- Mobile: elegant compact circle that respects the device safe area. ---- */
+/* ---- Mobile: hidden. The MobileActionBar takes over conversion duty on
+   phones with a richer 3-action floating pill (Call / WhatsApp / Quote). ---- */
 @media (max-width: 720px) {
-  .wa-fab {
-    inset-inline-end: 16px;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
-    height: 52px;
-    width: 52px;
-    box-shadow:
-      0 10px 28px rgba(22, 163, 74, 0.32),
-      0 3px 8px rgba(22, 163, 74, 0.20);
-  }
-
-  .wa-fab__icon {
-    width: 52px;
-    height: 52px;
-  }
-
-  .wa-fab__icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  /* Touch devices don't hover — keep the compact circle, no label expansion. */
-  .wa-fab:hover,
-  .wa-fab:focus-visible {
-    width: 52px;
-  }
-
-  .wa-fab:hover .wa-fab__label,
-  .wa-fab:focus-visible .wa-fab__label {
-    opacity: 0;
-    max-width: 0;
-    padding-inline-end: 0;
-  }
-
-  .wa-fab:active {
-    transform: translateY(0) scale(0.94);
-  }
+  .wa-fab { display: none; }
 }
 
 /* ---- Hide the FAB while the contact section is on screen — no point
