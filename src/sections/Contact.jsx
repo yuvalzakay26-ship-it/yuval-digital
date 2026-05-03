@@ -91,6 +91,10 @@ export default function Contact() {
     <section id="contact" className="contact section">
       <Container className="contact__inner">
         <Reveal className="contact__lede">
+          <p className="contact__availability">
+            <span className="contact__availability-dot" aria-hidden="true" />
+            <span>{t('contact.availability')}</span>
+          </p>
           <span className="eyebrow">{t('contact.eyebrow')}</span>
           <h2 className="contact__title">{t('contact.title')}</h2>
           <p className="contact__subtitle">{t('contact.subtitle')}</p>

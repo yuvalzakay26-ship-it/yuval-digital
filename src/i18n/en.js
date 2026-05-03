@@ -40,50 +40,50 @@ const en = {
     theme: 'Theme'
   },
   hero: {
-    badge: 'Outstanding practical software graduate · open to new projects',
-    eyebrow: 'Websites · automation · AI-assisted solutions',
+    badge: 'Programming lecturer · developer · digital builder',
+    eyebrow: 'Websites · Automation · Digital Solutions',
     titleLead: 'Turning digital ideas',
-    titleHighlight: 'into real working systems.',
+    titleHighlight: 'into systems that work. Fast, clean, right.',
     subtitle:
-      'An outstanding practical software graduate combining technical thinking, modern tooling and AI workflows to build websites, automations and smart solutions that actually move the business forward.',
-    primaryCta: "Let's build something real",
+      'A programming lecturer and developer building digital projects for Israeli businesses. I combine technical depth, UX thinking and real business needs to design solutions that serve the goal — not just look the part.',
+    primaryCta: 'Get a quick proposal',
     secondaryCta: 'See how I work',
     metricResponse: 'Initial reply',
     metricCustom: 'Custom-built',
     metricLanguages: 'Working languages',
-    microtrust: 'Direct contact with me · Hebrew & English · AI as a real working tool',
+    microtrust: 'Direct contact • Personal attention • Same-day reply',
     scrollHint: 'Scroll'
   },
   trust: {
-    eyebrow: 'Why this works',
-    title: 'No invented résumé — real strengths.',
+    eyebrow: 'What I bring',
+    title: 'Real strengths, drawn from the work I do every day.',
     subtitle:
-      "I'm at the start of my path as an independent builder, which is exactly why every project gets my full attention, time, and care. These are the genuine advantages I bring.",
+      "These are the advantages you get when we work together. No marketing clichés — just what makes the difference inside a project.",
     items: [
       {
-        id: 'honesty',
-        title: 'Direct, honest communication',
-        body: "You talk to me — no middlemen, no sales decks, no empty promises. Just what I can actually build and by when."
-      },
-      {
         id: 'learning',
-        title: 'Fast learning & adaptation',
-        body: "Coming straight from a strong technical program, I keep up with new tools constantly. When something new helps your project — it goes in."
+        title: 'Teaching background',
+        body: "I teach programming on an ongoing basis. When you have to convey a complex technical concept clearly to students, you learn to think with discipline — and that carries into every decision I make in code and in design."
       },
       {
         id: 'tools',
-        title: 'AI in the workflow',
-        body: 'I use AI tools as part of how I build every day — to ship faster, think more clearly and deliver pixel-precise results.'
+        title: 'Real technical depth',
+        body: "A full engineering foundation — not template assembly. I understand what happens under the hood, so I pick the right tool for each problem instead of improvising."
       },
       {
         id: 'attention',
-        title: 'Personal attention',
-        body: "I don't juggle dozens of projects in parallel. Every client gets real listening and a deep understanding of their business and challenge."
+        title: 'Business and UX thinking',
+        body: 'A site is a business tool, not a design exercise. Every decision — copy, color, button — is measured against the goal of the business and the audience it speaks to.'
       },
       {
         id: 'motivation',
-        title: 'High motivation',
-        body: "I'm building to prove what I can do — which means real investment in every detail. Your project is my chance to show my best work."
+        title: 'Real projects, live in the field',
+        body: "I build systems that go live and serve real businesses — not just polished demos in a portfolio. Every project is measured in the real world."
+      },
+      {
+        id: 'honesty',
+        title: 'Direct communication, personal service',
+        body: "You talk to me. No middlemen, no sales reps, no empty promises. The same person who plans the project also builds it and stands behind every detail."
       },
       {
         id: 'quality',
@@ -182,14 +182,14 @@ const en = {
   },
   about: {
     eyebrow: 'About me',
-    title: 'Yuval — practical software graduate, digital builder at the start of the road.',
+    title: 'Developer, lecturer, and digital builder. One person, accountable for the result.',
     body:
-      "I graduated from a practical software engineering program with honors, and I build things — mainly websites, automations and smart solutions for businesses that want to level up. I love combining technical thinking, clean design and modern AI tools to ship work that looks great and actually performs. I'm at the start of my path as an independent builder, and that's exactly why each project gets full attention, real commitment and uncompromising quality.",
+      "I'm Yuval — a programming lecturer, developer, and builder of digital projects for businesses. My experience sits at a rare intersection: the technical depth I teach others, paired with a genuine grasp of user experience and business needs. Teaching programming forces you to think clearly, explain precisely and deliver something that actually works — and that same discipline carries into every project I build.\n\nI work personally with each client, take the time to understand the business in depth, and design a solution shaped around the goal — not a template, not a feature list, but a digital asset that performs.",
     pillars: [
-      { title: 'Practical software graduate', body: 'A strong technical foundation focused on engineering thinking, architecture and problem-solving.' },
-      { title: 'Builder, not just an executor', body: 'I bring ideas, propose directions and take ownership of the final result — not just the deliverable.' },
-      { title: 'Smart use of AI', body: 'AI tools are a natural part of my workflow — not a marketing claim, but a way to build faster and better.' },
-      { title: 'Detail-committed', body: 'Premium feel comes from a thousand small decisions. I show up for those decisions.' }
+      { title: 'Teaching and engineering background', body: 'I teach programming on an ongoing basis while building real client projects in parallel — every technical decision comes from clarity, not guesswork.' },
+      { title: 'Business thinking, not just code', body: 'Every site is built around the goals and audience of your business — not a generic template, but an asset that produces real results.' },
+      { title: 'Direct, personal communication', body: 'You talk to me. No coordinators, no reps. The same person who plans the work also builds it and stands behind every detail.' },
+      { title: 'Quality-first delivery', body: 'Clean code, strong performance, and the small details that finish the picture. Better to do less, and do it excellently.' }
     ]
   },
   projects: {
@@ -312,13 +312,14 @@ const en = {
     ]
   },
   contact: {
-    eyebrow: 'Talk to me',
-    title: "Need a serious site that actually brings in customers? Let's talk.",
+    eyebrow: 'Get in touch',
+    availability: 'A limited number of active projects at any given time',
+    title: "Let's build something that works for your business.",
     subtitle:
-      'Fast personal reply, a clear process, and a solution built around your business. No sales scripts, no fluff.',
+      'Direct contact with me, a transparent process, and a solution shaped around the real needs of your business — not a template off the shelf.',
     microcopy:
       'Prefer to talk? WhatsApp, phone or email — whatever works for you.',
-    reassurance: 'Direct line to me · Same-day reply · No middlemen',
+    reassurance: 'Same-day reply · Directly with me · No middlemen',
     name: 'Full name',
     email: 'Email',
     phone: 'Phone',
@@ -329,7 +330,7 @@ const en = {
     emailLabel: 'Email',
     phoneLabel: 'Phone',
     whatsapp: 'WhatsApp',
-    response: 'Most messages get a reply the same day'
+    response: 'Usually a same-day reply'
   },
   fab: {
     whatsapp: 'Chat on WhatsApp'
