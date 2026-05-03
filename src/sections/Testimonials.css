@@ -13,6 +13,14 @@
   gap: var(--space-6);
 }
 
+/* When only a single testimonial is present, center it with a comfortable
+   reading max-width so it reads as a deliberate hero quote rather than an
+   orphaned column. */
+.tm__grid:has(> .tm-card:only-child) {
+  grid-template-columns: minmax(0, min(640px, 100%));
+  justify-content: center;
+}
+
 .tm-card { display: flex; }
 
 .tm-card__inner {

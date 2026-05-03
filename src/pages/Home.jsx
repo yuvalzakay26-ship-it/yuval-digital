@@ -5,7 +5,6 @@ import Packages from '@sections/Packages.jsx';
 import Process from '@sections/Process.jsx';
 import Projects from '@sections/Projects.jsx';
 import Stack from '@sections/Stack.jsx';
-import Authority from '@sections/Authority.jsx';
 import Testimonials from '@sections/Testimonials.jsx';
 import About from '@sections/About.jsx';
 import Faq from '@sections/Faq.jsx';
@@ -21,10 +20,9 @@ import CtaBanner from '@components/CtaBanner.jsx';
  *   Packages      — starting points (lead magnet)
  *   CTA banner    — capture indecision
  *   Process       — how I work
- *   Projects      — proof / case studies
- *   Testimonials  — social proof (real client voices)
+ *   Projects      — real client + concept demos
+ *   Testimonials  — anchored client voice
  *   Stack         — tools and workflow
- *   Authority     — why work with me now
  *   About         — deeper trust
  *   FAQ           — friction removal
  *   CTA banner    — final push (strong)
@@ -43,7 +41,6 @@ export default function Home() {
       <Projects />
       <Testimonials />
       <Stack />
-      <Authority />
       <About />
       <Faq />
       <CtaBanner variant="beforeFooter" tone="strong" />

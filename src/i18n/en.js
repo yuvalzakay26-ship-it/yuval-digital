@@ -194,9 +194,9 @@ const en = {
   },
   projects: {
     eyebrow: 'Work examples',
-    title: 'A real project plus concept demonstrations.',
+    title: 'One live client. Four labeled concept demos.',
     subtitle:
-      "I'm at the start of my path as an independent builder. To show how I think and what I can build, I include one real project alongside clearly labeled concept examples.",
+      'A real client project running in production, alongside four concept demos that show how I think — every example built to the same delivery standard.',
     industryLabel: 'Industry',
     problemLabel: 'Challenge',
     solutionLabel: 'Solution',
@@ -214,9 +214,9 @@ const en = {
     featuredLabel: 'Featured project',
     intro: 'Every project is built with business thinking, UX and real goals.',
     stats: [
-      { value: 'Real', label: 'Live projects' },
-      { value: '100%', label: 'Responsive builds' },
-      { value: 'Focused', label: 'On conversion' }
+      { value: '1', label: 'Live client site' },
+      { value: '4', label: 'Concept demos' },
+      { value: '100%', label: 'Custom code' }
     ],
     finalCta: {
       title: 'Want to be the next success story?',
@@ -287,27 +287,15 @@ const en = {
     ]
   },
   testimonials: {
-    eyebrow: 'Client stories',
-    title: 'What people who worked with me say',
-    subtitle: 'Personal service, professional work, and results you can feel.',
+    eyebrow: 'A word from the client',
+    title: 'What the client said about the work',
+    subtitle: 'Real feedback from a real client — no anonymous filler quotes.',
     items: [
       {
         id: 't1',
         quote: 'Yuval built us a site that feels premium and truly respects the business.',
-        source: 'Marzipan Bakery',
+        source: 'Marzipan Bakery · Jerusalem · Est. 1986',
         initial: 'M'
-      },
-      {
-        id: 't2',
-        quote: 'Available, professional, organized — and goes the extra mile.',
-        source: 'Local business owner',
-        initial: 'L'
-      },
-      {
-        id: 't3',
-        quote: 'Finally, someone who understands both design and results.',
-        source: 'Self-employed',
-        initial: 'S'
       }
     ]
   },
