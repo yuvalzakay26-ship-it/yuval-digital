@@ -59,9 +59,9 @@ export default function Hero() {
         </p>
 
         <div className="hero__metrics" role="list">
-          <Metric value={24}  suffix="h" label={t('hero.metricResponse')} />
+          <Metric text="<24h"    label={t('hero.metricResponse')} />
           <Metric value={100} suffix="%" label={t('hero.metricCustom')} />
-          <Metric value={2}   suffix=""  label={t('hero.metricLanguages')} />
+          <Metric text="HE + EN" label={t('hero.metricLanguages')} />
         </div>
 
         <div className="hero__scroll" aria-hidden="true">
@@ -73,10 +73,14 @@ export default function Hero() {
   );
 }
 
-function Metric({ value, suffix, label }) {
+function Metric({ value, suffix, text, label }) {
   return (
     <div className="hero-metric" role="listitem">
-      <Counter value={value} suffix={suffix} className="hero-metric__value text-gradient" />
+      {text ? (
+        <span className="hero-metric__value text-gradient">{text}</span>
+      ) : (
+        <Counter value={value} suffix={suffix} className="hero-metric__value text-gradient" />
+      )}
       <span className="hero-metric__label">{label}</span>
     </div>
   );

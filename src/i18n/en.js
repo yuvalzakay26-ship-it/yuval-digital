@@ -40,18 +40,18 @@ const en = {
     theme: 'Theme'
   },
   hero: {
-    badge: 'Programming lecturer · developer · digital builder',
+    badge: 'Programming Lecturer • Developer • Digital Builder for Businesses',
     eyebrow: 'Websites · Automation · Digital Solutions',
-    titleLead: 'Turning digital ideas',
-    titleHighlight: 'into systems that work. Fast, clean, right.',
+    titleLead: 'I build smart, premium, high-speed websites for businesses —',
+    titleHighlight: 'designed to generate real inquiries.',
     subtitle:
-      'A programming lecturer and developer building digital projects for Israeli businesses. I combine technical depth, UX thinking and real business needs to design solutions that serve the goal — not just look the part.',
-    primaryCta: 'Get a quick proposal',
-    secondaryCta: 'See how I work',
-    metricResponse: 'Initial reply',
-    metricCustom: 'Custom-built',
-    metricLanguages: 'Working languages',
-    microtrust: 'Direct contact • Personal attention • Same-day reply',
+      'Business websites, landing pages, automations and digital systems built with real technical depth, premium design, and a clear business purpose.',
+    primaryCta: 'Get a Quick Quote on WhatsApp',
+    secondaryCta: 'View My Work',
+    metricResponse: 'Response Time',
+    metricCustom: 'Custom Built',
+    metricLanguages: 'Fully Bilingual',
+    microtrust: 'Fast Reply • Direct Contact • Personal Service • No Middlemen',
     scrollHint: 'Scroll'
   },
   trust: {

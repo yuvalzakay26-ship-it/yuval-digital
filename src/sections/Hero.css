@@ -122,11 +122,11 @@
      even when its intrinsic content width (20ch at large font sizes) would
      spill past the viewport. max-width is the desktop visual cap. */
   width: 100%;
-  max-width: 20ch;
+  max-width: 26ch;
   margin-inline: auto;
-  font-size: clamp(2.6rem, 7.4vw, var(--fs-6xl));
-  line-height: 1.0;
-  letter-spacing: -0.038em;
+  font-size: clamp(2.4rem, 6.2vw, var(--fs-5xl));
+  line-height: 1.08;
+  letter-spacing: -0.034em;
   font-weight: var(--fw-black);
   margin-top: var(--space-2);
   text-wrap: balance;
