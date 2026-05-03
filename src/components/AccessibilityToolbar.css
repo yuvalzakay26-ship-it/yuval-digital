@@ -67,10 +67,14 @@
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
 }
 
-/* Account for sticky mobile CTA bar on phones */
+/* Sit exactly 12px above the sticky CTA bar on phones.
+   Bar bottom = max(env(safe-area-inset-bottom), 12px); bar height = 62px
+   (8px padding + 44px button + 8px padding + 2 × 1px border). Mirroring the
+   bar's own max(...) keeps the gap constant across devices with and without
+   a home-indicator inset. */
 @media (max-width: 720px) {
   .a11y-fab {
-    bottom: calc(80px + env(safe-area-inset-bottom));
+    bottom: calc(max(env(safe-area-inset-bottom), 12px) + 74px);
     width: 48px;
     height: 48px;
     inset-inline-start: 12px;
@@ -126,7 +130,9 @@ body.drawer-open .a11y-panel__scrim {
 @media (max-width: 720px) {
   .a11y-panel {
     inset-inline: 12px;
-    inset-block-end: calc(80px + env(safe-area-inset-bottom));
+    /* Anchor at the same baseline as .a11y-fab so the panel grows up from the
+       FAB, not from somewhere mid-screen. */
+    inset-block-end: calc(max(env(safe-area-inset-bottom), 12px) + 74px);
     width: auto;
     max-height: min(72vh, 560px);
     padding: var(--space-5);

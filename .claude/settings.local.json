@@ -6,7 +6,8 @@
       "Bash(timeout 8 powershell *)",
       "Bash(npx vite *)",
       "PowerShell(Get-ChildItem *)",
-      "PowerShell(npm run *)"
+      "PowerShell(npm run *)",
+      "PowerShell(Get-Content *)"
     ]
   }
 }
