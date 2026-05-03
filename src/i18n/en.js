@@ -684,7 +684,9 @@ const en = {
     quickWhatsapp: 'Quick WhatsApp',
     ownerName: 'Yuval Zakay',
     ownership: 'Yuval Zakay · Independent freelancer based in Israel',
-    serviceArea: 'Serving businesses across Israel · Hebrew & English'
+    serviceArea: 'Serving businesses across Israel · Hebrew & English',
+    brandLegal: 'Yuval Digital',
+    unauthorized: 'Unauthorized copying, reproduction or use without permission is prohibited.'
   }
 };
 

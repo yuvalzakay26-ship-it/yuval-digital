@@ -118,9 +118,11 @@ export default function Footer() {
         </nav>
 
         <div className="footer__base">
-          <span className="footer__copy">© {year} Yuval Digital · {t('footer.rights')}</span>
+          <span className="footer__copy">© {year} {t('footer.brandLegal')}. {t('footer.rights')}.</span>
           <span className="footer__built">{t('footer.built')}</span>
         </div>
+
+        <p className="footer__fineprint">{t('footer.unauthorized')}</p>
       </Container>
     </footer>
   );

@@ -684,7 +684,9 @@ const he = {
     quickWhatsapp: 'WhatsApp מהיר',
     ownerName: 'יובל זכאי',
     ownership: 'יובל זכאי · עוסק עצמאי בישראל',
-    serviceArea: 'נותן שירות לעסקים בכל הארץ · עברית ואנגלית'
+    serviceArea: 'נותן שירות לעסקים בכל הארץ · עברית ואנגלית',
+    brandLegal: 'יובל דיגיטל',
+    unauthorized: 'אין לעשות שימוש, העתקה או הפצה ללא אישור מראש.'
   }
 };
 
