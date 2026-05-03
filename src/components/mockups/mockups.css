@@ -11,123 +11,35 @@
 }
 
 /* ==========================================================================
-   yuval.digital mockup
+   yuval.digital mockup — real screenshot preview
    ========================================================================== */
-.mu-yuval {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  height: 100%;
-  background:
-    radial-gradient(120% 80% at 110% -10%, color-mix(in oklab, var(--mock-accent) 30%, transparent), transparent 60%),
-    radial-gradient(80% 60% at -10% 110%, color-mix(in oklab, var(--mock-accent-2) 28%, transparent), transparent 60%),
-    var(--mock-surface);
-  padding: 4px 4px 0;
-  border-radius: 6px;
-  overflow: hidden;
-  isolation: isolate;
+
+/* Bleed real screenshot edge-to-edge inside the device chrome */
+.mock__screen:has(.mu-yuval-img) {
+  padding: 0;
+  gap: 0;
 }
 
-.mu-yuval__nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 6px 8px;
-}
-
-.mu-yuval__brand {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  color: var(--mock-text);
-}
-
-.mu-yuval__nav-links {
-  display: inline-flex;
-  gap: 12px;
-}
-.mu-yuval__nav-links span {
-  width: 24px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--mock-line);
-}
-
-.mu-yuval__hero {
-  margin-top: 4px;
-  padding: 12px 14px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-start;
-}
-
-.mu-yuval__title {
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-  color: var(--mock-text);
-  margin: 2px 0 0;
-}
-.mu-yuval__title span {
-  background: linear-gradient(135deg, var(--mock-accent), var(--mock-accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-.mu-yuval__sub {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.mu-yuval-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: saturate(1.04) contrast(1.02);
 }
 
-.mu-yuval__ctas {
-  display: flex;
-  gap: 6px;
-  margin-top: 4px;
+.mu-yuval-img--phone {
+  /* Keep the hero centered under the notch overlay */
+  object-position: top center;
 }
 
-.mu-yuval__metrics {
-  margin-top: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  padding: 0 4px;
-}
-
-.mu-yuval__metric {
-  background: color-mix(in oklab, var(--mock-text) 4%, var(--mock-surface));
-  border: 1px solid var(--mock-line);
-  border-radius: 8px;
-  padding: 8px 6px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.mu-yuval__metric-num {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--mock-accent), var(--mock-accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-.mu-yuval__metric-lbl {
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: var(--mock-text-soft);
+@media (prefers-reduced-motion: reduce) {
+  .mu-yuval-img { filter: none; }
 }
 
 /* ==========================================================================
