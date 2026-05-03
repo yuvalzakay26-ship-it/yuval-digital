@@ -3,15 +3,9 @@ import Reveal from '@components/Reveal.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
 import './Testimonials.css';
 
-const QuoteIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-    <path d="M9 7H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-3l2-4V8a1 1 0 0 0-1-1zM21 7h-4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-3l2-4V8a1 1 0 0 0-1-1z" />
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <path d="M20 6 9 17l-5-5" />
+const QuoteMark = () => (
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden>
+    <path d="M11.2 6.4C6.8 8.4 4 12.4 4 17.6V25.6h8V17.6H8c0-3.2 1.6-5.6 4.8-6.8L11.2 6.4zm14.4 0c-4.4 2-7.2 6-7.2 11.2V25.6h8V17.6h-4c0-3.2 1.6-5.6 4.8-6.8L25.6 6.4z" />
   </svg>
 );
 
@@ -32,16 +26,13 @@ export default function Testimonials() {
           {items.map((item, i) => (
             <Reveal key={item.id} variant="up" delay={i * 90} className="tm-card">
               <article className="tm-card__inner surface">
-                <header className="tm-card__head">
-                  <span className="tm-card__quote-mark" aria-hidden><QuoteIcon /></span>
-                  <span className="tm-card__kind">{item.kind}</span>
-                </header>
+                <span className="tm-card__mark" aria-hidden><QuoteMark /></span>
 
                 <blockquote className="tm-card__quote">"{item.quote}"</blockquote>
 
                 <footer className="tm-card__footer">
-                  <span className="tm-card__check" aria-hidden><CheckIcon /></span>
-                  <span className="tm-card__label">{item.label}</span>
+                  <span className="tm-card__avatar" aria-hidden>{item.initial}</span>
+                  <span className="tm-card__source">{item.source}</span>
                 </footer>
               </article>
             </Reveal>

@@ -287,34 +287,27 @@ const en = {
     ]
   },
   testimonials: {
-    eyebrow: 'What to expect',
-    title: 'Promises about how I work — not invented quotes.',
-    subtitle:
-      'Instead of fabricated testimonials, these are the standards I commit to in every project, from the first conversation to long after launch.',
+    eyebrow: 'Client stories',
+    title: 'What people who worked with me say',
+    subtitle: 'Personal service, professional work, and results you can feel.',
     items: [
       {
-        id: 'p1',
-        quote: 'Clear, transparent communication throughout — you always know where the project stands and why.',
-        label: 'Transparency',
-        kind: 'Communication'
+        id: 't1',
+        quote: 'Yuval built us a site that feels premium and truly respects the business.',
+        source: 'Marzipan Bakery',
+        initial: 'M'
       },
       {
-        id: 'p2',
-        quote: 'Thoughtful planning before any code — one short document we agree on so we build the right thing.',
-        label: 'Plan first',
-        kind: 'Process'
+        id: 't2',
+        quote: 'Available, professional, organized — and goes the extra mile.',
+        source: 'Local business owner',
+        initial: 'L'
       },
       {
-        id: 'p3',
-        quote: "Clean, polished delivery — we don't stop at \"good enough,\" we stop at \"exactly what I wanted.\"",
-        label: 'Delivery quality',
-        kind: 'Finish'
-      },
-      {
-        id: 'p4',
-        quote: 'Bilingual results when needed — Hebrew and English at the same level of precision and care.',
-        label: 'Bilingual native',
-        kind: 'Content'
+        id: 't3',
+        quote: 'Finally, someone who understands both design and results.',
+        source: 'Self-employed',
+        initial: 'S'
       }
     ]
   },

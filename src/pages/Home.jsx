@@ -22,9 +22,9 @@ import CtaBanner from '@components/CtaBanner.jsx';
  *   CTA banner    — capture indecision
  *   Process       — how I work
  *   Projects      — proof / case studies
+ *   Testimonials  — social proof (real client voices)
  *   Stack         — tools and workflow
  *   Authority     — why work with me now
- *   Testimonials  — work standards
  *   About         — deeper trust
  *   FAQ           — friction removal
  *   CTA banner    — final push (strong)
@@ -41,9 +41,9 @@ export default function Home() {
       <CtaBanner variant="afterPackages" tone="soft" />
       <Process />
       <Projects />
+      <Testimonials />
       <Stack />
       <Authority />
-      <Testimonials />
       <About />
       <Faq />
       <CtaBanner variant="beforeFooter" tone="strong" />
