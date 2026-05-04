@@ -17,7 +17,12 @@
       "Bash(npm install *)",
       "Bash(node -e \"console.log\\(require\\('sharp'\\).versions\\)\")",
       "Bash(node scripts/convert-mockup-images.mjs)",
-      "Bash(xxd)"
+      "Bash(xxd)",
+      "Bash(node -e \"import\\('./src/i18n/en.js'\\).then\\(m=>console.log\\('en items:', m.default.projects.items.length, m.default.projects.items.map\\(i=>i.id\\).join\\(','\\)\\)\\).catch\\(e=>{console.error\\('EN FAIL:',e.message\\);process.exit\\(1\\)}\\)\")",
+      "Bash(npx eslint *)",
+      "Bash(node --check src/i18n/he.js)",
+      "Bash(node --check src/i18n/en.js)",
+      "Bash(node --check src/sections/Projects.jsx)"
     ]
   }
 }

@@ -198,9 +198,9 @@ const en = {
   },
   projects: {
     eyebrow: 'Work examples',
-    title: 'One live client. Four labeled concept demos.',
+    title: 'Real client projects. Four labeled concept demos.',
     subtitle:
-      'A real client project running in production, alongside four concept demos that show how I think — every example built to the same delivery standard.',
+      'Two real client projects running in production, alongside four concept demos that show how I think — every example built to the same delivery standard.',
     industryLabel: 'Industry',
     problemLabel: 'Challenge',
     solutionLabel: 'Solution',
@@ -218,7 +218,7 @@ const en = {
     featuredLabel: 'Featured project',
     intro: 'Every project is built with business thinking, UX and real goals.',
     stats: [
-      { value: '1', label: 'Live client site' },
+      { value: '2', label: 'Live client sites' },
       { value: '4', label: 'Concept demos' },
       { value: '100%', label: 'Custom code' }
     ],
@@ -237,6 +237,7 @@ const en = {
         title: 'Marzipan Bakery · Jerusalem — heritage bakery (est. 1986) reimagined online',
         subtitle: 'A Jerusalem brand established in 1986, in need of a digital home matching its quality. Delivered: a premium commerce site with brand storytelling and seamless online ordering — an experience that feels like the product itself.',
         category: 'Real client project · Jerusalem luxury bakery',
+        tags: ['E-commerce', 'Food Business'],
         industry: 'Food & hospitality',
         problem: 'A heritage Jerusalem bakery (established 1986) needed a digital presence that reflects its history, quality and premium feel — while letting customers browse and order online effortlessly.',
         solution: 'A luxury bakery commerce site with online ordering, product catalog, brand storytelling and premium branding.',
@@ -249,11 +250,30 @@ const en = {
         skills: ['Online ordering UX', 'Premium branding', 'Mobile-first', 'Conversion design']
       },
       {
+        id: 'law',
+        kind: 'real',
+        liveUrl: 'https://ester-law-website.vercel.app',
+        title: 'Ester Law — attorney & mediator · a presence that earns trust',
+        subtitle: 'A clean, dignified site for a law practice: clear information hierarchy, jargon-free copy and a direct path to contact — an experience that signals seriousness from the first scroll.',
+        category: 'Real client project · attorney & mediator',
+        tags: ['Professional Services', 'Law & Mediation'],
+        industry: 'Legal & mediation',
+        problem: 'A professional services practice needed a digital presence worthy of the field — one that signals trust, explains practice areas without legal jargon, and guides visitors toward contact without friction.',
+        solution: 'A minimalist brand site: clean and dignified design, clear information hierarchy, plain-language framing of legal and mediation services, and accessible contact details on every screen for a direct inquiry flow.',
+        outcome: 'A digital presence that builds trust from the first impression, positions the practice at a professional level, and shortens the path from a visit to a first call.',
+        features: [
+          'Challenge: A professional practice in need of a presence that signals trust',
+          'Solution: Clean design, clear messaging and a direct path to contact',
+          'Result: Stronger trust perception and higher-quality inquiries'
+        ]
+      },
+      {
         id: 'yuval',
         kind: 'real',
         title: 'yuval.digital — bilingual personal brand site',
         subtitle: 'A personal brand site that doubles as the delivery-quality benchmark I hold every project to.',
         category: 'Personal brand site · bilingual',
+        tags: ['Personal Brand', 'Developer'],
         industry: 'Personal brand',
         problem: 'A serious digital presence was needed to reflect who I am, what I build and how to work with me.',
         solution: 'A full bilingual site (Hebrew + English), light & dark themes, subtle motion and a clean code architecture.',

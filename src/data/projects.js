@@ -28,6 +28,11 @@ export const projectVisuals = {
     glow: 'rgba(5, 150, 105, 0.30)',
     chip: 'Landing'
   },
+  law: {
+    accent: 'linear-gradient(135deg, #1e3a8a 0%, #b45309 100%)',
+    glow: 'rgba(30, 58, 138, 0.36)',
+    chip: 'Law'
+  },
   default: {
     accent: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
     glow: 'rgba(37, 99, 235, 0.30)',

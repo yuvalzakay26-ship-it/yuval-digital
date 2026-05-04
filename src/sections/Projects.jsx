@@ -37,6 +37,7 @@ const PROJECT_URLS = {
   clinic: 'clinic.demo',
   restaurant: 'menu.demo',
   leadgen: 'offer.demo',
+  law: 'ester-law-website.vercel.app',
 };
 
 function isExternalUrl(url) {
@@ -125,6 +126,16 @@ function ProjectCard({ item, index, t, compact = false }) {
         {/* === BODY === */}
         <div className="project-card__body">
           <header className="project-card__header">
+            {item.tags && item.tags.length > 0 && (
+              <ul
+                className="project-card__skills project-card__tags"
+                aria-label={t('projects.industryLabel')}
+              >
+                {item.tags.map(tag => (
+                  <li key={tag} className="project-card__skill">{tag}</li>
+                ))}
+              </ul>
+            )}
             <span className="project-card__category">{item.category}</span>
             <h3 className="project-card__title">{item.title}</h3>
             {item.subtitle ? (

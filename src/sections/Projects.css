@@ -608,11 +608,18 @@
   color: var(--color-text);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  direction: inherit;
+  unicode-bidi: isolate;
   transition:
     background-color var(--dur-base) var(--ease-out),
     border-color var(--dur-base) var(--ease-out),
     color var(--dur-base) var(--ease-out),
     transform var(--dur-fast) var(--ease-out);
+}
+
+[dir='rtl'] .project-card__skill {
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .project-card__inner--featured:hover .project-card__skill {
