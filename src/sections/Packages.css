@@ -247,7 +247,19 @@
   width: 100%;
 }
 
-/* ---- Note under cards ---- */
+/* ---- Differentiator + note under cards ---- */
+.packages__diff {
+  margin-top: var(--space-10);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  font-weight: var(--fw-medium);
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+  max-width: 64ch;
+  margin-inline: auto;
+}
+
 .packages__note {
   margin-top: var(--space-10);
   text-align: center;
@@ -256,6 +268,10 @@
   letter-spacing: 0.005em;
   max-width: 60ch;
   margin-inline: auto;
+}
+
+.packages__diff + .packages__note {
+  margin-top: var(--space-3);
 }
 
 /* ---- Responsive ---- */

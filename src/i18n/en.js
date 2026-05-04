@@ -330,60 +330,62 @@ const en = {
     quote: 'Get Quote'
   },
   packages: {
-    eyebrow: 'Starting points',
-    title: 'Three clear starting points. Transparent pricing.',
+    eyebrow: 'Engagement frameworks',
+    title: 'Three frameworks. One delivery standard.',
     subtitle:
-      "Picking the right frame is half the work. Three honest starting points with a transparent price ladder — final scope is sized in a short discovery call.",
+      "Pick the framework that matches the stage your business is in — final scope is tailored on a short discovery call. No template packages, no inflated retainers.",
     fromLabel: 'For',
     deliverablesLabel: "What's included",
-    priceLabel: 'Starting from',
+    priceLabel: 'Investment from',
     cta: "Let's talk about it",
-    note: 'The prices shown are floors, not ceilings. Final scope is sized on a short discovery call — no surprises, no bloated retainers.',
+    differentiator:
+      "The difference: no templates, no middlemen. Every project is written from scratch by one developer who also lectures programming — the same person who plans it builds it and stands behind every detail.",
+    note: 'The prices shown are floors, not ceilings. Final scope is sized on a short discovery call and written into a clear proposal — no surprises down the road.',
     plans: [
       {
         id: 'starter',
         name: 'Starter',
-        tagline: 'Step online with a focused landing page or a short brand site that earns trust from the first scroll.',
+        tagline: 'A professional digital presence that earns trust from the first scroll and opens a real channel for inbound inquiries.',
         price: '₪1,490',
         for: 'Solo professionals, new businesses, first product launches',
         deliverables: [
-          'One focused landing page or a short brand site',
-          'Clean mobile-first design',
-          'Smart contact form',
-          'Domain hookup and go-live'
+          'A short brand site or focused landing page',
+          'Clean design that signals real quality',
+          'Inquiry path that lands directly in WhatsApp',
+          'Domain hookup — ready to receive clients'
         ],
-        cta: 'Start with Starter'
+        cta: "Let's talk Starter"
       },
       {
         id: 'growth',
         name: 'Growth',
-        tagline: 'A full business site that turns visitors into real inquiries — polished UX and a foundation built to grow.',
+        tagline: 'A full business site that generates real inquiries on an ongoing basis — a steady engine for inbound leads and growth.',
         price: '₪3,900',
-        for: 'Active businesses ready for serious online presence',
+        for: 'Active businesses ready for a real client-generating engine',
         deliverables: [
-          'Multi-page brand website',
-          'UX shaped around the business',
-          'Mobile-first, high performance',
-          'SEO foundations and analytics-ready',
+          'Multi-page business site engineered for action',
+          'Polished UX that signals premium positioning',
+          'Mobile-first performance that lifts conversion',
+          'SEO foundations and analytics — so you know what works',
           'Bilingual content available'
         ],
         highlight: true,
-        badge: 'Most chosen',
+        badge: 'Chosen by most clients',
         cta: 'Get a Growth quote'
       },
       {
         id: 'custom',
-        name: 'Custom Premium',
-        tagline: 'A tailored system or advanced site built around your real workflow — saves hours, prevents recurring mistakes.',
+        name: 'Premium',
+        tagline: 'A custom system built around your real business workflow — saves hours, prevents recurring mistakes, frees you for the work that drives revenue.',
         price: '₪7,900',
         priceNote: 'by scope',
-        for: 'Businesses needing a system, integration or complex site',
+        for: 'Growing businesses needing a system, integration or advanced site',
         deliverables: [
           'Deep discovery of your business workflow',
-          'System or site built from scratch',
+          'System or site, written from scratch — no templates',
           'Automations between tools (Make · n8n · APIs)',
-          'AI in the workflow where it adds value',
-          'Post-launch support'
+          'AI in the flow where it adds real value',
+          'Post-launch support and future extensions'
         ],
         cta: 'Plan a custom build'
       }
@@ -438,7 +440,7 @@ const en = {
       {
         id: 'pricing',
         q: 'How much does a website cost?',
-        a: "Each tier in the Packages section shows a starting point: ₪1,490 (Starter), ₪3,900 (Growth), ₪7,900 (Custom Premium). The final number is sized to your real scope on a short discovery call — no inflated retainers, no hidden add-ons. The proposal lists exactly what's included, what isn't, and the agreed timeline."
+        a: "Each tier in the Packages section shows an investment starting point: ₪1,490 (Starter), ₪3,900 (Growth), ₪7,900 (Premium). The final number is sized to your real scope on a short discovery call — no inflated retainers, no hidden add-ons. The proposal lists exactly what's included, what isn't, and the agreed timeline."
       },
       {
         id: 'payment',

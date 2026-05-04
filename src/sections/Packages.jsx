@@ -93,6 +93,7 @@ export default function Packages() {
           ))}
         </div>
 
+        <p className="packages__diff">{t('packages.differentiator')}</p>
         <p className="packages__note">{t('packages.note')}</p>
       </Container>
     </section>
