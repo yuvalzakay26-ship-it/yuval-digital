@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Container from '@components/Container.jsx';
 import Button from '@components/Button.jsx';
 import Reveal from '@components/Reveal.jsx';
@@ -11,6 +11,8 @@ import {
   WHATSAPP_HREF,
 } from '@data/contact.js';
 import './Contact.css';
+
+const ENDPOINT = '/api/contact';
 
 const MailIcon = () => (
   <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -59,6 +61,20 @@ const ArrowIcon = () => (
   </svg>
 );
 
+const SpinnerIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden className="contact__spinner">
+    <path d="M21 12a9 9 0 1 1-6.22-8.56" />
+  </svg>
+);
+
+const AlertIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 8v4" />
+    <path d="M12 16h.01" />
+  </svg>
+);
+
 const TRUST_ICONS = {
   reply: ClockIcon,
   free: SparkleIcon,
@@ -72,13 +88,97 @@ const CheckCircleIcon = () => (
   </svg>
 );
 
-export default function Contact() {
-  const { dict, t } = useLanguage();
-  const [submitted, setSubmitted] = useState(false);
+function errorKeyFor(code) {
+  switch (code) {
+    case 'invalid_email':  return 'contactExtra.errorEmail';
+    case 'missing_fields': return 'contactExtra.errorValidation';
+    case 'rate_limited':   return 'contactExtra.errorRate';
+    default:               return 'contactExtra.errorBody';
+  }
+}
 
-  function handleSubmit(e) {
+export default function Contact() {
+  const { dict, t, locale } = useLanguage();
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+  const [errorText, setErrorText] = useState('');
+  const abortRef = useRef(null);
+  const errorRef = useRef(null);
+
+  useEffect(() => {
+    return () => abortRef.current?.abort();
+  }, []);
+
+  useEffect(() => {
+    if (status === 'error' && errorRef.current) {
+      errorRef.current.focus();
+    }
+  }, [status]);
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
+    if (status === 'sending') return;
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    // Honeypot — silently accept and reset, do not call API
+    if ((fd.get('company') || '').toString().trim()) {
+      setStatus('success');
+      form.reset();
+      return;
+    }
+
+    const payload = {
+      name:         (fd.get('name')         || '').toString().trim(),
+      email:        (fd.get('email')        || '').toString().trim(),
+      phone:        (fd.get('phone')        || '').toString().trim(),
+      businessType: (fd.get('businessType') || '').toString().trim(),
+      projectType:  (fd.get('projectType')  || '').toString().trim(),
+      budget:       (fd.get('budget')       || '').toString().trim(),
+      timeline:     (fd.get('timeline')     || '').toString().trim(),
+      message:      (fd.get('message')      || '').toString().trim(),
+      locale,
+      timestamp: new Date().toISOString()
+    };
+
+    if (!payload.name || !payload.email || !payload.message) {
+      setStatus('error');
+      setErrorText(t('contactExtra.errorValidation'));
+      const firstInvalid = form.querySelector('input[required]:invalid, textarea[required]:invalid');
+      firstInvalid?.focus();
+      return;
+    }
+
+    abortRef.current?.abort();
+    const ctrl = new AbortController();
+    abortRef.current = ctrl;
+
+    setStatus('sending');
+    setErrorText('');
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: ctrl.signal
+      });
+      let data = null;
+      try { data = await res.json(); } catch { /* tolerate empty body */ }
+
+      if (!res.ok || !data?.ok) {
+        setStatus('error');
+        setErrorText(t(errorKeyFor(data?.error)));
+        return;
+      }
+
+      setStatus('success');
+      form.reset();
+    } catch (err) {
+      if (err.name === 'AbortError') return;
+      setStatus('error');
+      setErrorText(t('contactExtra.errorBody'));
+    }
   }
 
   const projectTypeOptions = dict.contactExtra.projectTypeOptions;
@@ -86,6 +186,10 @@ export default function Contact() {
   const timelineOptions = dict.contactExtra.timelineOptions;
   const trustItems = dict.contactExtra.trust;
   const optionalLabel = t('contactExtra.optional');
+
+  const isSending = status === 'sending';
+  const isSuccess = status === 'success';
+  const isError   = status === 'error';
 
   return (
     <section id="contact" className="contact section">
@@ -151,7 +255,7 @@ export default function Contact() {
         </Reveal>
 
         <Reveal variant="up" delay={120} className="contact__form-wrap">
-          {submitted ? (
+          {isSuccess ? (
             <div className="contact__success surface" role="status" aria-live="polite">
               <span className="contact__success-icon" aria-hidden><CheckCircleIcon /></span>
               <h3 className="contact__success-title">{t('contactExtra.successTitle')}</h3>
@@ -191,6 +295,7 @@ export default function Contact() {
                   required
                   autoComplete="name"
                   placeholder={t('contactExtra.namePlaceholder')}
+                  disabled={isSending}
                 />
               </div>
               <div className="contact__field">
@@ -206,6 +311,7 @@ export default function Contact() {
                   autoComplete="email"
                   placeholder={t('contactExtra.emailPlaceholder')}
                   dir="ltr"
+                  disabled={isSending}
                 />
               </div>
               <div className="contact__field">
@@ -220,6 +326,7 @@ export default function Contact() {
                   autoComplete="tel"
                   placeholder={t('contactExtra.phonePlaceholder')}
                   dir="ltr"
+                  disabled={isSending}
                 />
               </div>
               <div className="contact__field">
@@ -233,6 +340,7 @@ export default function Contact() {
                   type="text"
                   placeholder={t('contactExtra.businessTypePlaceholder')}
                   autoComplete="organization"
+                  disabled={isSending}
                 />
               </div>
               <div className="contact__field">
@@ -240,7 +348,7 @@ export default function Contact() {
                   <span>{t('contactExtra.projectTypeLabel')}</span>
                   <span className="contact__field-meta">{optionalLabel}</span>
                 </label>
-                <select id="cf-project" name="projectType" defaultValue="">
+                <select id="cf-project" name="projectType" defaultValue="" disabled={isSending}>
                   {projectTypeOptions.map(o => (
                     <option key={o.value || 'placeholder'} value={o.value} disabled={o.value === ''}>
                       {o.label}
@@ -253,7 +361,7 @@ export default function Contact() {
                   <span>{t('contactExtra.budgetLabel')}</span>
                   <span className="contact__field-meta">{optionalLabel}</span>
                 </label>
-                <select id="cf-budget" name="budget" defaultValue="">
+                <select id="cf-budget" name="budget" defaultValue="" disabled={isSending}>
                   {budgetOptions.map(o => (
                     <option key={o.value || 'placeholder'} value={o.value} disabled={o.value === ''}>
                       {o.label}
@@ -266,7 +374,7 @@ export default function Contact() {
                   <span>{t('contactExtra.timelineLabel')}</span>
                   <span className="contact__field-meta">{optionalLabel}</span>
                 </label>
-                <select id="cf-timeline" name="timeline" defaultValue="">
+                <select id="cf-timeline" name="timeline" defaultValue="" disabled={isSending}>
                   {timelineOptions.map(o => (
                     <option key={o.value || 'placeholder'} value={o.value} disabled={o.value === ''}>
                       {o.label}
@@ -285,6 +393,19 @@ export default function Contact() {
                   rows="5"
                   required
                   placeholder={t('contactExtra.messagePlaceholder')}
+                  disabled={isSending}
+                />
+              </div>
+
+              {/* Honeypot — visually hidden, off-tab, off-autocomplete. Real users never see this. */}
+              <div className="contact__honeypot" aria-hidden="true">
+                <label htmlFor="cf-company">{t('contactExtra.honeypotLabel')}</label>
+                <input
+                  id="cf-company"
+                  name="company"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
                 />
               </div>
 
@@ -299,6 +420,22 @@ export default function Contact() {
                 </span>
               </div>
 
+              {isError && (
+                <div
+                  ref={errorRef}
+                  tabIndex={-1}
+                  className="contact__error"
+                  role="alert"
+                  aria-live="assertive"
+                >
+                  <span className="contact__error-icon" aria-hidden><AlertIcon /></span>
+                  <span className="contact__error-body">
+                    <strong className="contact__error-title">{t('contactExtra.errorTitle')}</strong>
+                    <span>{errorText || t('contactExtra.errorBody')}</span>
+                  </span>
+                </div>
+              )}
+
               <div className="contact__submit">
                 <span className="contact__response">
                   <ClockIcon />
@@ -308,11 +445,16 @@ export default function Contact() {
                   type="submit"
                   variant="gradient"
                   size="lg"
-                  disabled={submitted}
-                  iconEnd={<ArrowIcon />}
+                  disabled={isSending}
+                  aria-busy={isSending}
+                  iconEnd={isSending ? <SpinnerIcon /> : <ArrowIcon />}
                   className="contact__submit-btn"
                 >
-                  {submitted ? t('contact.submitted') : t('contact.submit')}
+                  {isSending
+                    ? t('contactExtra.sending')
+                    : isError
+                      ? t('contactExtra.retry')
+                      : t('contact.submit')}
                 </Button>
               </div>
             </form>

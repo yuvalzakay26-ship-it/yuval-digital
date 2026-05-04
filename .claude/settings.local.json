@@ -16,7 +16,8 @@
       "Bash(command -v convert)",
       "Bash(npm install *)",
       "Bash(node -e \"console.log\\(require\\('sharp'\\).versions\\)\")",
-      "Bash(node scripts/convert-mockup-images.mjs)"
+      "Bash(node scripts/convert-mockup-images.mjs)",
+      "Bash(xxd)"
     ]
   }
 }

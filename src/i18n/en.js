@@ -576,7 +576,15 @@ const en = {
     privacyConsentLink: 'Privacy Policy',
     privacyConsentTrail: '. Your details are kept only to reply to you and will not be shared.',
     successTitle: 'Got it. Your message is in.',
-    successBody: "I'll come back personally — usually the same day. If it's urgent, WhatsApp or a quick call work too."
+    successBody: "I'll come back personally — usually the same day. If it's urgent, WhatsApp or a quick call work too.",
+    sending: 'Sending…',
+    errorTitle: "Couldn't send your message",
+    errorBody: 'Something went wrong on our end. Please try again, or reach me on WhatsApp.',
+    errorValidation: 'Please fill in your name, email and message.',
+    errorEmail: "That email address doesn't look right.",
+    errorRate: 'Too many attempts. Wait a moment and try again.',
+    retry: 'Try again',
+    honeypotLabel: 'Leave this field empty'
   },
   a11y: {
     skipLink: 'Skip to main content',
