@@ -28,6 +28,7 @@ export default function Packages() {
           <span className="eyebrow">{t('packages.eyebrow')}</span>
           <h2 className="section__title">{t('packages.title')}</h2>
           <p className="section__lead">{t('packages.subtitle')}</p>
+          <p className="packages__filter">{t('packages.filter')}</p>
         </Reveal>
 
         <div className="packages__grid">
@@ -94,6 +95,7 @@ export default function Packages() {
         </div>
 
         <p className="packages__diff">{t('packages.differentiator')}</p>
+        <p className="packages__balance">{t('packages.balance')}</p>
         <p className="packages__note">{t('packages.note')}</p>
       </Container>
     </section>

@@ -305,6 +305,8 @@ const en = {
     title: 'A short call. Free. No commitment.',
     subtitle:
       'You tell me about the business. I listen. You walk away with a clear proposal — no pressure, no middlemen, no commitment.',
+    personalNote:
+      "Every message reaches me personally. You'll get a reply from me — not from an auto-responder, not from a project coordinator.",
     microcopy:
       'Prefer to talk? WhatsApp, phone or email — whatever works for you.',
     reassurance: 'Same-day reply · Directly with me · No middlemen',
@@ -338,8 +340,11 @@ const en = {
     deliverablesLabel: "What's included",
     priceLabel: 'Investment from',
     cta: "Let's talk about it",
+    filter:
+      "Built for businesses that take their digital presence seriously. One short call confirms whether it's the right fit.",
     differentiator:
       "The difference: no templates, no middlemen. Every project is written from scratch by one developer who also lectures programming — the same person who plans it builds it and stands behind every detail.",
+    balance: 'Simple communication. Real professionalism. No commitment, no pressure.',
     note: 'The prices shown are floors, not ceilings. Final scope is sized on a short discovery call and written into a clear proposal — no surprises down the road.',
     plans: [
       {
@@ -531,7 +536,7 @@ const en = {
   contactExtra: {
     trust: [
       { id: 'reply',   text: 'Same-day reply' },
-      { id: 'free',    text: 'No pressure, no commitment' },
+      { id: 'free',    text: 'No spam, no pressure' },
       { id: 'private', text: 'Directly with me' }
     ],
     trustAriaLabel: 'What to expect after you send',

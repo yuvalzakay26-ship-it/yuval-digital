@@ -274,6 +274,34 @@
   margin-top: var(--space-3);
 }
 
+/* Filter line — sits in the head, just under the lead */
+.packages__filter {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-text-soft);
+  letter-spacing: 0.005em;
+  font-weight: var(--fw-medium);
+  line-height: 1.65;
+  max-width: 60ch;
+}
+
+/* Balance line — sits between the differentiator and the price note */
+.packages__balance {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-text-soft);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.005em;
+  line-height: 1.65;
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+.packages__balance + .packages__note {
+  margin-top: var(--space-3);
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 1000px) {
   .packages__grid { grid-template-columns: 1fr; gap: var(--space-7); max-width: 540px; margin-inline: auto; }

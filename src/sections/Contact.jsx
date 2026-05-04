@@ -203,6 +203,8 @@ export default function Contact() {
           <h2 className="contact__title">{t('contact.title')}</h2>
           <p className="contact__subtitle">{t('contact.subtitle')}</p>
 
+          <p className="contact__personal">{t('contact.personalNote')}</p>
+
           <p className="contact__microcopy">{t('contact.microcopy')}</p>
 
           <div className="contact__reassurance">

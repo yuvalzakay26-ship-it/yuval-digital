@@ -150,6 +150,16 @@
   margin: calc(var(--space-1) * -1) 0 0;
 }
 
+.contact__personal {
+  font-size: var(--fs-sm);
+  color: var(--color-text-soft);
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  max-width: 52ch;
+  font-weight: var(--fw-medium);
+  margin: 0;
+}
+
 .contact__direct-card {
   display: flex;
   align-items: center;
