@@ -27,10 +27,14 @@ const en = {
   theme: {
     light: 'Light mode',
     dark: 'Dark mode',
-    toggle: 'Toggle theme'
+    toggle: 'Toggle theme',
+    switchToLight: 'Switch to light mode',
+    switchToDark: 'Switch to dark mode'
   },
   language: {
     switch: 'Switch language',
+    switchToEn: 'Switch to English',
+    switchToHe: 'Switch to Hebrew',
     he: 'עברית',
     en: 'English'
   },

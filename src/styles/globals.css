@@ -180,6 +180,55 @@ a, button {
     opacity var(--dur-base) var(--ease-out);
 }
 
+/* ---------- Theme transition (cinematic content reveal) ----------
+   No overlay. While ThemeProvider toggles `data-theme`, it briefly tags
+   <html> with `.theme-transitioning`. The main content area softens with
+   a blur + dim, the palette swaps behind that veil, then the content
+   sharpens back into the new theme.
+
+   Why blur instead of a black layer:
+   - Nothing covers the UI, so there's no flash at any moment.
+   - The new colours fade in *through* the same elements the user was
+     already looking at, which reads as a single continuous shift.
+
+   Why scoped to `.app-shell__content`:
+   - `filter` creates a containing block, so applying it higher up would
+     break `position: fixed` for navbar / FAB / mobile action bar (see
+     the comment in AppShell). `.app-shell__content` has no fixed-
+     position descendants, so it's the safe seam.
+   - Fixed UI (navbar, FABs) animates its colours via the existing
+     `html, body` background-color/color transitions on the same
+     ~280ms window — the whole page reads as one cinematic shift.
+
+   Compositor-only: blur + opacity, no layout-triggering properties. */
+.app-shell__content {
+  /* Sharpen-out timing: the curve used when `.theme-transitioning`
+     is removed. Longer than blur-in so the new theme has time to
+     "land" — a settle, not a snap. */
+  transform-origin: 50% 50%;
+  transition:
+    filter 240ms var(--ease-out),
+    opacity 240ms var(--ease-out),
+    transform 240ms var(--ease-out);
+}
+
+.theme-transitioning .app-shell__content {
+  /* 5px blur is enough to hide the colour swap behind a soft veil
+     without melting type or making the page feel "broken".
+     scale(0.98) is a 2% inward breath — below the threshold of
+     conscious motion for most viewers, but it lifts the whole
+     transition from "fast effect" to "cinematic shift". */
+  filter: blur(5px);
+  opacity: 0.85;
+  transform: scale(0.98);
+  /* Blur-in timing: deliberately longer than the previous 140ms so
+     the eye has time to register the softening before the swap. */
+  transition:
+    filter 190ms var(--ease-out),
+    opacity 190ms var(--ease-out),
+    transform 190ms var(--ease-out);
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -187,6 +236,16 @@ a, button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  /* No blur, no fade, no scale — ThemeProvider also short-circuits
+     to an instant token swap, so this is a defence-in-depth
+     guarantee against motion ever leaking through. */
+  .app-shell__content,
+  .theme-transitioning .app-shell__content {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

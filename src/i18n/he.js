@@ -27,10 +27,14 @@ const he = {
   theme: {
     light: 'מצב בהיר',
     dark: 'מצב כהה',
-    toggle: 'החלפת ערכת נושא'
+    toggle: 'החלפת ערכת נושא',
+    switchToLight: 'מעבר למצב בהיר',
+    switchToDark: 'מעבר למצב כהה'
   },
   language: {
     switch: 'החלפת שפה',
+    switchToEn: 'החלפה לאנגלית',
+    switchToHe: 'החלפה לעברית',
     he: 'עברית',
     en: 'English'
   },

@@ -1,32 +1,21 @@
 import { useLanguage } from '@hooks/useLanguage.js';
-import { cn } from '@utils/cn.js';
 import './LanguageSwitcher.css';
 
 export default function LanguageSwitcher() {
-  const { locale, setLocale, t, available } = useLanguage();
+  const { locale, toggleLocale, t } = useLanguage();
+  const target = locale === 'he' ? 'en' : 'he';
+  const label = target === 'en' ? 'EN' : 'HE';
+  const ariaKey = target === 'en' ? 'language.switchToEn' : 'language.switchToHe';
 
   return (
-    <div
-      role="group"
-      aria-label={t('language.switch')}
+    <button
+      type="button"
       className="lang-switch"
+      aria-label={t(ariaKey)}
+      onClick={toggleLocale}
+      data-target={target}
     >
-      {available.map(code => (
-        <button
-          key={code}
-          type="button"
-          className={cn('lang-switch__btn', { 'lang-switch__btn--active': locale === code })}
-          aria-pressed={locale === code}
-          onClick={() => setLocale(code)}
-        >
-          {code === 'he' ? 'עב' : 'EN'}
-        </button>
-      ))}
-      <span
-        className="lang-switch__pill"
-        aria-hidden
-        data-active={locale}
-      />
-    </div>
+      <span className="lang-switch__label" key={target}>{label}</span>
+    </button>
   );
 }
