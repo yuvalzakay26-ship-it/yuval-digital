@@ -112,7 +112,14 @@
   animation: pulseGlow 2.4s var(--ease-out) infinite;
 }
 
-.hero__eyebrow { margin-top: var(--space-1); }
+.hero__eyebrow {
+  /* Override global .eyebrow's align-self: flex-start so the kicker shares
+     the same cross-axis center as .hero__badge inside the flex column. In
+     RTL flex-start is the right edge, which is what made this pill look
+     visibly offset from the centered top badge. */
+  align-self: center;
+  margin-top: var(--space-1);
+}
 
 .hero__title {
   display: flex;
