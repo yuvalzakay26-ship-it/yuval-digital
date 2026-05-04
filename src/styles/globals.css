@@ -243,6 +243,17 @@ main {
   scroll-margin-top: calc(var(--navbar-h) + var(--space-4));
 }
 
+/* ---------- Render skipping for deep below-fold sections ----------
+   Sections that always sit far below the initial viewport. The browser can
+   skip layout/paint until the user scrolls near them, slashing first-paint
+   cost on a long marketing page. `contain-intrinsic-size: auto` lets the
+   browser remember each section's measured height after first reveal, so
+   the scrollbar stays accurate and there is no CLS. */
+:where(#process, #stack, #about, #faq, #contact) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1200px;
+}
+
 /* ---------- Skip link ---------- */
 .skip-link {
   position: fixed;

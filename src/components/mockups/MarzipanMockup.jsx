@@ -20,6 +20,9 @@ export default function MarzipanMockup({ variant = 'browser' }) {
      fill the device chrome. */
   const width = isPhone ? 390 : 1280;
   const height = isPhone ? 844 : 800;
+  const alt = isPhone
+    ? 'Marzipan Bakery — mobile product catalog screen'
+    : 'Marzipan Bakery — desktop homepage with founder hero section';
   return (
     <picture>
       <source type="image/avif" srcSet={`${base}.avif`} />
@@ -27,7 +30,7 @@ export default function MarzipanMockup({ variant = 'browser' }) {
       <img
         className={`mu-marzipan-img mu-marzipan-img--${isPhone ? 'phone' : 'browser'}`}
         src={`${base}.png`}
-        alt=""
+        alt={alt}
         width={width}
         height={height}
         loading="lazy"

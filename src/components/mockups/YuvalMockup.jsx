@@ -20,6 +20,9 @@ export default function YuvalMockup({ variant = 'browser' }) {
      the image arrives — eliminates layout shift while loading lazy. */
   const width = isPhone ? 390 : 1280;
   const height = isPhone ? 844 : 800;
+  const alt = isPhone
+    ? 'Yuval Digital — mobile preview of the bilingual portfolio site'
+    : 'Yuval Digital — desktop preview of the bilingual portfolio site';
   return (
     <picture>
       <source type="image/avif" srcSet={`${base}.avif`} />
@@ -27,7 +30,7 @@ export default function YuvalMockup({ variant = 'browser' }) {
       <img
         className={`mu-yuval-img mu-yuval-img--${isPhone ? 'phone' : 'browser'}`}
         src={`${base}.png`}
-        alt=""
+        alt={alt}
         width={width}
         height={height}
         loading="lazy"
