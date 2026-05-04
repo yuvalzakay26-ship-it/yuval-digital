@@ -202,10 +202,10 @@ const en = {
     solutionLabel: 'Solution',
     outcomeLabel: 'What you get',
     featuresLabel: 'What stands out',
-    viewProject: "Build something like this",
-    viewProjectAlt: 'View Project',
-    liveDemo: 'Live Demo',
-    caseStudy: 'View Case Study',
+    viewProject: 'View project',
+    viewProjectAlt: 'View project',
+    liveDemo: 'See result',
+    caseStudy: 'Read case study',
     currentSiteBadge: "You're already on this site",
     conceptDemoBadge: 'Concept demo',
     skillsLabel: 'Project capabilities',
@@ -230,59 +230,83 @@ const en = {
         featured: true,
         liveUrl: 'https://marzipan-bakery.vercel.app',
         caseStudyUrl: null,
-        title: 'Marzipan Bakery Website',
-        subtitle: 'Luxury bakery website with online ordering experience, premium branding, product catalog and conversion-focused UX.',
+        title: 'Marzipan Bakery · Jerusalem — heritage bakery (est. 1986) reimagined online',
+        subtitle: 'A Jerusalem brand established in 1986, in need of a digital home matching its quality. Delivered: a premium commerce site with brand storytelling and seamless online ordering — an experience that feels like the product itself.',
         category: 'Real client project · Jerusalem luxury bakery',
         industry: 'Food & hospitality',
         problem: 'A heritage Jerusalem bakery (established 1986) needed a digital presence that reflects its history, quality and premium feel — while letting customers browse and order online effortlessly.',
-        solution: 'Luxury bakery website with online ordering experience, product catalog, storytelling and premium branding.',
-        outcome: 'A digital experience that feels like the product itself — warm, refined, and guiding the customer smoothly from story to cart.',
-        features: ['Online ordering', 'Full product catalog', 'Brand storytelling', 'Mobile optimized'],
-        skills: ['Branding', 'E-commerce', 'UX/UI', 'Conversion Design']
+        solution: 'A luxury bakery commerce site with online ordering, product catalog, brand storytelling and premium branding.',
+        outcome: 'A digital experience that feels like the product itself — warm, refined, guiding the customer smoothly from story to cart.',
+        features: [
+          'Challenge: Heritage brand needed a digital home matching its quality',
+          'Solution: Commerce site with brand storytelling and seamless ordering',
+          'Result: An experience that feels like walking into the shop itself'
+        ],
+        skills: ['Online ordering UX', 'Premium branding', 'Mobile-first', 'Conversion design']
       },
       {
         id: 'yuval',
         kind: 'real',
-        title: 'yuval.digital',
+        title: 'yuval.digital — bilingual personal brand site',
+        subtitle: 'A personal brand site that doubles as the delivery-quality benchmark I hold every project to.',
         category: 'Personal brand site · bilingual',
         industry: 'Personal brand',
-        problem: 'The need for a serious digital presence that reflects who I am, what I build and how to work with me.',
+        problem: 'A serious digital presence was needed to reflect who I am, what I build and how to work with me.',
         solution: 'A full bilingual site (Hebrew + English), light & dark themes, subtle motion and a clean code architecture.',
-        outcome: 'A living site that speaks for itself — and serves as a delivery-quality benchmark I hold every project to.',
-        features: ['True bilingual', 'Dark + light mode', 'Accessible & fast']
+        outcome: 'A living site that speaks for itself — and serves as a delivery-quality benchmark for every project.',
+        features: [
+          'Challenge: A serious presence reflecting who I am and how I work',
+          'Solution: Full bilingual site with dark/light mode and subtle motion',
+          'Result: A live site that speaks for itself and sets a delivery benchmark'
+        ]
       },
       {
         id: 'clinic',
         kind: 'concept',
-        title: 'Clinic Booking System',
+        title: 'Private clinic — online appointment booking system',
+        subtitle: 'A system that gives practitioners back hours through self-booking, automated reminders and a clean dashboard.',
         category: 'Concept demo · scheduling system',
         industry: 'Health & wellness',
         problem: 'Practitioners burning hours on the phone, double-bookings, and last-minute cancellations.',
-        solution: 'Self-serve booking, automated WhatsApp reminders, smart slot blocking, and a clean practitioner dashboard.',
+        solution: 'Self-serve booking, automated WhatsApp reminders, smart slot blocking and a clean practitioner dashboard.',
         outcome: 'An example of how a small, focused automation can give back several hours per week.',
-        features: ['Self-serve 24/7', 'WhatsApp reminders', 'Mobile optimized']
+        features: [
+          'Challenge: Hours lost to phone bookings and last-minute cancellations',
+          'Solution: 24/7 self-booking, WhatsApp reminders, clean practitioner dashboard',
+          'Result: Hours back per week, fewer no-shows, fewer phone calls'
+        ]
       },
       {
         id: 'restaurant',
         kind: 'concept',
-        title: 'Restaurant Orders Website',
+        title: 'Urban restaurant — online ordering site for delivery and pickup',
+        subtitle: 'A fast ordering site that frees the team from the phone, even during peak hours.',
         category: 'Concept demo · online ordering',
         industry: 'Food & hospitality',
         problem: 'Restaurants taking phone orders, losing tickets at peak time, and struggling to track pickup and delivery.',
-        solution: 'A fast ordering site, simple menu management, live order status, and integrated payment + kitchen printing.',
+        solution: 'A fast ordering site, simple menu management, live order status, integrated payment and kitchen printing.',
         outcome: 'An example of how one focused site shortens the path from order to plate and frees the team from the phone.',
-        features: ['Live menu', 'Fast checkout', 'Mobile optimized']
+        features: [
+          'Challenge: Phone orders, lost tickets at peak hours and no real tracking',
+          'Solution: Fast ordering site, simple menu management and live order status',
+          'Result: Team freed from the phone, fewer mistakes, more orders closed'
+        ]
       },
       {
         id: 'leadgen',
         kind: 'concept',
-        title: 'Lead Capture Landing Page',
+        title: 'Campaign landing page — high-intent lead capture',
+        subtitle: 'A focused page that converts campaign traffic into qualified inquiries instead of losing it on the way.',
         category: 'Concept demo · marketing campaign',
         industry: 'Marketing & sales',
         problem: 'Campaign traffic landing on a busy site that distracts and loses high-intent leads on the way to the form.',
-        solution: 'A single focused landing page, sharp copy, smart form, and automatic routing to CRM and the owner\'s WhatsApp.',
-        outcome: 'An example of how one focused page produces dramatically higher conversion than a do-everything site.',
-        features: ['Conversion-focused', 'Fast performance', 'A/B ready']
+        solution: "A single focused landing page, sharp copy, smart form and automatic routing to CRM and the owner's WhatsApp.",
+        outcome: 'An example of how one focused page produces qualified inquiries instead of losing them along the way.',
+        features: [
+          'Challenge: Campaign traffic landing on a busy site that loses qualified leads',
+          'Solution: One focused page, sharp copy, smart form and WhatsApp routing',
+          'Result: A page that produces inquiries instead of losing them'
+        ]
       }
     ]
   },
