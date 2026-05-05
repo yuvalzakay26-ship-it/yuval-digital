@@ -371,7 +371,8 @@ const he = {
     response: 'לרוב מענה באותו יום'
   },
   fab: {
-    whatsapp: 'דיבור ב-WhatsApp'
+    whatsapp: 'דיבור ב-WhatsApp',
+    scrollTop: 'גלילה למעלה'
   },
   mab: {
     ariaLabel: 'פעולות מהירות',

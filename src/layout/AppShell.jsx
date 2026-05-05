@@ -1,6 +1,7 @@
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 import WhatsAppFab from '@components/WhatsAppFab.jsx';
+import ScrollToTopFab from '@components/ScrollToTopFab.jsx';
 import MobileActionBar from '@components/MobileActionBar.jsx';
 import AccessibilityToolbar from '@components/AccessibilityToolbar.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
@@ -23,6 +24,7 @@ export default function AppShell({ children }) {
         <Footer />
       </div>
       <WhatsAppFab />
+      <ScrollToTopFab />
       <MobileActionBar />
       <AccessibilityToolbar />
     </div>

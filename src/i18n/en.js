@@ -371,7 +371,8 @@ const en = {
     response: 'Usually a same-day reply'
   },
   fab: {
-    whatsapp: 'Chat on WhatsApp'
+    whatsapp: 'Chat on WhatsApp',
+    scrollTop: 'Scroll to top'
   },
   mab: {
     ariaLabel: 'Quick actions',

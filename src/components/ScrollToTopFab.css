@@ -1,0 +1,132 @@
+/* ==========================================================================
+   Scroll-to-top FAB
+   Minimal circular button that appears after the user scrolls ~500px.
+
+   Sized to match the WhatsApp FAB (56px desktop) and shrinks to mirror the
+   a11y FAB on mobile (44px) — keeping the floating UI a single, coherent
+   system. Wears the brand accent gradient so it reads as premium next to
+   the white page surface, while staying visually distinct from the green
+   WhatsApp FAB (same end-side rail) and the solid-blue a11y FAB (start
+   side). Depth uses the accent-tinted shadow language that WhatsAppFab
+   established for green — here in accent-blue.
+
+   Stacking geometry (keep in sync with WhatsAppFab.css):
+   - Desktop:  WhatsApp FAB anchors at clamp(16px, 3vw, 28px), 56px tall.
+               Scroll-top sits 14px above it, sharing the end-side rail.
+   - Mobile:   WhatsApp FAB is hidden; the MobileActionBar (62px) anchors the
+               bottom-center and the a11y FAB sits at MAB-bottom + 74px on
+               the start side. Scroll-top mirrors the a11y FAB on the end
+               side at the same vertical level.
+   ========================================================================== */
+
+.stt-fab {
+  position: fixed;
+  z-index: var(--z-overlay);
+  inset-inline-end: clamp(16px, 3vw, 28px);
+  /* WhatsApp FAB bottom (clamp(16px, 3vw, 28px)) + its height (56px) + 14px gap. */
+  bottom: calc(clamp(16px, 3vw, 28px) + 56px + 14px);
+
+  /* Match the WhatsApp FAB footprint exactly (56 × 56). */
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-circle);
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+
+  background: var(--gradient-accent);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  /* Accent-tinted shadow halo — mirrors the WhatsAppFab approach
+     (green-tinted shadow for the green button, accent-tinted for this one). */
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.06),
+    0 16px 40px var(--color-accent-glow),
+    0 4px 12px rgba(37, 99, 235, 0.22);
+  cursor: pointer;
+  isolation: isolate;
+
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  pointer-events: none;
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-spring),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.stt-fab--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ---- Premium hover: lift + scale + brighter accent halo. ---- */
+.stt-fab--visible:hover {
+  transform: translateY(-2px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.08),
+    0 22px 56px rgba(37, 99, 235, 0.42),
+    0 8px 18px rgba(124, 58, 237, 0.30);
+}
+
+.stt-fab--visible:active {
+  transform: translateY(0) scale(0.95);
+  transition-duration: var(--dur-fast);
+}
+
+.stt-fab:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.stt-fab__icon {
+  display: inline-flex;
+  color: #ffffff;
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+
+/* Match the icon-scale ratio used by other FABs (~24/56). */
+.stt-fab__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.stt-fab:hover .stt-fab__icon {
+  transform: translateY(-2px);
+}
+
+/* ---- Mobile: mirror the a11y FAB on the end side, above the MAB.
+   Same 44 × 44 footprint and same bottom anchor formula as .a11y-fab. ---- */
+@media (max-width: 720px) {
+  .stt-fab {
+    bottom: calc(max(env(safe-area-inset-bottom), 12px) + 74px);
+    inset-inline-end: 12px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .stt-fab__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ---- Step aside while the mobile drawer is open. ---- */
+body.drawer-open .stt-fab {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stt-fab,
+  .stt-fab__icon {
+    transition-duration: 0.001ms;
+  }
+  .stt-fab--visible:hover {
+    transform: none;
+  }
+}
