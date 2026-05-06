@@ -28,7 +28,7 @@
   background:
     radial-gradient(700px 300px at 100% 0%, var(--color-accent-soft), transparent 60%),
     radial-gradient(500px 240px at 0% 100%, var(--color-accent-glow), transparent 65%);
-  opacity: 0.4;
+  opacity: 0.26;
   z-index: -1;
   pointer-events: none;
 }
@@ -36,19 +36,17 @@
 /* ---- Strong tone (full gradient) ---- */
 .cta-banner--strong .cta-banner__inner {
   background: var(--gradient-accent);
-  background-size: 200% 200%;
   color: #fff;
-  animation: gradientShift 14s var(--ease-in-out) infinite;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .cta-banner--strong .cta-banner__inner::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.35;
+  opacity: 0.22;
   pointer-events: none;
   z-index: -1;
   mix-blend-mode: overlay;
@@ -103,9 +101,9 @@
   gap: var(--space-2);
   padding: 6px 14px;
   font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   color: var(--color-accent);
   background: var(--color-accent-soft);
   border: 1px solid var(--color-border);
@@ -114,9 +112,9 @@
 
 .cta-banner__title {
   font-size: clamp(1.5rem, 3vw, var(--fs-3xl));
-  font-weight: var(--fw-black);
-  letter-spacing: -0.028em;
-  line-height: 1.1;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.024em;
+  line-height: 1.14;
   text-wrap: balance;
 }
 

@@ -138,14 +138,14 @@
   }
   .mab__btn--call:hover { color: var(--color-text); }
 
-  /* WhatsApp — PRIMARY visual weight. Brand gradient, premium soft glow. */
+  /* WhatsApp — PRIMARY visual weight. Brand gradient, restrained soft glow. */
   .mab__btn--wa {
     padding: 0 18px;
     color: #ffffff;
     background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
     box-shadow:
-      0 6px 16px rgba(22, 163, 74, 0.32),
-      0 2px 6px rgba(22, 163, 74, 0.20);
+      0 4px 12px rgba(22, 163, 74, 0.22),
+      0 2px 4px rgba(22, 163, 74, 0.14);
   }
 
   /* Quote — accent-tinted secondary. */

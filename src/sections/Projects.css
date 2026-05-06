@@ -47,9 +47,9 @@
 }
 
 .projects__stat:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   border-color: color-mix(in oklab, var(--color-border-strong) 80%, transparent);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xs);
 }
 
 .projects__stat-value {
@@ -149,11 +149,11 @@
 }
 
 .project-card__inner:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   border-color: var(--color-border-strong);
   box-shadow:
-    0 38px 70px -28px var(--card-glow, rgba(37, 99, 235, 0.45)),
-    var(--shadow-lg);
+    0 24px 48px -24px var(--card-glow, rgba(37, 99, 235, 0.28)),
+    var(--shadow-md);
 }
 
 /* ============================================================
@@ -171,10 +171,10 @@
 }
 
 .project-card__inner--featured:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
   box-shadow:
-    0 44px 90px -28px var(--card-glow, rgba(159, 18, 57, 0.5)),
-    var(--shadow-xl);
+    0 32px 64px -28px var(--card-glow, rgba(159, 18, 57, 0.32)),
+    var(--shadow-lg);
 }
 
 /* Animated gradient ring on hover */
@@ -200,21 +200,21 @@
   opacity: 1;
 }
 
-/* Premium ambient glow around featured (always-on, intensifies on hover) */
+/* Premium ambient glow around featured (subtle ambient, gentle hover lift) */
 .project-card__inner--featured::after {
   content: '';
   position: absolute;
   inset: -28px;
   background: radial-gradient(60% 60% at 50% 50%, var(--card-glow, rgba(159, 18, 57, 0.45)), transparent 70%);
   filter: blur(36px);
-  opacity: 0.5;
+  opacity: 0.26;
   z-index: -1;
   transition: opacity var(--dur-slow) var(--ease-out);
   pointer-events: none;
 }
 
 .project-card__inner--featured:hover::after {
-  opacity: 0.85;
+  opacity: 0.5;
 }
 
 /* "Featured project" floating ribbon (top-end) */
@@ -231,12 +231,12 @@
   color: #fff;
   border-radius: var(--radius-pill);
   font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-weight: 700;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   box-shadow:
-    0 10px 24px -10px var(--card-glow, rgba(37, 99, 235, 0.55)),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+    0 8px 18px -10px var(--card-glow, rgba(37, 99, 235, 0.42)),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
 }
 
 .project-card__featured-flag-icon {
@@ -310,14 +310,14 @@
   background:
     radial-gradient(50% 50% at 50% 60%, color-mix(in oklab, var(--card-glow, rgba(159, 18, 57, 0.5)) 80%, transparent), transparent 70%);
   filter: blur(28px);
-  opacity: 0.7;
+  opacity: 0.42;
   pointer-events: none;
   transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
 }
 
 .project-card__inner--featured:hover .project-card__stage-halo {
-  opacity: 1;
-  transform: scale(1.08);
+  opacity: 0.65;
+  transform: scale(1.04);
 }
 
 .project-card__inner:hover .project-card__stage-bg { opacity: 0.26; }
@@ -361,8 +361,8 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text);
   box-shadow: var(--shadow-xs);
@@ -479,29 +479,29 @@
   width: 100%;
 }
 
-/* ---- Hover lift + zoom on devices (image zoom) ---- */
+/* ---- Hover lift + subtle zoom on devices ---- */
 .project-card__inner:hover .project-card__desktop {
-  transform: translateY(16px) rotateX(4deg) scale(1.05);
+  transform: translateY(20px) rotateX(6deg) scale(1.025);
 }
 
 .project-card__inner:hover .project-card__phone {
-  transform: translateY(6px) rotate(2deg) scale(1.08);
+  transform: translateY(12px) rotate(3deg) scale(1.04);
 }
 
 [dir='rtl'] .project-card__inner:hover .project-card__phone {
-  transform: translateY(6px) rotate(-2deg) scale(1.08);
+  transform: translateY(12px) rotate(-3deg) scale(1.04);
 }
 
 .project-card__inner--featured:hover .project-card__desktop {
-  transform: translateY(18px) rotateX(3deg) scale(1.06);
+  transform: translateY(24px) rotateX(5deg) scale(1.03);
 }
 
 .project-card__inner--featured:hover .project-card__phone {
-  transform: translateY(8px) rotate(2deg) scale(1.1);
+  transform: translateY(16px) rotate(3deg) scale(1.05);
 }
 
 [dir='rtl'] .project-card__inner--featured:hover .project-card__phone {
-  transform: translateY(8px) rotate(-2deg) scale(1.1);
+  transform: translateY(16px) rotate(-3deg) scale(1.05);
 }
 
 /* ============================================================
@@ -535,8 +535,8 @@
 
 .project-card__category {
   font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: 0.14em;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
@@ -548,28 +548,26 @@
 .project-card__title {
   position: relative;
   font-size: var(--fs-2xl);
-  font-weight: var(--fw-black);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.024em;
+  line-height: 1.15;
   color: var(--color-text);
   transition: color var(--dur-base) var(--ease-out);
 }
 
 .project-card__inner--featured .project-card__title {
   font-size: clamp(1.75rem, 2.4vw + 0.5rem, 2.6rem);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.028em;
+  font-weight: var(--fw-black);
 }
 
 .project-card__inner--compact .project-card__title {
   font-size: var(--fs-xl);
 }
 
-/* Title accent on hover — gradient text */
+/* Title shifts to accent on hover — restrained, no gradient flip */
 .project-card__inner:hover .project-card__title {
-  background: var(--card-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-text);
 }
 
 .project-card__desc {
@@ -604,9 +602,9 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   color: var(--color-text);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   direction: inherit;
   unicode-bidi: isolate;
@@ -630,7 +628,6 @@
   background: var(--card-accent);
   border-color: transparent;
   color: #fff;
-  transform: translateY(-1px);
 }
 
 /* ---- Features pills (concept cards) ---- */
@@ -754,10 +751,10 @@
 }
 
 .project-card__btn--primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow:
-    0 18px 38px -12px var(--card-glow, rgba(37, 99, 235, 0.6)),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+    0 14px 30px -12px var(--card-glow, rgba(37, 99, 235, 0.42)),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
 .project-card__btn--ghost {
@@ -767,7 +764,7 @@
 }
 
 .project-card__btn--ghost:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   background: var(--color-surface-soft);
   border-color: var(--color-text);
 }
@@ -852,21 +849,21 @@
   height: 80%;
   background: var(--gradient-accent);
   filter: blur(72px);
-  opacity: 0.18;
+  opacity: 0.1;
   z-index: -1;
   pointer-events: none;
 }
 
 [data-theme='dark'] .projects__final-glow {
-  opacity: 0.32;
+  opacity: 0.2;
 }
 
 .projects__final-title {
   margin: 0;
   font-size: clamp(1.5rem, 2.4vw + 0.5rem, 2.25rem);
-  font-weight: var(--fw-black);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.024em;
+  line-height: 1.18;
   color: var(--color-text);
   max-width: 28ch;
 }
@@ -889,22 +886,22 @@
   background: var(--gradient-accent);
   color: #fff;
   font-size: var(--fs-md);
-  font-weight: var(--fw-bold);
-  letter-spacing: 0.02em;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.012em;
   border: 1px solid transparent;
   box-shadow:
-    0 14px 32px -12px var(--color-accent-glow),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+    0 10px 24px -12px var(--color-accent-glow),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14);
   transition:
     transform var(--dur-fast) var(--ease-out),
     box-shadow var(--dur-base) var(--ease-out);
 }
 
 .projects__final-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow:
-    0 22px 44px -14px var(--color-accent-glow),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+    0 18px 36px -14px var(--color-accent-glow),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.20);
 }
 
 .projects__final-btn-arrow {

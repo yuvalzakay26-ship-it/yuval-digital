@@ -44,14 +44,14 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: clamp(2.5rem, 7.2vw, var(--fs-6xl));
   font-weight: var(--fw-black);
-  line-height: 1.02;
-  letter-spacing: var(--tracking-tightest);
+  line-height: 1.04;
+  letter-spacing: var(--tracking-tighter);
 }
 h2 {
   font-size: clamp(1.85rem, 4.4vw, var(--fs-4xl));
-  font-weight: var(--fw-black);
-  line-height: 1.1;
-  letter-spacing: var(--tracking-tighter);
+  font-weight: var(--fw-bold);
+  line-height: 1.12;
+  letter-spacing: var(--tracking-tight);
 }
 h3 {
   font-size: clamp(1.4rem, 2.4vw, var(--fs-2xl));
@@ -103,9 +103,9 @@ p + p {
   align-items: center;
   gap: var(--space-2);
   font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   color: var(--color-accent);
   padding: 8px 16px;
   border-radius: var(--radius-pill);

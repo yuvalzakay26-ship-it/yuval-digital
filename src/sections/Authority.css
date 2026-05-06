@@ -3,7 +3,7 @@
   position: relative;
 }
 
-.authority__head { margin-bottom: var(--space-12); }
+.authority__head { margin-bottom: var(--space-16); }
 
 .authority__grid {
   display: grid;
@@ -29,9 +29,9 @@
 }
 
 .authority-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .authority-card__icon {

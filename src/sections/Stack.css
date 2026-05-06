@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 
-.stack__head { margin-bottom: var(--space-12); }
+.stack__head { margin-bottom: var(--space-16); }
 
 .stack__grid {
   display: grid;
@@ -28,9 +28,9 @@
 }
 
 .stack-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .stack-card__head {
@@ -85,7 +85,7 @@
 .stack-badge:hover {
   background: var(--color-accent-soft);
   border-color: var(--color-accent);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .stack-badge__name {

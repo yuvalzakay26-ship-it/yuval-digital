@@ -13,7 +13,7 @@
   background:
     radial-gradient(900px 400px at 100% 0%, var(--color-accent-soft), transparent 60%),
     radial-gradient(700px 400px at 0% 100%, var(--color-accent-glow), transparent 60%);
-  opacity: 0.4;
+  opacity: 0.24;
   z-index: -1;
 }
 
@@ -81,9 +81,9 @@
 }
 
 .process__item:hover .process__node {
-  transform: translateY(-4px) scale(1.04);
+  transform: translateY(-2px) scale(1.025);
   border-color: var(--color-accent);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-md);
 }
 
 .process__index {
@@ -97,12 +97,12 @@
   border-radius: var(--radius-circle);
   background: var(--color-accent-soft);
   opacity: 0;
-  transform: scale(0.8);
+  transform: scale(0.85);
   transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
   z-index: -1;
 }
 .process__item:hover .process__pulse {
-  opacity: 1;
+  opacity: 0.7;
   transform: scale(1);
 }
 

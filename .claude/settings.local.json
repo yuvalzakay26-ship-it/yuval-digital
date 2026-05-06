@@ -25,7 +25,8 @@
       "Bash(node --check src/sections/Projects.jsx)",
       "Bash(git *)",
       "WebFetch(domain:localhost)",
-      "Bash(curl -s http://localhost:5175/)"
+      "Bash(curl -s http://localhost:5175/)",
+      "Bash(node -e \"require\\('./src/i18n/he.js'\\); require\\('./src/i18n/en.js'\\); console.log\\('OK'\\);\")"
     ]
   }
 }

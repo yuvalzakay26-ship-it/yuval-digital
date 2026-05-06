@@ -30,7 +30,7 @@
     filter var(--dur-base) var(--ease-out);
 }
 
-.btn:hover { transform: translateY(-1.5px); }
+.btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0) scale(0.985); transition-duration: 80ms; }
 .btn:disabled,
 .btn[disabled] {
@@ -43,21 +43,19 @@
 /* ---- variants ---- */
 .btn--primary {
   --btn-bg: var(--color-accent);
-  box-shadow: var(--shadow-md), 0 0 0 0 var(--color-accent-glow);
+  box-shadow: var(--shadow-sm);
 }
 .btn--primary:hover {
-  box-shadow: var(--shadow-lg), 0 0 0 6px var(--color-accent-soft);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--gradient {
   background: var(--gradient-accent);
-  background-size: 200% 200%;
   color: #fff;
-  box-shadow: var(--shadow-md);
-  animation: gradientShift 8s var(--ease-in-out) infinite;
+  box-shadow: var(--shadow-sm);
 }
 .btn--gradient:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--ghost {

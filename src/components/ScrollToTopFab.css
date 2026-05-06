@@ -41,8 +41,8 @@
      (green-tinted shadow for the green button, accent-tinted for this one). */
   box-shadow:
     0 0 0 1px rgba(15, 23, 42, 0.06),
-    0 16px 40px var(--color-accent-glow),
-    0 4px 12px rgba(37, 99, 235, 0.22);
+    0 12px 28px var(--color-accent-glow),
+    0 3px 8px rgba(37, 99, 235, 0.16);
   cursor: pointer;
   isolation: isolate;
 
@@ -62,14 +62,14 @@
   pointer-events: auto;
 }
 
-/* ---- Premium hover: lift + scale + brighter accent halo. ---- */
+/* ---- Premium hover: gentle lift + scale + brighter accent halo. ---- */
 .stt-fab--visible:hover {
-  transform: translateY(-2px) scale(1.05);
-  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.20);
   box-shadow:
     0 0 0 1px rgba(15, 23, 42, 0.08),
-    0 22px 56px rgba(37, 99, 235, 0.42),
-    0 8px 18px rgba(124, 58, 237, 0.30);
+    0 16px 40px rgba(37, 99, 235, 0.30),
+    0 6px 14px rgba(124, 58, 237, 0.22);
 }
 
 .stt-fab--visible:active {

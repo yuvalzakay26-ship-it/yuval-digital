@@ -13,7 +13,7 @@
     radial-gradient(800px 400px at 0% 0%, var(--color-accent-soft), transparent 60%),
     radial-gradient(600px 400px at 100% 100%, var(--color-accent-glow), transparent 60%);
   z-index: -1;
-  opacity: 0.55;
+  opacity: 0.32;
 }
 
 .contact__inner {
@@ -69,10 +69,10 @@
 
 .contact__title {
   font-size: clamp(1.95rem, 4.4vw, var(--fs-4xl));
-  font-weight: var(--fw-black);
-  letter-spacing: -0.03em;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.024em;
   max-width: 18ch;
-  line-height: 1.08;
+  line-height: 1.1;
   text-wrap: balance;
 }
 
@@ -125,10 +125,10 @@
 
 .contact__direct-label {
   font-size: var(--fs-xs);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
 }
 
 .contact__direct-row {
@@ -178,9 +178,9 @@
 
 .contact__direct-card:hover {
   border-color: var(--color-accent);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  background: color-mix(in oklab, var(--color-surface) 92%, var(--color-accent) 8%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  background: color-mix(in oklab, var(--color-surface) 94%, var(--color-accent) 6%);
 }
 
 .contact__direct-card:active {
@@ -247,7 +247,7 @@
   background: radial-gradient(closest-side, var(--color-accent-glow), transparent 75%);
   z-index: -1;
   filter: blur(28px);
-  opacity: 0.65;
+  opacity: 0.38;
   pointer-events: none;
 }
 

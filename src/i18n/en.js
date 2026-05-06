@@ -44,7 +44,7 @@ const en = {
     theme: 'Theme'
   },
   hero: {
-    badge: 'Developer & programming lecturer · Business thinking first',
+    badge: 'Business thinking before design · Developer & programming lecturer',
     eyebrow: 'Digital presence for businesses',
     titleLead: "Being a good business isn't enough.",
     titleHighlight: 'They also have to find you.',
@@ -61,9 +61,9 @@ const en = {
   trustStrip: {
     ariaLabel: 'Core strengths',
     items: [
-      'Fast, SEO-ready websites',
-      'User experience that earns trust',
-      'Digital solutions for real businesses'
+      'Business thinking before design',
+      'A digital presence that earns trust',
+      'Built around the business goal'
     ]
   },
   trust: {
@@ -158,7 +158,7 @@ const en = {
     eyebrow: 'How I work',
     title: 'A clear process. No surprises.',
     subtitle:
-      'Five stages — from a real understanding of your business to a presence that works for it.',
+      'A structured five-stage process — from a deep understanding of your business to a presence that works for it.',
     steps: [
       {
         id: 'discovery',
@@ -196,7 +196,7 @@ const en = {
     eyebrow: 'About me',
     title: "I don't just build websites. I build digital systems for businesses.",
     body:
-      "I believe a strong digital presence should earn trust before the first conversation ever happens. Every decision on a site — from the first word to the final button — should serve a business goal.\n\nAs a developer and programming lecturer, I bring an uncommon pairing: real engineering depth with the systems-thinking of someone who has to make a complex idea clear. Teaching demands clarity of thought; engineering demands precision; both come into every site I build.\n\nI work personally with every client, understand the business and its audience in depth, and translate that into a presence shaped around it — not a template, but a digital asset built to support real growth.",
+      "I believe every decision on a site should serve a business goal. The way your business looks online shapes how people perceive it — and a strong digital presence earns trust long before the first conversation.\n\nAs a developer and programming lecturer, I bring an uncommon pairing: real engineering depth with the systems-thinking of someone who has to make a complex idea clear. Teaching demands clarity; engineering demands precision; both come into every site I build.\n\nI work personally with every client, understand the business and its audience in depth, and translate that into a presence shaped around it — not a template, but a digital asset built to support real growth.",
     pillars: [
       { title: 'Developer and programming lecturer', body: "I teach programming while building production systems. Teaching sharpens thinking — and every decision in a site rests on it." },
       { title: 'Systems-thinking for business', body: 'Every site is built around your goals and your audience. Not a design exercise — a digital asset built to produce real results.' },
@@ -224,7 +224,7 @@ const en = {
     realLabel: 'Real project',
     conceptLabel: 'Concept demo',
     featuredLabel: 'Featured project',
-    intro: 'Every project is built with business thinking, UX and real goals.',
+    intro: 'Every project on this site was built around a real business need — not just to look good.',
     stats: [
       { value: '2', label: 'Live client sites' },
       { value: '4', label: 'Concept demos' },
@@ -560,7 +560,7 @@ const en = {
     eyebrow: 'Why work with me',
     title: 'Real advantages, no posturing.',
     subtitle:
-      "The actual differences when you work with me. No clichés, just what's true.",
+      "What actually makes the difference when you work with me — in business language, no posturing.",
     items: [
       { id: 'direct',     title: 'Direct personal communication', body: "You talk to me. Not to a project coordinator, not to a rep. Same conversation, same person, start to finish." },
       { id: 'modern',     title: 'Modern tools, fast execution',  body: "I combine modern tooling and AI to ship faster at higher quality — without losing depth." },
