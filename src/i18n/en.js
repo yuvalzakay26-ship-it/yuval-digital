@@ -44,13 +44,13 @@ const en = {
     theme: 'Theme'
   },
   hero: {
-    badge: 'Developer & programming lecturer • Business-first approach, not just design',
+    badge: 'Developer & programming lecturer · Business thinking first',
     eyebrow: 'Digital presence for businesses',
     titleLead: "Being a good business isn't enough.",
     titleHighlight: 'They also have to find you.',
     subtitle:
-      "Your clients are searching for you online before the first conversation. I build businesses a fast, professional, SEO-ready digital presence — so your site doesn't just look good, it actually works for you.",
-    primaryCta: "Build a presence that brings clients",
+      'Your clients are searching for you online before the first conversation. I build a digital presence that earns trust, gets found, and turns visits into inquiries.',
+    primaryCta: "Let's talk about your business",
     secondaryCta: 'See real projects',
     metricResponse: 'Response Time',
     metricCustom: 'Custom Built',
@@ -70,7 +70,7 @@ const en = {
     eyebrow: 'What I bring',
     title: 'Real strengths, drawn from the work I do every day.',
     subtitle:
-      "These are the advantages you get when we work together. No marketing clichés — just what makes the difference inside a project.",
+      'What actually makes the difference inside a project — no marketing clichés.',
     items: [
       {
         id: 'learning',
@@ -108,7 +108,7 @@ const en = {
     eyebrow: 'Digital solutions for businesses',
     title: 'Not just a website. A presence that works for you.',
     subtitle:
-      "Most businesses don't have a problem because they lack a website — they have a problem because their website doesn't work for them. Every service here is built around three pillars: a professional presence that earns trust, visibility where clients actually search, and a user experience that drives inquiries.",
+      "Most businesses don't lack a website — they lack one that works for them. Every service here is built around three things: trust, visibility, and inquiries.",
     items: [
       {
         id: 'web',
@@ -158,7 +158,7 @@ const en = {
     eyebrow: 'How I work',
     title: 'A clear process. No surprises.',
     subtitle:
-      'Five stages that translate a real understanding of your business into a digital presence that earns trust, gets found, and turns visits into inquiries.',
+      'Five stages — from a real understanding of your business to a presence that works for it.',
     steps: [
       {
         id: 'discovery',
@@ -360,7 +360,7 @@ const en = {
     availability: 'A limited number of active projects at any given time',
     title: "Your business deserves a site that doesn't just look good — it works for you.",
     subtitle:
-      "If you want to build a professional digital presence that earns impressions, trust and inquiries — let's talk. A short call. Free. No commitment.",
+      "A short call, no commitment. We'll see together if there's a fit here.",
     personalNote:
       "Every message reaches me personally. You'll get a reply from me — not from an auto-responder, not from a project coordinator.",
     microcopy:
@@ -392,7 +392,7 @@ const en = {
     eyebrow: 'Engagement frameworks',
     title: 'Three frameworks. One delivery standard.',
     subtitle:
-      "Pick the framework that matches the stage your business is in — final scope is tailored on a short discovery call. No template packages, no inflated retainers.",
+      'Pick the framework that matches the stage your business is in. Final scope is tailored on a short discovery call.',
     fromLabel: 'For',
     deliverablesLabel: "What's included",
     priceLabel: 'Investment from',
@@ -557,10 +557,10 @@ const en = {
     ]
   },
   authority: {
-    eyebrow: 'Why work with me now',
+    eyebrow: 'Why work with me',
     title: 'Real advantages, no posturing.',
     subtitle:
-      "If clients can't find you on Google, they go to competitors. These are the actual differences when you work with me — no clichés, just what's true.",
+      "The actual differences when you work with me. No clichés, just what's true.",
     items: [
       { id: 'direct',     title: 'Direct personal communication', body: "You talk to me. Not to a project coordinator, not to a rep. Same conversation, same person, start to finish." },
       { id: 'modern',     title: 'Modern tools, fast execution',  body: "I combine modern tooling and AI to ship faster at higher quality — without losing depth." },
@@ -574,19 +574,19 @@ const en = {
     afterHero: {
       eyebrow: 'First step',
       title: "A beautiful site that doesn't bring inquiries is just decoration.",
-      body: "Let's build a presence that produces real inquiries. A short discovery call, no commitment.",
+      body: 'A short discovery call, no commitment.',
       cta: "Let's discuss your idea"
     },
     afterPackages: {
-      eyebrow: 'Not sure which fits?',
-      title: "Find the right solution for your business.",
-      body: "If you're stuck between two options — or not sure where to begin — a short call will sort it out.",
+      eyebrow: 'Before you decide',
+      title: "Let's find what's right for your business.",
+      body: 'A short call will sort it out.',
       cta: "Let's talk"
     },
     beforeFooter: {
       eyebrow: 'The next step',
       title: 'Your clients are already searching for you.',
-      body: "The question is how your business looks when they arrive. A short call clarifies whether your presence signals what it should — and what to sharpen so they not only find you, but reach out.",
+      body: 'The question is how your business looks when they arrive.',
       cta: "Let's discuss your idea"
     }
   },
