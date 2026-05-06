@@ -58,6 +58,14 @@ const en = {
     microtrust: 'Fast Reply • Direct Contact • Personal Service • No Middlemen',
     scrollHint: 'Scroll'
   },
+  trustStrip: {
+    ariaLabel: 'Core strengths',
+    items: [
+      'Fast, SEO-ready websites',
+      'User experience that earns trust',
+      'Digital solutions for real businesses'
+    ]
+  },
   trust: {
     eyebrow: 'What I bring',
     title: 'Real strengths, drawn from the work I do every day.',
@@ -150,37 +158,37 @@ const en = {
     eyebrow: 'How I work',
     title: 'A clear process. No surprises.',
     subtitle:
-      'Five distinct stages, full transparency — from the first call to a live system that produces real results.',
+      'Five stages that translate a real understanding of your business into a digital presence that earns trust, gets found, and turns visits into inquiries.',
     steps: [
       {
         id: 'discovery',
         index: '01',
-        title: 'Intro',
-        body: 'An open conversation about the business, the real need, and what should have been live yesterday. No clunky forms.'
+        title: 'Understanding the business',
+        body: 'An open conversation about the business, the audience, and what your clients need to see when they arrive. This is where we define what the presence actually has to do.'
       },
       {
         id: 'strategy',
         index: '02',
-        title: 'Plan',
-        body: 'A short, clear document: what we build, with which tools, on what timeline and budget. Agreement before any code.'
+        title: 'Planning a professional presence',
+        body: 'A short, clear brief: the impression the site needs to make, the first message visitors see, the path that leads them to action, and the timeline. Alignment before we start.'
       },
       {
         id: 'build',
         index: '03',
-        title: 'Build',
-        body: 'Development with live previews. You see weekly progress, give input, and steer — never sign a sealed envelope.'
+        title: 'Building an experience that earns trust',
+        body: "Full build with live previews. Every decision — copy, structure, button — is measured against one goal: making your business feel credible from the very first second."
       },
       {
         id: 'launch',
         index: '04',
-        title: 'Launch',
-        body: 'Final QA, performance tuning, domain hookup and go-live. Plus a short walkthrough for your team.'
+        title: 'Going live, ready for inquiries',
+        body: 'Quality checks, search-visibility tuning, domain hookup and go-live. The presence becomes a real business tool — working for you 24/7.'
       },
       {
         id: 'growth',
         index: '05',
-        title: 'Continued support',
-        body: 'Fixes, improvements and added capabilities as the business grows. No bloated retainers.'
+        title: 'Supporting the growth',
+        body: "Fixes, refinements and additions based on what your clients are telling you. The presence evolves with the business — it doesn't stay frozen at launch day."
       }
     ]
   },
@@ -188,10 +196,10 @@ const en = {
     eyebrow: 'About me',
     title: "I don't just build websites. I build digital systems for businesses.",
     body:
-      "Your clients check you online before they ever reach out. A business that doesn't show up when people search for it — loses clients every single day.\n\nAs a developer and programming lecturer, I believe a website should be much more than a pretty design. It needs to earn trust, load fast, look professional — and help people actually reach you.\n\nI work personally with every client, understand the business in depth, and build a digital presence shaped around it — not a template, but an asset that works for you.",
+      "I believe a strong digital presence should earn trust before the first conversation ever happens. Every decision on a site — from the first word to the final button — should serve a business goal.\n\nAs a developer and programming lecturer, I bring an uncommon pairing: real engineering depth with the systems-thinking of someone who has to make a complex idea clear. Teaching demands clarity of thought; engineering demands precision; both come into every site I build.\n\nI work personally with every client, understand the business and its audience in depth, and translate that into a presence shaped around it — not a template, but a digital asset built to support real growth.",
     pillars: [
-      { title: 'Teaching and engineering background', body: 'I teach programming on an ongoing basis while building real client projects in parallel — every technical decision comes from clarity, not guesswork.' },
-      { title: 'Business thinking, not just code', body: 'Every site is built around the goals and audience of your business — not a generic template, but an asset that produces real results.' },
+      { title: 'Developer and programming lecturer', body: "I teach programming while building production systems. Teaching sharpens thinking — and every decision in a site rests on it." },
+      { title: 'Systems-thinking for business', body: 'Every site is built around your goals and your audience. Not a design exercise — a digital asset built to produce real results.' },
       { title: 'Direct, personal communication', body: 'You talk to me. No coordinators, no reps. The same person who plans the work also builds it and stands behind every detail.' },
       { title: 'Quality-first delivery', body: 'Clean code, strong performance, and the small details that finish the picture. Better to do less, and do it excellently.' }
     ]
@@ -362,7 +370,7 @@ const en = {
     email: 'Email',
     phone: 'Phone',
     message: 'Tell me briefly about your business and what you need',
-    submit: "Let's start — I reply today",
+    submit: "Let's talk about your business",
     submitted: "Got it. I'll reply today.",
     or: 'Or reach out directly — WhatsApp is the fastest',
     emailLabel: 'Email',
@@ -378,7 +386,7 @@ const en = {
     ariaLabel: 'Quick actions',
     call: 'Call',
     whatsapp: 'WhatsApp',
-    quote: 'Get Quote'
+    quote: "Let's talk"
   },
   packages: {
     eyebrow: 'Engagement frameworks',
@@ -576,9 +584,9 @@ const en = {
       cta: "Let's talk"
     },
     beforeFooter: {
-      eyebrow: 'Ready to start?',
-      title: "Your clients are searching — make sure they find you.",
-      body: "A business that doesn't show up when people search loses clients every day. Email, WhatsApp or a call — I'll get back to you the same day.",
+      eyebrow: 'The next step',
+      title: 'Your clients are already searching for you.',
+      body: "The question is how your business looks when they arrive. A short call clarifies whether your presence signals what it should — and what to sharpen so they not only find you, but reach out.",
       cta: "Let's discuss your idea"
     }
   },

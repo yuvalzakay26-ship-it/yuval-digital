@@ -13,7 +13,7 @@ export const EMAIL_HREF = `mailto:${EMAIL}`;
 export const PHONE_HREF = `tel:${PHONE_INTL_RAW}`;
 
 const WHATSAPP_DEFAULT_TEXT = encodeURIComponent(
-  'היי יובל, אשמח לדבר איתך על פרויקט.'
+  'היי יובל, ראיתי את האתר שלך ואני רוצה לשמוע איך אפשר לשפר את הנוכחות הדיגיטלית של העסק שלי.'
 );
 
 export const WHATSAPP_HREF = `https://wa.me/972533339341?text=${WHATSAPP_DEFAULT_TEXT}`;

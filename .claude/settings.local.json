@@ -22,7 +22,10 @@
       "Bash(npx eslint *)",
       "Bash(node --check src/i18n/he.js)",
       "Bash(node --check src/i18n/en.js)",
-      "Bash(node --check src/sections/Projects.jsx)"
+      "Bash(node --check src/sections/Projects.jsx)",
+      "Bash(git *)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl -s http://localhost:5175/)"
     ]
   }
 }

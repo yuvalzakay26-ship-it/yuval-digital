@@ -10,10 +10,12 @@ import About from '@sections/About.jsx';
 import Faq from '@sections/Faq.jsx';
 import Contact from '@sections/Contact.jsx';
 import CtaBanner from '@components/CtaBanner.jsx';
+import TrustStrip from '@components/TrustStrip.jsx';
 
 /**
  * Conversion flow:
  *   Hero          — hook + identity
+ *   TrustStrip    — compact proof anchor
  *   CTA banner    — early offramp
  *   Trust         — reduce friction immediately
  *   Services      — what I build
@@ -32,6 +34,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <TrustStrip />
       <CtaBanner variant="afterHero" tone="soft" />
       <Trust />
       <Services />
