@@ -21,8 +21,8 @@ const en = {
     name: 'YUVAL',
     suffix: 'digital',
     short: 'YUVAL',
-    tagline: 'Smart digital solutions for businesses ready to grow',
-    shortTagline: 'Websites • Automations • Digital Solutions'
+    tagline: 'Building businesses a digital presence that earns trust, gets found, and turns visits into inquiries',
+    shortTagline: 'Digital presence • Google visibility • Real inquiries'
   },
   theme: {
     light: 'Light mode',
@@ -44,14 +44,14 @@ const en = {
     theme: 'Theme'
   },
   hero: {
-    badge: 'Programming Lecturer • Developer • Digital Builder for Businesses',
-    eyebrow: 'Websites · Automation · Digital Solutions',
-    titleLead: 'I build smart, premium, high-speed websites for businesses —',
-    titleHighlight: 'designed to generate real inquiries.',
+    badge: 'Developer & programming lecturer • Business-first approach, not just design',
+    eyebrow: 'Digital presence for businesses',
+    titleLead: "Being a good business isn't enough.",
+    titleHighlight: 'They also have to find you.',
     subtitle:
-      'Business websites, landing pages, automations and digital systems built with real technical depth, premium design, and a clear business purpose.',
-    primaryCta: 'Get a Quick Quote on WhatsApp',
-    secondaryCta: 'View My Work',
+      "Your clients are searching for you online before the first conversation. I build businesses a fast, professional, SEO-ready digital presence — so your site doesn't just look good, it actually works for you.",
+    primaryCta: "Build a presence that brings clients",
+    secondaryCta: 'See real projects',
     metricResponse: 'Response Time',
     metricCustom: 'Custom Built',
     metricLanguages: 'Fully Bilingual',
@@ -97,24 +97,24 @@ const en = {
     ]
   },
   services: {
-    eyebrow: 'What I build',
-    title: 'Practical services, tailored to your business.',
+    eyebrow: 'Digital solutions for businesses',
+    title: 'Not just a website. A presence that works for you.',
     subtitle:
-      'Each service is shaped around the actual need: understand the problem first, choose the right tools, and deliver something that works beautifully — not just looks beautiful.',
+      "Most businesses don't have a problem because they lack a website — they have a problem because their website doesn't work for them. Every service here is built around three pillars: a professional presence that earns trust, visibility where clients actually search, and a user experience that drives inquiries.",
     items: [
       {
         id: 'web',
-        title: 'Business websites',
+        title: 'Professional digital presence',
         description:
-          'Modern, clean, fast brand sites. Built around your business, not around a template.',
-        bullets: ['Custom design', 'Mobile-first', 'High performance', 'SEO ready']
+          'Fast, accurate, mobile-first websites — that strengthen trust in your business from the very first second.',
+        bullets: ['Design that signals quality', 'Mobile-first', 'High performance', 'Trust from second one']
       },
       {
         id: 'landing',
-        title: 'Landing pages',
+        title: 'UX that drives inquiries',
         description:
-          'Conversion-focused landing pages for campaigns, products and services. Every element earns its place.',
-        bullets: ['Copy that sells', 'Smart forms', 'Fast to load', 'A/B ready']
+          'Every button, line of copy and section guides the visitor toward action. Landing pages and conversion paths that turn traffic into real inquiries.',
+        bullets: ['Copy that sells', 'Smart forms', 'Focused user journey', 'A/B ready']
       },
       {
         id: 'automation',
@@ -139,10 +139,10 @@ const en = {
       },
       {
         id: 'presence',
-        title: 'Digital presence upgrades',
+        title: 'Visibility on Google',
         description:
-          'Refresh what you already have: site updates, form fixes, content, speed and mobile polish — without starting from scratch.',
-        bullets: ['Mini-redesign', 'Mobile fixes', 'Speed boost', 'Form tuning']
+          "Right structure, strong performance and SEO thinking — so your business shows up where clients actually search. If they can't find you on Google, they go to competitors.",
+        bullets: ['Technical SEO foundation', 'Speed that affects ranking', 'Clear content structure', 'Tagging & analytics']
       }
     ]
   },
@@ -186,9 +186,9 @@ const en = {
   },
   about: {
     eyebrow: 'About me',
-    title: 'Developer, lecturer, and digital builder. One person, accountable for the result.',
+    title: "I don't just build websites. I build digital systems for businesses.",
     body:
-      "I'm Yuval — a programming lecturer, developer, and builder of digital projects for businesses. My experience sits at a rare intersection: the technical depth I teach others, paired with a genuine grasp of user experience and business needs. Teaching programming forces you to think clearly, explain precisely and deliver something that actually works — and that same discipline carries into every project I build.\n\nI work personally with each client, take the time to understand the business in depth, and design a solution shaped around the goal — not a template, not a feature list, but a digital asset that performs.",
+      "Your clients check you online before they ever reach out. A business that doesn't show up when people search for it — loses clients every single day.\n\nAs a developer and programming lecturer, I believe a website should be much more than a pretty design. It needs to earn trust, load fast, look professional — and help people actually reach you.\n\nI work personally with every client, understand the business in depth, and build a digital presence shaped around it — not a template, but an asset that works for you.",
     pillars: [
       { title: 'Teaching and engineering background', body: 'I teach programming on an ongoing basis while building real client projects in parallel — every technical decision comes from clarity, not guesswork.' },
       { title: 'Business thinking, not just code', body: 'Every site is built around the goals and audience of your business — not a generic template, but an asset that produces real results.' },
@@ -350,9 +350,9 @@ const en = {
   contact: {
     eyebrow: 'Get in touch',
     availability: 'A limited number of active projects at any given time',
-    title: 'A short call. Free. No commitment.',
+    title: "Your business deserves a site that doesn't just look good — it works for you.",
     subtitle:
-      'You tell me about the business. I listen. You walk away with a clear proposal — no pressure, no middlemen, no commitment.',
+      "If you want to build a professional digital presence that earns impressions, trust and inquiries — let's talk. A short call. Free. No commitment.",
     personalNote:
       "Every message reaches me personally. You'll get a reply from me — not from an auto-responder, not from a project coordinator.",
     microcopy:
@@ -362,7 +362,7 @@ const en = {
     email: 'Email',
     phone: 'Phone',
     message: 'Tell me briefly about your business and what you need',
-    submit: 'Send — I reply today',
+    submit: "Let's start — I reply today",
     submitted: "Got it. I'll reply today.",
     or: 'Or reach out directly — WhatsApp is the fastest',
     emailLabel: 'Email',
@@ -552,7 +552,7 @@ const en = {
     eyebrow: 'Why work with me now',
     title: 'Real advantages, no posturing.',
     subtitle:
-      "What you actually get when we work together — written honestly. No clichés, just what's true.",
+      "If clients can't find you on Google, they go to competitors. These are the actual differences when you work with me — no clichés, just what's true.",
     items: [
       { id: 'direct',     title: 'Direct personal communication', body: "You talk to me. Not to a project coordinator, not to a rep. Same conversation, same person, start to finish." },
       { id: 'modern',     title: 'Modern tools, fast execution',  body: "I combine modern tooling and AI to ship faster at higher quality — without losing depth." },
@@ -565,8 +565,8 @@ const en = {
   ctaBanner: {
     afterHero: {
       eyebrow: 'First step',
-      title: "Let's build something that works.",
-      body: "A short discovery call, no commitment. We'll see together if I'm the right fit for your project.",
+      title: "A beautiful site that doesn't bring inquiries is just decoration.",
+      body: "Let's build a presence that produces real inquiries. A short discovery call, no commitment.",
       cta: "Let's discuss your idea"
     },
     afterPackages: {
@@ -577,8 +577,8 @@ const en = {
     },
     beforeFooter: {
       eyebrow: 'Ready to start?',
-      title: "Have an idea? I'd love to hear it.",
-      body: 'A short email, a WhatsApp message, or a call. Any of them — and I’ll get back to you.',
+      title: "Your clients are searching — make sure they find you.",
+      body: "A business that doesn't show up when people search loses clients every day. Email, WhatsApp or a call — I'll get back to you the same day.",
       cta: "Let's discuss your idea"
     }
   },
