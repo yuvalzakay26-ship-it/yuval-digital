@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Container from '@components/Container.jsx';
 import Reveal from '@components/Reveal.jsx';
+import { useLanguage } from '@hooks/useLanguage.js';
 import './LegalPage.css';
 
 const ArrowIcon = () => (
@@ -21,8 +23,10 @@ export default function LegalPage({
   sections = [],
   contactBlock = null,
   back,
-  backHref = '#/',
+  backHref,
 }) {
+  const { locale } = useLanguage();
+  const resolvedBackHref = backHref ?? `/${locale}`;
   useEffect(() => {
     /* Bring focus to the page heading for screen readers when the page loads. */
     const id = window.setTimeout(() => {
@@ -38,10 +42,10 @@ export default function LegalPage({
     <article className="legal">
       <Container className="legal__inner">
         <header className="legal__head">
-          <a href={backHref} className="legal__back">
+          <Link to={resolvedBackHref} className="legal__back">
             <span className="legal__back-icon" aria-hidden><ArrowIcon /></span>
             {back}
-          </a>
+          </Link>
           {eyebrow && <span className="eyebrow legal__eyebrow">{eyebrow}</span>}
           <h1 className="legal__title">{title}</h1>
           {updated && <p className="legal__updated">{updated}</p>}

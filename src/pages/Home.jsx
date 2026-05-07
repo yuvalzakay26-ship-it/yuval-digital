@@ -11,6 +11,10 @@ import Faq from '@sections/Faq.jsx';
 import Contact from '@sections/Contact.jsx';
 import CtaBanner from '@components/CtaBanner.jsx';
 import TrustStrip from '@components/TrustStrip.jsx';
+import Seo from '@components/Seo.jsx';
+import { useLanguage } from '@hooks/useLanguage.js';
+import { seoCopy } from '@data/seo.js';
+import { homeJsonLd } from '@data/jsonld.js';
 
 /**
  * Conversion flow:
@@ -31,8 +35,16 @@ import TrustStrip from '@components/TrustStrip.jsx';
  *   Contact       — action
  */
 export default function Home() {
+  const { locale } = useLanguage();
+  const copy = seoCopy.home[locale] || seoCopy.home.he;
   return (
     <>
+      <Seo
+        title={copy.title}
+        description={copy.description}
+        path=""
+        jsonLd={homeJsonLd}
+      />
       <Hero />
       <TrustStrip />
       <CtaBanner variant="afterHero" tone="soft" />

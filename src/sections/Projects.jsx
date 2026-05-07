@@ -4,6 +4,7 @@ import DeviceMockup from '@components/DeviceMockup.jsx';
 import { projectMockups } from '@components/mockups/index.js';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { projectVisuals } from '@data/projects.js';
+import { track } from '@utils/analytics.js';
 import { cn } from '@utils/cn.js';
 import './Projects.css';
 
@@ -178,6 +179,12 @@ function ProjectCard({ item, index, t, compact = false }) {
                   href={liveHref}
                   target={liveExternal ? '_blank' : undefined}
                   rel={liveExternal ? 'noreferrer noopener' : undefined}
+                  onClick={() => track('project_external_click', {
+                    source: 'project_card_featured',
+                    project_id: item.id,
+                    link_type: 'live_demo',
+                    external: liveExternal,
+                  })}
                 >
                   <span>{t('projects.liveDemo')}</span>
                   <span className="project-card__btn-arrow" aria-hidden><ArrowIcon /></span>
@@ -189,6 +196,12 @@ function ProjectCard({ item, index, t, compact = false }) {
                   href={item.caseStudyUrl}
                   target={caseExternal ? '_blank' : undefined}
                   rel={caseExternal ? 'noreferrer noopener' : undefined}
+                  onClick={() => track('project_external_click', {
+                    source: 'project_card_featured',
+                    project_id: item.id,
+                    link_type: 'case_study',
+                    external: caseExternal,
+                  })}
                 >
                   <span>{t('projects.caseStudy')}</span>
                 </a>
@@ -206,6 +219,12 @@ function ProjectCard({ item, index, t, compact = false }) {
               href={liveHref}
               target={liveExternal ? '_blank' : undefined}
               rel={liveExternal ? 'noreferrer noopener' : undefined}
+              onClick={() => track('project_external_click', {
+                source: 'project_card',
+                project_id: item.id,
+                link_type: 'live_demo',
+                external: liveExternal,
+              })}
             >
               <span>{t('projects.liveDemo')}</span>
               <span className="project-card__cta-arrow" aria-hidden><ArrowIcon /></span>

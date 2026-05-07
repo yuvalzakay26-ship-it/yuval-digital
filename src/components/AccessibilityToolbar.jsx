@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { useA11y } from '@hooks/useA11y.js';
 import { cn } from '@utils/cn.js';
@@ -72,7 +73,7 @@ const tileIcons = {
 };
 
 export default function AccessibilityToolbar() {
-  const { t, isRtl } = useLanguage();
+  const { t, isRtl, locale } = useLanguage();
   const { settings, adjustTextSize, toggle, reset, isDefault, textSizes } = useA11y();
   const [open, setOpen] = useState(false);
   const panelRef = useRef(null);
@@ -228,13 +229,13 @@ export default function AccessibilityToolbar() {
             <span className="a11y-panel__reset-icon" aria-hidden><ResetIcon /></span>
             {t('a11y.toolbar.reset')}
           </button>
-          <a
+          <Link
             className="a11y-panel__statement"
-            href="#/page/accessibility"
+            to={`/${locale}/page/accessibility`}
             onClick={() => setOpen(false)}
           >
             {t('a11y.toolbar.statementLink')}
-          </a>
+          </Link>
         </footer>
       </aside>
 

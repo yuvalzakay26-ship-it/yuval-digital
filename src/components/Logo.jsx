@@ -1,22 +1,23 @@
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { cn } from '@utils/cn.js';
 import './Logo.css';
 
 export default function Logo({ compact = false, variant = 'nav', onClick }) {
-  const { t, isRtl } = useLanguage();
+  const { t, isRtl, locale } = useLanguage();
+  const { pathname } = useLocation();
+  const homePath = `/${locale}`;
+  const onHome = pathname === homePath || pathname === `${homePath}/`;
 
   const name = t('brand.name');
   const suffix = t('brand.suffix');
   const short = t('brand.short');
   const ariaLabel = `${name} ${suffix}`;
 
-  return (
-    <a
-      href="#home"
-      onClick={onClick}
-      className={cn('logo', `logo--${variant}`, { 'logo--compact': compact, 'logo--rtl': isRtl })}
-      aria-label={ariaLabel}
-    >
+  const className = cn('logo', `logo--${variant}`, { 'logo--compact': compact, 'logo--rtl': isRtl });
+
+  const content = (
+    <>
       <span className="logo__mark" aria-hidden>
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -43,6 +44,21 @@ export default function Logo({ compact = false, variant = 'nav', onClick }) {
           <span className="logo__short" aria-hidden>{short}</span>
         </span>
       )}
-    </a>
+    </>
+  );
+
+  /* On home, scroll to top via plain anchor. From any other route, navigate
+     back to the locale's home — react-router handles the route change. */
+  if (onHome) {
+    return (
+      <a href="#home" onClick={onClick} className={className} aria-label={ariaLabel}>
+        {content}
+      </a>
+    );
+  }
+  return (
+    <Link to={homePath} onClick={onClick} className={className} aria-label={ariaLabel}>
+      {content}
+    </Link>
   );
 }

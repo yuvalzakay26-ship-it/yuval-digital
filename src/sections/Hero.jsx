@@ -2,6 +2,7 @@ import Container from '@components/Container.jsx';
 import Button from '@components/Button.jsx';
 import Counter from '@components/Counter.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
+import { track } from '@utils/analytics.js';
 import './Hero.css';
 
 const ArrowIcon = () => (
@@ -45,10 +46,24 @@ export default function Hero() {
         <p className="hero__subtitle anim-fade-up">{t('hero.subtitle')}</p>
 
         <div className="hero__cta anim-fade-up">
-          <Button as="a" href="#contact" variant="gradient" size="lg" iconEnd={<ArrowIcon />}>
+          <Button
+            as="a"
+            href="#contact"
+            variant="gradient"
+            size="lg"
+            iconEnd={<ArrowIcon />}
+            onClick={() => track('cta_hero_click', { source: 'hero_primary', destination: 'contact' })}
+          >
             {t('hero.primaryCta')}
           </Button>
-          <Button as="a" href="#projects" variant="ghost" size="lg" iconStart={<PlayIcon />}>
+          <Button
+            as="a"
+            href="#projects"
+            variant="ghost"
+            size="lg"
+            iconStart={<PlayIcon />}
+            onClick={() => track('cta_hero_click', { source: 'hero_secondary', destination: 'projects' })}
+          >
             {t('hero.secondaryCta')}
           </Button>
         </div>

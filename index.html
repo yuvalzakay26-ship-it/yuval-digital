@@ -5,31 +5,56 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#ffffff" />
-
-    <title>יובל דיגיטל — אתרים, אוטומציות ופתרונות דיגיטליים לעסקים</title>
-    <meta name="description" content="הנדסאי תוכנה מצטיין שבונה לעסקים אתרים, דפי נחיתה, אוטומציות חכמות ופתרונות AI. תקשורת ישירה, מענה תוך 24 שעות, איכות בלי פשרות." />
-    <meta name="keywords" content="Yuval Digital, יובל דיגיטל, בניית אתרים לעסקים, דפי נחיתה, אתר עסקי, אוטומציה לעסקים, מערכות אוטומציה, AI לעסקים, פתרונות דיגיטליים, אתר דו-לשוני, אתר רספונסיבי, React, Vite, SEO, מערכת ניהול, אינטגרציה, אתר עברית אנגלית, הנדסאי תוכנה" />
     <meta name="author" content="Yuval" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://yuval.digital/" />
-    <link rel="alternate" hreflang="he" href="https://yuval.digital/" />
-    <link rel="alternate" hreflang="en" href="https://yuval.digital/?lang=en" />
-    <link rel="alternate" hreflang="x-default" href="https://yuval.digital/" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yuval.digital/" />
-    <meta property="og:title" content="Yuval Digital — Websites, Automation & Smart Digital Solutions" />
-    <meta property="og:description" content="Outstanding practical software graduate building websites, automations and AI-assisted solutions for businesses ready to grow." />
-    <meta property="og:locale" content="he_IL" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:site_name" content="yuval.digital" />
-    <meta property="og:image" content="https://yuval.digital/favicon.svg" />
-    <meta property="og:image:alt" content="Yuval Digital — Websites, automation and smart solutions for businesses" />
+    <!--
+      Legacy hash-URL forwarder. Old links in the wild
+      (`https://yuval.digital/#/page/privacy`) won't reach the server with
+      their hash, so the redirect must happen client-side before React
+      mounts. Runs synchronously to avoid a flash of the home route.
+    -->
+    <script>
+      (function () {
+        var h = window.location.hash;
+        if (!h || h.indexOf('#/') !== 0) return;
+        var rest = h.slice(1);
+        var hasLang = /^\/(he|en)(\/|$)/.test(rest);
+        var dest = hasLang ? rest : '/he' + rest;
+        window.location.replace(dest + window.location.search);
+      })();
+    </script>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Yuval Digital — Websites, Automation & Smart Digital Solutions" />
-    <meta name="twitter:description" content="Practical software graduate using modern tools and AI workflows to build real digital solutions." />
-    <meta name="twitter:image" content="https://yuval.digital/favicon.svg" />
+    <!--
+      Theme bootstrap. Reads the persisted theme and applies it BEFORE
+      paint so dark-mode visitors don't see a light flash. Mirrors the
+      logic in ThemeProvider.readInitialTheme.
+    -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('yuval-digital:theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', t === 'dark' ? '#07090f' : '#ffffff');
+          }
+        } catch (_) { /* ignore */ }
+      })();
+    </script>
+
+    <!--
+      Per-route <title>, description, canonical, hreflang, OpenGraph,
+      Twitter cards and JSON-LD structured data are emitted by
+      <Seo /> via react-helmet-async. The static fallback below covers
+      the brief moment before hydration on the SPA index, and crawlers
+      that fetch the prerendered HTML get the route-specific tags.
+    -->
+    <title>Yuval Digital — יובל דיגיטל</title>
+    <meta
+      name="description"
+      content="Yuval Digital builds websites, automations and AI-assisted solutions for businesses ready to grow."
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,124 +79,6 @@
         href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
       />
     </noscript>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Yuval",
-        "url": "https://yuval.digital",
-        "email": "mailto:yuvalzakay25@gmail.com",
-        "telephone": "+972-53-333-9341",
-        "jobTitle": "Practical Software Engineer",
-        "description": "Outstanding practical software graduate building websites, landing pages, automations and AI-assisted solutions for businesses.",
-        "knowsLanguage": ["he", "en"],
-        "knowsAbout": [
-          "Web development",
-          "Landing pages",
-          "Business automation",
-          "AI-assisted content systems",
-          "Internal business tools"
-        ],
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "contactType": "customer service",
-            "email": "yuvalzakay25@gmail.com",
-            "telephone": "+972-53-333-9341",
-            "availableLanguage": ["Hebrew", "English"],
-            "areaServed": "IL"
-          }
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Yuval Digital",
-        "url": "https://yuval.digital",
-        "image": "https://yuval.digital/favicon.svg",
-        "email": "yuvalzakay25@gmail.com",
-        "telephone": "+972-53-333-9341",
-        "founder": "Yuval",
-        "areaServed": "IL",
-        "priceRange": "$$",
-        "description": "Websites, landing pages, smart automations and AI-assisted solutions for businesses ready to grow.",
-        "sameAs": [
-          "https://wa.me/972533339341"
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Starting points",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "name": "Starter",
-              "description": "Focused landing page or simple site for businesses beginning their digital path."
-            },
-            {
-              "@type": "Offer",
-              "name": "Growth",
-              "description": "Full business website with polished UX and a foundation built to grow."
-            },
-            {
-              "@type": "Offer",
-              "name": "Custom Premium",
-              "description": "Tailored system, automation or advanced site built around a real workflow."
-            }
-          ]
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How long does it take to build a website?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Depends on scope. A landing page can go live in 1–2 weeks. A full business site is usually 3–5 weeks. Every project starts with a clear timeline we agree on upfront."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I start with a landing page and grow later?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Many clients start with one focused landing page or a small site, then add pages, systems, automations and bilingual content over time."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is the site mobile-friendly?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Everything is built mobile-first, then expanded to desktop."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I add a system or automation after the site is live?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. The architecture is built so you can later wire in CMS, advanced forms, CRM integrations, automations and AI."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you work with small businesses?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes — mostly small and mid-sized businesses, with personal attention and a focused, one-project-at-a-time approach."
-            }
-          }
-        ]
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>

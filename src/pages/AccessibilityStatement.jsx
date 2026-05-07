@@ -1,5 +1,7 @@
 import LegalPage from './LegalPage.jsx';
+import Seo from '@components/Seo.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
+import { seoCopy } from '@data/seo.js';
 import {
   EMAIL,
   EMAIL_HREF,
@@ -25,15 +27,24 @@ export default function AccessibilityStatement() {
     { label: data.contactBlock.phoneLabel, value: PHONE_INTL, href: PHONE_HREF, dir: 'ltr' },
   ];
 
+  const copy = seoCopy.accessibility[locale] || seoCopy.accessibility.he;
+
   return (
-    <LegalPage
-      eyebrow={t('legal.accessibility')}
-      title={data.title}
-      updated={`${data.updated}: ${updatedFormatted}`}
-      intro={data.intro}
-      sections={data.sections}
-      contactBlock={contactBlock}
-      back={data.back}
-    />
+    <>
+      <Seo
+        title={copy.title}
+        description={copy.description}
+        path="/page/accessibility"
+      />
+      <LegalPage
+        eyebrow={t('legal.accessibility')}
+        title={data.title}
+        updated={`${data.updated}: ${updatedFormatted}`}
+        intro={data.intro}
+        sections={data.sections}
+        contactBlock={contactBlock}
+        back={data.back}
+      />
+    </>
   );
 }

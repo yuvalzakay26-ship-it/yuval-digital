@@ -1,9 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { ThemeProvider } from '@theme/ThemeProvider.jsx';
-import { LanguageProvider } from '@i18n/LanguageProvider.jsx';
-import { A11yProvider } from '@a11y/A11yProvider.jsx';
+import { ViteReactSSG } from 'vite-react-ssg';
+import { routes } from '@router/routes.jsx';
 
 import '@styles/reset.css';
 import '@styles/variables.css';
@@ -11,14 +7,8 @@ import '@styles/globals.css';
 import '@styles/animations.css';
 import '@styles/a11y.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <LanguageProvider>
-        <A11yProvider>
-          <App />
-        </A11yProvider>
-      </LanguageProvider>
-    </ThemeProvider>
-  </React.StrictMode>
-);
+/* Single entry consumed by both the dev server and vite-react-ssg's
+   prerender pass. Providers (Helmet, Theme, A11y, Language) live inside
+   the route tree — see RootLayout / LangLayout — so vite-react-ssg's
+   internal RouterProvider mount wraps them naturally on every route. */
+export const createRoot = ViteReactSSG({ routes });

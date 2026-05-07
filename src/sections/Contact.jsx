@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Container from '@components/Container.jsx';
 import Button from '@components/Button.jsx';
 import Reveal from '@components/Reveal.jsx';
@@ -10,6 +11,7 @@ import {
   PHONE_HREF,
   WHATSAPP_HREF,
 } from '@data/contact.js';
+import { track } from '@utils/analytics.js';
 import './Contact.css';
 
 const ENDPOINT = '/api/contact';
@@ -121,7 +123,8 @@ export default function Contact() {
     const form = e.currentTarget;
     const fd = new FormData(form);
 
-    // Honeypot — silently accept and reset, do not call API
+    // Honeypot — silently accept and reset, do not call API.
+    // Do NOT track this as a conversion: it's a bot.
     if ((fd.get('company') || '').toString().trim()) {
       setStatus('success');
       form.reset();
@@ -169,15 +172,26 @@ export default function Contact() {
       if (!res.ok || !data?.ok) {
         setStatus('error');
         setErrorText(t(errorKeyFor(data?.error)));
+        track('contact_submit_error', {
+          source: 'contact_form',
+          reason: data?.error || 'network',
+        });
         return;
       }
 
       setStatus('success');
       form.reset();
+      track('contact_submit', {
+        source: 'contact_form',
+        project_type: payload.projectType || 'unspecified',
+        budget: payload.budget || 'unspecified',
+        timeline: payload.timeline || 'unspecified',
+      });
     } catch (err) {
       if (err.name === 'AbortError') return;
       setStatus('error');
       setErrorText(t('contactExtra.errorBody'));
+      track('contact_submit_error', { source: 'contact_form', reason: 'exception' });
     }
   }
 
@@ -221,6 +235,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`${t('contact.whatsapp')} — ${PHONE_INTL}`}
+                onClick={() => track('whatsapp_click', { source: 'contact_card' })}
               >
                 <span className="contact__direct-icon contact__direct-icon--green" aria-hidden><WhatsAppIcon /></span>
                 <span className="contact__direct-text">
@@ -233,6 +248,7 @@ export default function Contact() {
                 className="contact__direct-card contact__direct-card--call"
                 href={PHONE_HREF}
                 aria-label={`${t('contact.phoneLabel')} — ${PHONE_INTL}`}
+                onClick={() => track('phone_click', { source: 'contact_card' })}
               >
                 <span className="contact__direct-icon" aria-hidden><PhoneIcon /></span>
                 <span className="contact__direct-text">
@@ -245,6 +261,7 @@ export default function Contact() {
                 className="contact__direct-card contact__direct-card--wide"
                 href={EMAIL_HREF}
                 aria-label={`${t('contact.emailLabel')} — ${EMAIL}`}
+                onClick={() => track('email_click', { source: 'contact_card' })}
               >
                 <span className="contact__direct-icon" aria-hidden><MailIcon /></span>
                 <span className="contact__direct-text">
@@ -415,9 +432,9 @@ export default function Contact() {
                 <span className="contact__privacy-icon" aria-hidden><ShieldIcon /></span>
                 <span>
                   {t('contactExtra.privacyConsentLead')}
-                  <a href="#/page/privacy" className="contact__privacy-link">
+                  <Link to={`/${locale}/page/privacy`} className="contact__privacy-link">
                     {t('contactExtra.privacyConsentLink')}
-                  </a>
+                  </Link>
                   {t('contactExtra.privacyConsentTrail')}
                 </span>
               </div>

@@ -1,11 +1,14 @@
 /**
- * Top navigation links. The `key` field maps into the i18n `nav.*` namespace.
+ * Top navigation entries. Each `key` maps into the i18n `nav.*` namespace.
+ * `anchor` is the section id on the home page; the navbar composes the
+ * full URL at render time so links work both on home (`#anchor`) and
+ * from sub-pages (`/he#anchor`).
  */
 export const navLinks = [
-  { key: 'services', href: '#services' },
-  { key: 'packages', href: '#packages' },
-  { key: 'process',  href: '#process' },
-  { key: 'projects', href: '#projects' },
-  { key: 'faq',      href: '#faq' },
-  { key: 'contact',  href: '#contact' }
+  { key: 'services', anchor: 'services' },
+  { key: 'packages', anchor: 'packages' },
+  { key: 'process',  anchor: 'process'  },
+  { key: 'projects', anchor: 'projects' },
+  { key: 'faq',      anchor: 'faq' },
+  { key: 'contact',  anchor: 'contact' }
 ];

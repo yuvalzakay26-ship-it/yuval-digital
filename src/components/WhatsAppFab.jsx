@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { cn } from '@utils/cn.js';
 import { WHATSAPP_HREF } from '@data/contact.js';
+import { track } from '@utils/analytics.js';
 import './WhatsAppFab.css';
 
 const WhatsAppIcon = () => (
@@ -65,6 +66,7 @@ export default function WhatsAppFab() {
       })}
       aria-label={t('fab.whatsapp')}
       title={t('fab.whatsapp')}
+      onClick={() => track('whatsapp_click', { source: 'fab_floating' })}
     >
       <span className="wa-fab__pulse" aria-hidden />
       <span className="wa-fab__icon">

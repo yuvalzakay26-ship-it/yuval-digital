@@ -3,6 +3,7 @@ import Button from '@components/Button.jsx';
 import Reveal from '@components/Reveal.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { WHATSAPP_HREF } from '@data/contact.js';
+import { track } from '@utils/analytics.js';
 import { cn } from '@utils/cn.js';
 import './CtaBanner.css';
 
@@ -40,7 +41,14 @@ export default function CtaBanner({ variant = 'afterHero', tone = 'soft' }) {
           </div>
 
           <div className="cta-banner__actions">
-            <Button as="a" href="#contact" variant={tone === 'strong' ? 'gradient' : 'gradient'} size="lg" iconEnd={<ArrowIcon />}>
+            <Button
+              as="a"
+              href="#contact"
+              variant={tone === 'strong' ? 'gradient' : 'gradient'}
+              size="lg"
+              iconEnd={<ArrowIcon />}
+              onClick={() => track('cta_banner_click', { source: `cta_banner_${variant}`, destination: 'contact' })}
+            >
               {t(`${base}.cta`)}
             </Button>
             <Button
@@ -52,6 +60,7 @@ export default function CtaBanner({ variant = 'afterHero', tone = 'soft' }) {
               size="lg"
               iconStart={<WhatsAppIcon />}
               className="cta-banner__wa"
+              onClick={() => track('whatsapp_click', { source: `cta_banner_${variant}` })}
             >
               WhatsApp
             </Button>

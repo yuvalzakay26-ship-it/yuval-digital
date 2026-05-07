@@ -2,17 +2,24 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
+  "framework": null,
   "functions": {
     "api/contact.js": {
       "maxDuration": 10
     }
   },
+  "redirects": [
+    { "source": "/page/:slug", "destination": "/he/page/:slug", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/api/contact",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    },
+    {
+      "source": "/(he|en)/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store" }
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=3600, must-revalidate" }
       ]
     }
   ]

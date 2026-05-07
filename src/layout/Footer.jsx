@@ -1,3 +1,4 @@
+import { Link, useLocation, useParams } from 'react-router-dom';
 import Container from '@components/Container.jsx';
 import Logo from '@components/Logo.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
@@ -34,6 +35,12 @@ export default function Footer() {
   const { t } = useLanguage();
   const year = new Date().getFullYear();
 
+  const { lang = 'he' } = useParams();
+  const { pathname } = useLocation();
+  const homePath = `/${lang}`;
+  const onHome = pathname === homePath || pathname === `${homePath}/`;
+  const anchorHref = (anchor) => (onHome ? `#${anchor}` : `${homePath}#${anchor}`);
+
   return (
     <footer className="footer">
       <Container>
@@ -59,11 +66,16 @@ export default function Footer() {
           <nav className="footer__col" aria-label="Footer navigation">
             <h4 className="footer__title">{t('footer.nav')}</h4>
             <ul>
-              {navLinks.map(link => (
-                <li key={link.key}>
-                  <a href={link.href}>{t(`nav.${link.key}`)}</a>
-                </li>
-              ))}
+              {navLinks.map(link => {
+                const to = anchorHref(link.anchor);
+                return (
+                  <li key={link.key}>
+                    {onHome
+                      ? <a href={to}>{t(`nav.${link.key}`)}</a>
+                      : <Link to={to}>{t(`nav.${link.key}`)}</Link>}
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -106,13 +118,15 @@ export default function Footer() {
         <nav className="footer__legal" aria-label={t('legal.privacy')}>
           <ul>
             <li>
-              <a href="#/page/privacy">{t('legal.privacy')}</a>
+              <Link to={`${homePath}/page/privacy`}>{t('legal.privacy')}</Link>
             </li>
             <li>
-              <a href="#/page/accessibility">{t('legal.accessibility')}</a>
+              <Link to={`${homePath}/page/accessibility`}>{t('legal.accessibility')}</Link>
             </li>
             <li>
-              <a href="#contact">{t('legal.contact')}</a>
+              {onHome
+                ? <a href="#contact">{t('legal.contact')}</a>
+                : <Link to={`${homePath}#contact`}>{t('legal.contact')}</Link>}
             </li>
           </ul>
         </nav>

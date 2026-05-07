@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { cn } from '@utils/cn.js';
 import { PHONE_HREF, WHATSAPP_HREF } from '@data/contact.js';
+import { track } from '@utils/analytics.js';
 import './MobileActionBar.css';
 
 const PhoneIcon = () => (
@@ -28,7 +30,11 @@ const QuoteIcon = () => (
  * the contact section is on-screen so it doesn't compete with inline CTAs.
  */
 export default function MobileActionBar() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const { pathname } = useLocation();
+  const homePath = `/${locale}`;
+  const onHome = pathname === homePath || pathname === `${homePath}/`;
+  const quoteHref = onHome ? '#contact' : `${homePath}#contact`;
   const [visible, setVisible] = useState(false);
   const [hidden, setHidden] = useState(false);
 
@@ -81,6 +87,7 @@ export default function MobileActionBar() {
         className="mab__btn mab__btn--call"
         aria-label={t('mab.call')}
         tabIndex={inactive ? -1 : 0}
+        onClick={() => track('phone_click', { source: 'mobile_action_bar' })}
       >
         <span className="mab__icon" aria-hidden><PhoneIcon /></span>
         <span className="mab__label mab__label--sr">{t('mab.call')}</span>
@@ -92,19 +99,34 @@ export default function MobileActionBar() {
         className="mab__btn mab__btn--wa"
         aria-label={t('mab.whatsapp')}
         tabIndex={inactive ? -1 : 0}
+        onClick={() => track('whatsapp_click', { source: 'mobile_action_bar' })}
       >
         <span className="mab__icon" aria-hidden><WhatsAppIcon /></span>
         <span className="mab__label">{t('mab.whatsapp')}</span>
       </a>
-      <a
-        href="#contact"
-        className="mab__btn mab__btn--quote"
-        aria-label={t('mab.quote')}
-        tabIndex={inactive ? -1 : 0}
-      >
-        <span className="mab__icon" aria-hidden><QuoteIcon /></span>
-        <span className="mab__label">{t('mab.quote')}</span>
-      </a>
+      {onHome ? (
+        <a
+          href={quoteHref}
+          className="mab__btn mab__btn--quote"
+          aria-label={t('mab.quote')}
+          tabIndex={inactive ? -1 : 0}
+          onClick={() => track('cta_quote_click', { source: 'mobile_action_bar', destination: 'contact' })}
+        >
+          <span className="mab__icon" aria-hidden><QuoteIcon /></span>
+          <span className="mab__label">{t('mab.quote')}</span>
+        </a>
+      ) : (
+        <Link
+          to={quoteHref}
+          className="mab__btn mab__btn--quote"
+          aria-label={t('mab.quote')}
+          tabIndex={inactive ? -1 : 0}
+          onClick={() => track('cta_quote_click', { source: 'mobile_action_bar', destination: 'contact' })}
+        >
+          <span className="mab__icon" aria-hidden><QuoteIcon /></span>
+          <span className="mab__label">{t('mab.quote')}</span>
+        </Link>
+      )}
     </div>
   );
 }
