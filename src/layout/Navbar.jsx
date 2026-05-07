@@ -22,10 +22,10 @@ export default function Navbar() {
   const homePath = `/${lang}`;
   const onHome = pathname === homePath || pathname === `${homePath}/`;
 
-  /* On the home route, anchors stay as plain `#section` so the browser
-     handles the in-page scroll natively (no router work). From any other
-     route, the anchor must navigate to the home path first — react-router
-     handles that and HashAnchorScroller scrolls once it mounts. */
+  /* On the home route, anchors stay as plain `#section` — ScrollManager's
+     click delegation routes them through React Router so the scroll fires
+     reliably. From another route, the anchor is a full path to /:lang and
+     ScrollManager handles the scroll once Home mounts. */
   const linkFor = (anchor) => (onHome ? `#${anchor}` : `${homePath}#${anchor}`);
   const ctaHref = linkFor('contact');
 

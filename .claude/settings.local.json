@@ -38,7 +38,8 @@
       "Bash(curl -sI http://localhost:5173/he/page/privacy)",
       "Bash(curl -s http://localhost:5173/en)",
       "Bash(pkill -f \"node.*vite\")",
-      "Bash(pkill -f \"esbuild\")"
+      "Bash(pkill -f \"esbuild\")",
+      "Bash(curl -s http://localhost:5175/he)"
     ]
   }
 }

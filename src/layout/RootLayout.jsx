@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { ThemeProvider } from '@theme/ThemeProvider.jsx';
 import { A11yProvider } from '@a11y/A11yProvider.jsx';
 import { initAnalytics, pageview } from '@utils/analytics.js';
+import ScrollManager from './ScrollManager.jsx';
 
 /* Top-level shell that lives ABOVE the :lang segment. Holds the
    cross-cutting providers (Theme, A11y) that don't depend on the URL
@@ -29,31 +30,19 @@ function AnalyticsListener() {
   return null;
 }
 
-function HashAnchorScroller() {
-  const { pathname, hash } = useLocation();
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !hash) return;
-    const id = hash.slice(1);
-    if (!id) return;
-    const raf = window.requestAnimationFrame(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-    return () => window.cancelAnimationFrame(raf);
-  }, [pathname, hash]);
-
-  return null;
-}
-
 export default function RootLayout() {
   return (
     <ThemeProvider>
       <A11yProvider>
         <Outlet />
-        <ScrollRestoration getKey={(location) => location.pathname} />
+        {/* ScrollManager owns scroll-to-top, scroll restoration on
+            back/forward, and reliable hash-anchor scrolling. It
+            intentionally replaces react-router's <ScrollRestoration>:
+            running both produced a race against the HashAnchorScroller
+            that previously lived here, which manifested as the
+            "first click does nothing" bug for in-page anchors. */}
+        <ScrollManager />
         <AnalyticsListener />
-        <HashAnchorScroller />
       </A11yProvider>
     </ThemeProvider>
   );
