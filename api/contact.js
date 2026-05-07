@@ -3,33 +3,64 @@
  * POST /api/contact
  *
  * Required env vars:
- *   RESEND_API_KEY      - from https://resend.com/api-keys
+ *   RESEND_API_KEY              - from https://resend.com/api-keys
+ *   UPSTASH_REDIS_REST_URL      - Upstash Redis REST URL (production rate limiting)
+ *   UPSTASH_REDIS_REST_TOKEN    - Upstash Redis REST token (production rate limiting)
  * Optional env vars:
  *   CONTACT_TO_EMAIL    - recipient (defaults to yuvalzakay25@gmail.com)
  *   CONTACT_FROM_EMAIL  - verified sender (defaults to onboarding@resend.dev for testing)
  */
 
 import { Resend } from 'resend';
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
 
-const RATE_LIMIT_WINDOW_MS = 60_000;
-const RATE_LIMIT_MAX = 5;
-const ipBuckets = new Map();
+const ALLOWED_ORIGINS = new Set([
+  'https://yuval.digital',
+  'https://www.yuval.digital'
+]);
 
-function rateLimit(ip) {
-  const now = Date.now();
-  const recent = (ipBuckets.get(ip) || []).filter(t => now - t < RATE_LIMIT_WINDOW_MS);
-  if (recent.length >= RATE_LIMIT_MAX) {
-    ipBuckets.set(ip, recent);
-    return false;
+const isProduction = process.env.VERCEL_ENV === 'production';
+
+let ratelimit = null;
+const upstashUrl = process.env.UPSTASH_REDIS_REST_URL;
+const upstashToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+if (upstashUrl && upstashToken) {
+  ratelimit = new Ratelimit({
+    redis: new Redis({ url: upstashUrl, token: upstashToken }),
+    limiter: Ratelimit.slidingWindow(5, '60 s'),
+    prefix: 'yuval:contact',
+    analytics: false
+  });
+} else if (isProduction) {
+  console.error('Contact handler: Upstash env vars missing in production');
+}
+
+async function checkRateLimit(ip) {
+  if (!ratelimit) return true;
+  try {
+    const { success } = await ratelimit.limit(ip);
+    return success;
+  } catch (err) {
+    console.error('Rate limit check failed', err);
+    return true;
   }
-  recent.push(now);
-  ipBuckets.set(ip, recent);
-  if (ipBuckets.size > 5000) {
-    for (const [key, arr] of ipBuckets) {
-      if (arr.every(t => now - t >= RATE_LIMIT_WINDOW_MS)) ipBuckets.delete(key);
+}
+
+function isOriginAllowed(req) {
+  if (!isProduction) return true;
+  const origin = req.headers.origin;
+  if (origin && ALLOWED_ORIGINS.has(origin)) return true;
+  const referer = req.headers.referer;
+  if (referer) {
+    try {
+      const u = new URL(referer);
+      if (ALLOWED_ORIGINS.has(`${u.protocol}//${u.host}`)) return true;
+    } catch {
+      // fall through
     }
   }
-  return true;
+  return false;
 }
 
 function isEmail(s) {
@@ -89,12 +120,16 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: 'method_not_allowed' });
   }
 
+  if (!isOriginAllowed(req)) {
+    return res.status(403).json({ ok: false, error: 'forbidden_origin' });
+  }
+
   const ip =
     (req.headers['x-forwarded-for'] || '').toString().split(',')[0].trim()
     || req.socket?.remoteAddress
     || 'unknown';
 
-  if (!rateLimit(ip)) {
+  if (!(await checkRateLimit(ip))) {
     return res.status(429).json({ ok: false, error: 'rate_limited' });
   }
 
