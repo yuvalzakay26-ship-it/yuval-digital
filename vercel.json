@@ -3,13 +3,20 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": null,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "functions": {
     "api/contact.js": {
       "maxDuration": 10
     }
   },
   "redirects": [
+    { "source": "/", "destination": "/he", "permanent": false },
     { "source": "/page/:slug", "destination": "/he/page/:slug", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/he/:path*", "destination": "/he/index.html" },
+    { "source": "/en/:path*", "destination": "/en/index.html" }
   ],
   "headers": [
     {
