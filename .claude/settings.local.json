@@ -39,7 +39,9 @@
       "Bash(curl -s http://localhost:5173/en)",
       "Bash(pkill -f \"node.*vite\")",
       "Bash(pkill -f \"esbuild\")",
-      "Bash(curl -s http://localhost:5175/he)"
+      "Bash(curl -s http://localhost:5175/he)",
+      "Bash(grep -iE '\\\\.\\(env|key|pem|cert|crt|secret|p12|pfx\\)$|credentials|secret|\\\\.local\\\\.|settings\\\\.local|\\\\.DS_Store|Thumbs\\\\.db|\\\\.idea|\\\\.vscode')",
+      "Bash(grep -E '\\\\.\\(md|json|txt|log|bak|backup|old|orig|tmp|swp|swo\\)$')"
     ]
   }
 }

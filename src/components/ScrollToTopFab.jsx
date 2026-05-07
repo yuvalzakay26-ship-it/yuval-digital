@@ -42,28 +42,18 @@ export default function ScrollToTopFab() {
     if (start <= 0) return;
 
     /* Honor reduced-motion (OS preference + the in-app "Pause animations"
-       a11y toggle, which sets data-a11y-pause-animations='on' on <html>). */
+       a11y toggle, which sets data-a11y-pause-animations='on' on <html>).
+       The explicit `behavior` argument overrides CSS `scroll-behavior`, so
+       this works regardless of the global stylesheet rules. */
     const reduced =
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
       document.documentElement.dataset.a11yPauseAnimations === 'on';
-    if (reduced) {
-      window.scrollTo(0, 0);
-      return;
-    }
 
-    /* JS-driven rAF easing. Independent of CSS `scroll-behavior` (which is
-       force-overridden to `auto` by reduced-motion + a11y rules in this app)
-       and of browser quirks that downgrade `behavior:'smooth'` on
-       programmatic scrolls. Duration scales with distance, capped 320–760ms. */
-    const duration = Math.min(760, Math.max(320, start * 0.55));
-    const t0 = performance.now();
-    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-    function step(now) {
-      const t = Math.min(1, (now - t0) / duration);
-      window.scrollTo(0, Math.round(start * (1 - easeOutCubic(t))));
-      if (t < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: reduced ? 'auto' : 'smooth',
+    });
   }
 
   return (
