@@ -17,7 +17,9 @@ import { Redis } from '@upstash/redis';
 
 const ALLOWED_ORIGINS = new Set([
   'https://yuval.digital',
-  'https://www.yuval.digital'
+  'https://www.yuval.digital',
+  'https://yuvaldigital.co.il',
+  'https://www.yuvaldigital.co.il'
 ]);
 
 const isProduction = process.env.VERCEL_ENV === 'production';
