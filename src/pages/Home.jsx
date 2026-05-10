@@ -5,7 +5,6 @@ import Packages from '@sections/Packages.jsx';
 import Process from '@sections/Process.jsx';
 import Projects from '@sections/Projects.jsx';
 import Stack from '@sections/Stack.jsx';
-import Testimonials from '@sections/Testimonials.jsx';
 import About from '@sections/About.jsx';
 import Faq from '@sections/Faq.jsx';
 import Contact from '@sections/Contact.jsx';
@@ -26,8 +25,7 @@ import { homeJsonLd } from '@data/jsonld.js';
  *   Packages      — starting points (lead magnet)
  *   CTA banner    — capture indecision
  *   Process       — how I work
- *   Projects      — real client + concept demos
- *   Testimonials  — anchored client voice
+ *   Projects      — portfolio of work (personal projects + designed demos)
  *   Stack         — tools and workflow
  *   About         — deeper trust
  *   FAQ           — friction removal
@@ -54,7 +52,6 @@ export default function Home() {
       <CtaBanner variant="afterPackages" tone="soft" />
       <Process />
       <Projects />
-      <Testimonials />
       <Stack />
       <About />
       <Faq />

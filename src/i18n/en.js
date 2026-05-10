@@ -205,10 +205,10 @@ const en = {
     ]
   },
   projects: {
-    eyebrow: 'Work examples',
-    title: 'Real client projects. Four labeled concept demos.',
+    eyebrow: 'Portfolio',
+    title: 'Six pieces of work. One delivery standard.',
     subtitle:
-      'Two real client projects running in production, alongside four concept demos that show how I think — every example built to the same delivery standard.',
+      'Three personal projects I built, alongside three concept demos that show how I think about additional verticals — every one held to the same quality bar.',
     industryLabel: 'Industry',
     problemLabel: 'Challenge',
     solutionLabel: 'Solution',
@@ -219,15 +219,15 @@ const en = {
     liveDemo: 'See result',
     caseStudy: 'Read case study',
     currentSiteBadge: "You're already on this site",
-    conceptDemoBadge: 'Concept demo',
+    conceptDemoBadge: 'Designed demo',
     skillsLabel: 'Project capabilities',
-    realLabel: 'Real project',
-    conceptLabel: 'Concept demo',
+    realLabel: 'Portfolio piece',
+    conceptLabel: 'Designed demo',
     featuredLabel: 'Featured project',
     intro: 'Every project on this site was built around a real business need — not just to look good.',
     stats: [
-      { value: '2', label: 'Live client sites' },
-      { value: '4', label: 'Concept demos' },
+      { value: '3', label: 'Personal projects' },
+      { value: '3', label: 'Designed demos' },
       { value: '100%', label: 'Custom code' }
     ],
     finalCta: {
@@ -243,8 +243,8 @@ const en = {
         liveUrl: 'https://marzipan-bakery.vercel.app',
         caseStudyUrl: null,
         title: 'Marzipan Bakery · Jerusalem — heritage bakery (est. 1986) reimagined online',
-        subtitle: 'A Jerusalem brand established in 1986, in need of a digital home matching its quality. Delivered: a premium commerce site with brand storytelling and seamless online ordering — an experience that feels like the product itself.',
-        category: 'Real client project · Jerusalem luxury bakery',
+        subtitle: 'A Jerusalem brand from 1986 that stands for quality and tradition. Built as a premium e-commerce site with brand story, product catalog and a polished online ordering experience — a digital experience that feels like the product itself.',
+        category: 'Portfolio piece · Premium Jerusalem bakery',
         tags: ['E-commerce', 'Food Business'],
         industry: 'Food & hospitality',
         problem: 'A heritage Jerusalem bakery (established 1986) needed a digital presence that reflects its history, quality and premium feel — while letting customers browse and order online effortlessly.',
@@ -263,7 +263,7 @@ const en = {
         liveUrl: 'https://ester-law-website.vercel.app',
         title: 'Ester Law — attorney & mediator · a presence that earns trust',
         subtitle: 'A clean, dignified site for a law practice: clear information hierarchy, jargon-free copy and a direct path to contact — an experience that signals seriousness from the first scroll.',
-        category: 'Real client project · attorney & mediator',
+        category: 'Portfolio piece · Lawyer and mediator',
         tags: ['Professional Services', 'Law & Mediation'],
         industry: 'Legal & mediation',
         problem: 'A professional services practice needed a digital presence worthy of the field — one that signals trust, explains practice areas without legal jargon, and guides visitors toward contact without friction.',
@@ -272,7 +272,7 @@ const en = {
         features: [
           'Challenge: A professional practice in need of a presence that signals trust',
           'Solution: Clean design, clear messaging and a direct path to contact',
-          'Result: Stronger trust perception and higher-quality inquiries'
+          'Result: A design that establishes trust from the first second'
         ]
       },
       {
@@ -297,7 +297,7 @@ const en = {
         kind: 'concept',
         title: 'Private clinic — online appointment booking system',
         subtitle: 'A system that gives practitioners back hours through self-booking, automated reminders and a clean dashboard.',
-        category: 'Concept demo · scheduling system',
+        category: 'Designed demo · scheduling system',
         industry: 'Health & wellness',
         problem: 'Practitioners burning hours on the phone, double-bookings, and last-minute cancellations.',
         solution: 'Self-serve booking, automated WhatsApp reminders, smart slot blocking and a clean practitioner dashboard.',
@@ -313,7 +313,7 @@ const en = {
         kind: 'concept',
         title: 'Urban restaurant — online ordering site for delivery and pickup',
         subtitle: 'A fast ordering site that frees the team from the phone, even during peak hours.',
-        category: 'Concept demo · online ordering',
+        category: 'Designed demo · online ordering',
         industry: 'Food & hospitality',
         problem: 'Restaurants taking phone orders, losing tickets at peak time, and struggling to track pickup and delivery.',
         solution: 'A fast ordering site, simple menu management, live order status, integrated payment and kitchen printing.',
@@ -329,7 +329,7 @@ const en = {
         kind: 'concept',
         title: 'Campaign landing page — high-intent lead capture',
         subtitle: 'A focused page that converts campaign traffic into qualified inquiries instead of losing it on the way.',
-        category: 'Concept demo · marketing campaign',
+        category: 'Designed demo · marketing campaign',
         industry: 'Marketing & sales',
         problem: 'Campaign traffic landing on a busy site that distracts and loses high-intent leads on the way to the form.',
         solution: "A single focused landing page, sharp copy, smart form and automatic routing to CRM and the owner's WhatsApp.",
@@ -339,19 +339,6 @@ const en = {
           'Solution: One focused page, sharp copy, smart form and WhatsApp routing',
           'Result: A page that produces inquiries instead of losing them'
         ]
-      }
-    ]
-  },
-  testimonials: {
-    eyebrow: 'A word from the client',
-    title: 'What the client said about the work',
-    subtitle: 'Real feedback from a real client — no anonymous filler quotes.',
-    items: [
-      {
-        id: 't1',
-        quote: 'Yuval built us a site that feels premium and truly respects the business.',
-        source: 'Marzipan Bakery · Jerusalem · Est. 1986',
-        initial: 'M'
       }
     ]
   },
