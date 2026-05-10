@@ -419,7 +419,7 @@ const en = {
           'Bilingual content available'
         ],
         highlight: true,
-        badge: 'Chosen by most clients',
+        badge: 'The balanced middle option',
         cta: 'Get a Growth quote'
       },
       {
@@ -483,7 +483,7 @@ const en = {
     eyebrow: 'Frequently asked',
     title: 'Questions that come up before we start.',
     subtitle:
-      "Direct answers to what every business owner asks me on the first call. No fine print, no marketing fluff.",
+      "Direct answers to what comes up on a first call. No fine print, no marketing fluff.",
     contactCta: 'Have a different question? Let’s talk',
     items: [
       {
@@ -514,7 +514,7 @@ const en = {
       {
         id: 'notTechnical',
         q: "I'm not technical — is that a problem?",
-        a: "Not at all. Most of the people I work with aren't developers. My job is to translate your business needs into the right technical solution — and to walk you through progress in plain language, no jargon. You make the business decisions; I handle the technical side."
+        a: "Not at all. You don't need to be technical to work with me. My job is to translate your business needs into the right technical solution — and to walk you through progress in plain language, no jargon. You make the business decisions; I handle the technical side."
       },
       {
         id: 'ownership',

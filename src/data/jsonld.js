@@ -111,7 +111,7 @@ const faqPage = {
       acceptedAnswer: {
         '@type': 'Answer',
         text:
-          'Yes. Many clients start with one focused landing page or a small site, then add pages, systems, automations and bilingual content over time.'
+          "Yes. It's common to start with one focused landing page or a small site, then add pages, systems, automations and bilingual content over time."
       }
     },
     {
@@ -137,7 +137,7 @@ const faqPage = {
       acceptedAnswer: {
         '@type': 'Answer',
         text:
-          'Yes — mostly small and mid-sized businesses, with personal attention and a focused, one-project-at-a-time approach.'
+          'Yes — small and mid-sized businesses, with personal attention and a focused, one-project-at-a-time approach.'
       }
     }
   ]
