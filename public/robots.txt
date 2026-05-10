@@ -1,4 +1,7 @@
+# robots.txt for yuvaldigital.co.il
+# Allow all crawlers full access
 User-agent: *
 Allow: /
 
-Sitemap: https://yuval.digital/sitemap.xml
+# Sitemap location
+Sitemap: https://yuvaldigital.co.il/sitemap.xml
