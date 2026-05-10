@@ -4,7 +4,7 @@
 > **Owner:** Yuval Zakay (sole operator)
 > **Stack signature:** React 18 · Vite 5 · token-driven CSS · bilingual HE/EN · light + dark · WCAG-AA aware
 > **Status:** Phase 1 (production), pre-traffic, pre-paid-acquisition
-> **Last fully reviewed:** 2026-05-04
+> **Last fully reviewed:** 2026-05-11
 
 ---
 
@@ -552,11 +552,22 @@ Contact info for a11y issues is provided in the statement.
 - **`transition` / `animation` only on transform + opacity** in most components — these run on the compositor.
 
 ### Not yet implemented
-- ❌ No image optimization pipeline (no images currently used above the fold; project mockups are SVG/CSS).
 - ❌ Fonts are Google-hosted, not self-hosted with `font-display: swap`.
 - ❌ No route-level code splitting (`useHashRoute` doesn't lazy-load — it imports both legal pages eagerly).
 - ❌ No Lighthouse / Core Web Vitals telemetry yet.
 - ❌ No service worker / offline cache.
+
+### Image pipeline (current state)
+There is one raster image on the home page — the founder portrait in the About section. It is handled as follows:
+
+- **Source files:** `public/yuvalImg-320.{webp,jpg}` and `public/yuvalImg-640.{webp,jpg}` — two widths, two formats each. WebP is the primary; JPG is the `<picture>` fallback for older clients.
+- **Markup:** `<picture>` with a `<source type="image/webp" srcSet>` and an `<img srcSet sizes>` fallback. Explicit `width` / `height` attributes prevent CLS; `decoding="async"` and `fetchpriority="high"` reflect that the portrait is in the About section (mid-page) but is a known LCP candidate at certain viewports.
+- **Dimensions in CSS:** the portrait is sized via tokens (`var(--radius-circle)`, `var(--shadow-md)`) and clamps to ≤260px desktop / ≤200px mobile — `sizes="(max-width: 960px) 200px, 260px"` is what the browser uses to pick a variant.
+- **Weight:** every WebP variant is ≤16KB; every JPG fallback is ≤28KB. Comfortably under the project's 40KB-per-displayed-portrait budget.
+- **Alt text:** sourced from the i18n dictionary at `about.portrait.alt` (HE: "יובל זכאי, מייסד יובל דיגיטל" · EN: "Yuval Zakai, founder of Yuval Digital") — moves with the language switch.
+- **Other home-page imagery:** project mockups remain SVG/CSS only. The hero stays imageless by design.
+
+When future branded media is added (real client photos, case-study screenshots), repeat this pipeline: WebP-first with a JPG fallback, ≥2 widths, ≤40KB displayed, tokenized CSS, i18n alt.
 
 ---
 
@@ -612,7 +623,7 @@ Contact info for a11y issues is provided in the statement.
 7. **No tests.** Zero unit, zero integration, zero e2e. With a single-developer codebase that's defensible today, but every refactor is currently uninsured.
 8. **No CI/CD pipeline visible.** No GitHub Actions, no Vercel/Netlify config in repo. Deployment is presumably manual.
 9. **Fonts are Google-hosted.** Adds two preconnects, two extra DNS round-trips. A self-hosted Heebo + Inter pair with `font-display: swap` would shave LCP.
-10. **No image pipeline.** When real client logos / photos arrive, there's no AVIF/WebP conversion or `<picture>` strategy. This will need to exist before any branded media is added.
+10. **Image pipeline is single-purpose.** The portrait is handled with `<picture>` + WebP + JPG fallback and responsive widths, but the pattern lives inline in `About.jsx`. The first time a second branded image lands (real client photo, case-study screenshot), this should be lifted into a small reusable `<ResponsiveImage>` component so the contract is not re-derived each time.
 11. **Hash-router loads both legal pages eagerly.** `App.jsx` imports both `AccessibilityStatement` and `PrivacyPolicy` at top level. They're small, but it's a free wins-easy refactor (`React.lazy`).
 12. **`LANG_STORAGE_KEY` lives in `theme/tokens.js`.** Cross-domain coupling — language storage key inside the theme module. Should move to `i18n/`.
 13. **Provider order coupling.** `LanguageProvider` imports from `@theme/tokens.js`, so `ThemeProvider` must be outer. If a maintainer reorders providers blindly, language storage breaks silently. The dependency should be inverted.

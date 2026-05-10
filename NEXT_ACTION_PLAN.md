@@ -165,9 +165,7 @@ If conversion improves, keep it. If not, revert.
 Trust is the conversion ceiling. Until trust feels >= the competing alternatives (a known agency, a referred freelancer), conversion plateaus.
 
 ### 3.1 Add an "About Yuval" personal section with a photo
-The site is a personal brand. There is no photo of Yuval anywhere. A real photo (warm, well-lit, professional but not stiff) at the top of the About section is the single highest-trust signal you can add.
-
-**Time:** 2 hours including photo session if not yet done. **Lift:** Disproportionate.
+**✅ Completed 2026-05-11.** A real founder portrait now sits at the top of the About section, served through a `<picture>` element with WebP + JPG fallback, two responsive widths (320w, 640w), explicit `width`/`height` to prevent CLS, `fetchpriority="high"`, and i18n-driven alt copy. See *Completed actions* at the bottom of this file for the implementation summary.
 
 ### 3.2 Add a "How I'm different from an agency" section
 Most prospects compare you against a freelancer or a small agency. The Authority section already touches this, but a direct comparison table (see `docs/brand.md` for the existing differentiator table — port it onto the site) is more memorable than 6 abstract claims.
@@ -306,7 +304,7 @@ A concrete sequence. Each line is roughly one developer-day or less unless noted
 - [ ] Day 2: Lazy-load legal pages (1.6).
 - [ ] Day 3: Tighten Hero subtitle (2.5).
 - [ ] Day 3: Public GitHub + LinkedIn footer links (3.4).
-- [ ] Day 3–4: Add a real photo of Yuval to About section (3.1).
+- [x] Day 3–4: Add a real photo of Yuval to About section (3.1). *Completed 2026-05-11.*
 - [ ] Day 4: WhatsApp pre-fill variants per CTA location (2.7).
 - [ ] Day 5: Pricing-range microcopy under packages (2.4).
 - [ ] Day 5: Reach out to Marzipan client for testimonial (2.1 — outreach only).
@@ -390,6 +388,19 @@ This plan assumes one operator with ~20–30 hours/week available for the brand 
 - **Never drop:** items 2.1 and 3.1 (real testimonial, real photo). These are the ceiling-lifters. Without them, every other improvement is rate-limited.
 
 The brand has the right architecture, the right design quality, the right voice. What it needs now is operational closure: form that delivers, analytics that measures, real proof that compounds. Do those, and the site stops being a beautiful brochure and starts being a business.
+
+---
+
+## Completed actions
+
+### 3.1 — About Yuval portrait *(completed 2026-05-11)*
+A real founder portrait was added to the About section, replacing the imageless layout.
+
+- **Files:** `public/yuvalImg-320.{webp,jpg}` and `public/yuvalImg-640.{webp,jpg}` — two widths, two formats, all under 28KB each (WebP variants under 16KB).
+- **Markup:** `<picture>` with a `<source type="image/webp" srcSet>` and an `<img>` JPG fallback. Explicit `width`/`height` (640×640) on the `<img>` prevents CLS; `decoding="async"` and `fetchpriority="high"` reflect its role as a near-fold LCP candidate; no `loading="lazy"` (deliberate — the brief found the original lazy attribute was hurting About-section LCP).
+- **CSS:** sized via `clamp(200px, 18vw, 260px)` desktop / `clamp(160px, 42vw, 200px)` mobile; uses `var(--radius-circle)`, `var(--shadow-md)`, `var(--color-border-strong)` — no hardcoded literals.
+- **i18n:** alt copy lives at `about.portrait.alt` in `he.js` and `en.js` (HE: "יובל זכאי, מייסד יובל דיגיטל" · EN: "Yuval Zakai, founder of Yuval Digital"). Moves with the language switch.
+- **Docs:** `MASTER_PROJECT_BLUEPRINT.md` Section 16 documents the image pipeline; Section 19's "no image pipeline" weakness has been replaced with a softer follow-up about lifting the pattern into a reusable component the next time it ships.
 
 ---
 
