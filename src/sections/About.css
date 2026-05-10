@@ -16,18 +16,24 @@
   align-items: start;
 }
 
+/* Two-row nested grid: portrait sits beside the heading on row 1; the body
+   paragraphs span the full column width on row 2. This prevents the H2 from
+   being squeezed into the leftover space next to the portrait on wide
+   viewports while keeping the photo visually anchored to the title. */
 .about__lede {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: var(--space-8);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--space-7);
+  row-gap: var(--space-6);
+  align-items: center;
   position: sticky;
   top: calc(var(--navbar-h) + var(--space-8));
 }
 
 .about__portrait {
-  flex-shrink: 0;
-  width: clamp(200px, 18vw, 260px);
+  grid-column: 1;
+  grid-row: 1;
+  width: clamp(120px, 12vw, 160px);
   aspect-ratio: 1 / 1;
   border-radius: var(--radius-circle);
   object-fit: cover;
@@ -37,7 +43,18 @@
   user-select: none;
 }
 
-.about__content {
+.about__heading {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.about__body-group {
+  grid-column: 1 / -1;
+  grid-row: 2;
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
@@ -117,9 +134,23 @@
 /* ---- Responsive ---- */
 @media (max-width: 960px) {
   .about__inner    { grid-template-columns: 1fr; gap: var(--space-10); }
-  .about__lede     { position: static; flex-direction: column; align-items: center; gap: var(--space-6); }
-  .about__portrait { width: clamp(160px, 42vw, 200px); }
-  .about__content  { width: 100%; }
+  .about__lede     {
+    position: static;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .about__portrait {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: center;
+    width: clamp(160px, 42vw, 200px);
+  }
+  .about__heading,
+  .about__body-group {
+    grid-column: 1;
+    grid-row: auto;
+    width: 100%;
+  }
 }
 
 @media (max-width: 600px) {

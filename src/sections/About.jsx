@@ -22,9 +22,11 @@ export default function About() {
             decoding="async"
             draggable="false"
           />
-          <div className="about__content">
+          <div className="about__heading">
             <span className="eyebrow">{t('about.eyebrow')}</span>
             <h2 className="about__title">{t('about.title')}</h2>
+          </div>
+          <div className="about__body-group">
             {bodyParagraphs.map((para, i) => (
               <p key={i} className="about__body">{para}</p>
             ))}
