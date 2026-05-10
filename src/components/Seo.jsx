@@ -2,8 +2,13 @@ import { Head } from 'vite-react-ssg';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { SUPPORTED_LANGS, DEFAULT_LANG } from '@router/routes.jsx';
 
-const ORIGIN = 'https://yuval.digital';
+const ORIGIN = 'https://yuvaldigital.co.il';
 const DEFAULT_IMAGE = `${ORIGIN}/favicon.svg`;
+
+/* Search Console verification token. Set at build time via the hosting
+   provider's env (Vercel/etc.) — never committed. Empty in dev/CI builds
+   so the meta tag stays absent. */
+const GSC_VERIFICATION = import.meta.env.VITE_GSC_VERIFICATION;
 
 const OG_LOCALES = { he: 'he_IL', en: 'en_US' };
 
@@ -33,6 +38,9 @@ export default function Seo({
       <title>{title}</title>
       <meta name="description" content={description} />
       {noindex && <meta name="robots" content="noindex, follow" />}
+      {GSC_VERIFICATION && (
+        <meta name="google-site-verification" content={GSC_VERIFICATION} />
+      )}
 
       <link rel="canonical" href={canonical} />
       {SUPPORTED_LANGS.map(l => (
@@ -55,7 +63,7 @@ export default function Seo({
         .map(l => (
           <meta key={l} property="og:locale:alternate" content={OG_LOCALES[l]} />
         ))}
-      <meta property="og:site_name" content="yuval.digital" />
+      <meta property="og:site_name" content="yuvaldigital.co.il" />
       <meta property="og:image" content={image} />
       <meta
         property="og:image:alt"

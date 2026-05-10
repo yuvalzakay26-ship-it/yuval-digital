@@ -11,7 +11,7 @@
  * into a builder if EN content diverges from HE.
  */
 
-const ORIGIN = 'https://yuval.digital';
+const ORIGIN = 'https://yuvaldigital.co.il';
 
 const website = {
   '@context': 'https://schema.org',

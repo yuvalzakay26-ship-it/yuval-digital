@@ -16,8 +16,6 @@ import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
 
 const ALLOWED_ORIGINS = new Set([
-  'https://yuval.digital',
-  'https://www.yuval.digital',
   'https://yuvaldigital.co.il',
   'https://www.yuvaldigital.co.il'
 ]);
@@ -194,7 +192,7 @@ export default async function handler(req, res) {
 
   const html = `
     <div style="font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;max-width:600px;margin:0 auto;color:#0f172a;background:#ffffff;padding:24px">
-      <h2 style="margin:0 0 4px;font-size:18px;line-height:1.3">New lead from yuval.digital</h2>
+      <h2 style="margin:0 0 4px;font-size:18px;line-height:1.3">New lead from yuvaldigital.co.il</h2>
       <p style="margin:0 0 20px;font-size:13px;color:#64748b">Reply to this email to respond directly to ${escapeHtml(name)}.</p>
       <table style="width:100%;border-collapse:collapse;font-size:14px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden">
         ${rows.map(([k, v]) => v
@@ -207,7 +205,7 @@ export default async function handler(req, res) {
   `.trim();
 
   const text = [
-    'New lead from yuval.digital',
+    'New lead from yuvaldigital.co.il',
     '',
     ...rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`),
     '',
