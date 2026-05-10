@@ -12,16 +12,25 @@ export default function About() {
     <section id="about" className="about section">
       <Container className="about__inner">
         <Reveal variant="left" className="about__lede">
-          <img
-            className="about__portrait"
-            src="/yuvalImg.jpg"
-            alt={t('about.portraitAlt')}
-            width={1280}
-            height={1280}
-            loading="lazy"
-            decoding="async"
-            draggable="false"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/yuvalImg-320.webp 320w, /yuvalImg-640.webp 640w"
+              sizes="(max-width: 960px) 200px, 260px"
+            />
+            <img
+              className="about__portrait"
+              src="/yuvalImg-640.jpg"
+              srcSet="/yuvalImg-320.jpg 320w, /yuvalImg-640.jpg 640w"
+              sizes="(max-width: 960px) 200px, 260px"
+              alt={t('about.portrait.alt')}
+              width={640}
+              height={640}
+              decoding="async"
+              fetchpriority="high"
+              draggable="false"
+            />
+          </picture>
           <div className="about__content">
             <span className="eyebrow">{t('about.eyebrow')}</span>
             <h2 className="about__title">{t('about.title')}</h2>

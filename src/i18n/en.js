@@ -195,7 +195,9 @@ const en = {
   about: {
     eyebrow: 'About me',
     title: "I don't just build websites. I build digital systems for businesses.",
-    portraitAlt: 'Portrait photo of Yuval Zakay',
+    portrait: {
+      alt: 'Yuval Zakai, founder of Yuval Digital'
+    },
     body:
       "I'm Yuval Zakay, a college instructor in software development and a graduate of the practical software engineering program with distinction. My focus is where technology meets business — especially artificial intelligence and the next generation of digital businesses. I build modern digital infrastructure for businesses — websites, automations, and AI tools — that takes them into an era where a good site isn't just a face, but a system that works on its own.\n\nI believe small businesses in Israel deserve exactly this: not just a beautiful site, but a combination of website + automation + AI that work together. As someone who teaches programming at the college level, I know how to translate technical complexity into something clear — and that goes into every project. I work personally with each client, integrating AI tools where they create real value, not for the marketing line.",
     pillars: [
