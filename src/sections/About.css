@@ -16,18 +16,21 @@
   align-items: start;
 }
 
+/* Vertical flex stack: eyebrow → portrait → H2 → body, all on their own row
+   so the H2 gets the full column width and wraps cleanly on wide viewports.
+   The previous attempt's 2-row grid kept the portrait beside the heading and
+   forced the H2 to wrap into a narrow column. */
 .about__lede {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-8);
+  gap: var(--space-6);
   position: sticky;
-  top: calc(var(--navbar-h) + var(--space-8));
+  inset-block-start: calc(var(--navbar-h) + var(--space-8));
 }
 
 .about__portrait {
-  flex-shrink: 0;
-  width: clamp(200px, 18vw, 260px);
+  inline-size: clamp(180px, 18vw, 220px);
   aspect-ratio: 1 / 1;
   border-radius: var(--radius-circle);
   object-fit: cover;
@@ -37,14 +40,8 @@
   user-select: none;
 }
 
-.about__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-  min-width: 0;
-}
-
 .about__title {
+  inline-size: 100%;
   font-size: clamp(1.85rem, 4.2vw, var(--fs-4xl));
   font-weight: var(--fw-bold);
   letter-spacing: -0.024em;
@@ -53,6 +50,7 @@
 }
 
 .about__body {
+  inline-size: 100%;
   font-size: var(--fs-md);
   color: var(--color-text-soft);
   line-height: 1.85;
@@ -97,7 +95,7 @@
   letter-spacing: 0.12em;
   color: var(--color-accent);
   font-weight: var(--fw-semibold);
-  margin-bottom: var(--space-1);
+  margin-block-end: var(--space-1);
 }
 
 .about-pillar__title {
@@ -117,9 +115,8 @@
 /* ---- Responsive ---- */
 @media (max-width: 960px) {
   .about__inner    { grid-template-columns: 1fr; gap: var(--space-10); }
-  .about__lede     { position: static; flex-direction: column; align-items: center; gap: var(--space-6); }
-  .about__portrait { width: clamp(160px, 42vw, 200px); }
-  .about__content  { width: 100%; }
+  .about__lede     { position: static; align-items: center; }
+  .about__portrait { inline-size: clamp(160px, 42vw, 200px); }
 }
 
 @media (max-width: 600px) {
