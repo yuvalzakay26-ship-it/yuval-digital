@@ -10,6 +10,10 @@ const DEFAULT_IMAGE = `${ORIGIN}/favicon.svg`;
    so the meta tag stays absent. */
 const GSC_VERIFICATION = import.meta.env.VITE_GSC_VERIFICATION;
 
+/* Cloudflare Web Analytics beacon token. Public identifier rendered into
+   every page. Empty in dev/CI builds so the script stays absent. */
+const CLOUDFLARE_BEACON_TOKEN = import.meta.env.VITE_CLOUDFLARE_BEACON_TOKEN;
+
 const OG_LOCALES = { he: 'he_IL', en: 'en_US' };
 
 /**
@@ -80,6 +84,14 @@ export default function Seo({
           {JSON.stringify(blob)}
         </script>
       ))}
+
+      {CLOUDFLARE_BEACON_TOKEN && (
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token": "${CLOUDFLARE_BEACON_TOKEN}"}`}
+        />
+      )}
     </Head>
   );
 }
