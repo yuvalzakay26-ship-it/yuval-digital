@@ -12,6 +12,7 @@ export default function About() {
     <section id="about" className="about section">
       <Container className="about__inner">
         <Reveal variant="left" className="about__lede">
+          <span className="eyebrow">{t('about.eyebrow')}</span>
           <img
             className="about__portrait"
             src="/yuvalImg.jpg"
@@ -22,15 +23,10 @@ export default function About() {
             decoding="async"
             draggable="false"
           />
-          <div className="about__heading">
-            <span className="eyebrow">{t('about.eyebrow')}</span>
-            <h2 className="about__title">{t('about.title')}</h2>
-          </div>
-          <div className="about__body-group">
-            {bodyParagraphs.map((para, i) => (
-              <p key={i} className="about__body">{para}</p>
-            ))}
-          </div>
+          <h2 className="about__title">{t('about.title')}</h2>
+          {bodyParagraphs.map((para, i) => (
+            <p key={i} className="about__body">{para}</p>
+          ))}
         </Reveal>
 
         <div className="about__pillars">
