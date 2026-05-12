@@ -14,7 +14,7 @@ import {
 import { track } from '@utils/analytics.js';
 import './Contact.css';
 
-const ENDPOINT = '/api/contact';
+const ENDPOINT = 'https://n8n-production-5418.up.railway.app/webhook/yd-lead-intake';
 
 const MailIcon = () => (
   <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -135,11 +135,11 @@ export default function Contact() {
       name:         (fd.get('name')         || '').toString().trim(),
       email:        (fd.get('email')        || '').toString().trim(),
       phone:        (fd.get('phone')        || '').toString().trim(),
+      service:      (fd.get('projectType')  || '').toString().trim(),
+      message:      (fd.get('message')      || '').toString().trim(),
       businessType: (fd.get('businessType') || '').toString().trim(),
-      projectType:  (fd.get('projectType')  || '').toString().trim(),
       budget:       (fd.get('budget')       || '').toString().trim(),
       timeline:     (fd.get('timeline')     || '').toString().trim(),
-      message:      (fd.get('message')      || '').toString().trim(),
       locale,
       timestamp: new Date().toISOString()
     };
@@ -169,7 +169,7 @@ export default function Contact() {
       let data = null;
       try { data = await res.json(); } catch { /* tolerate empty body */ }
 
-      if (!res.ok || !data?.ok) {
+      if (!res.ok) {
         setStatus('error');
         setErrorText(t(errorKeyFor(data?.error)));
         track('contact_submit_error', {
@@ -183,7 +183,7 @@ export default function Contact() {
       form.reset();
       track('contact_submit', {
         source: 'contact_form',
-        project_type: payload.projectType || 'unspecified',
+        project_type: payload.service || 'unspecified',
         budget: payload.budget || 'unspecified',
         timeline: payload.timeline || 'unspecified',
       });
