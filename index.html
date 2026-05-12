@@ -62,21 +62,26 @@
          - Heebo + Inter only. Rubik/Assistant were CSS fallbacks that never
            render once Heebo is loaded; dropping them saves ~3 @font-face
            blocks and avoids loading their woff2 binaries on slow networks.
-         - Weights 300–800 only. Token scale tops out at --fw-black: 800;
-           weight 900 was never referenced.
+         - Weights 400-800 only. --fw-light (300) is declared in the token
+           layer but never referenced in the codebase; dropping it saves
+           one woff2 download per family, ~12KB total on the LCP path.
          - rel="preload" + onload-swap kicks the CSS download off in the
            preload scanner pass so font-face declarations land sooner.
+         - display=swap (carried inside the Google Fonts URL itself) makes
+           font loading non-render-blocking: the browser paints with a
+           system fallback first, then swaps to Heebo/Inter when ready —
+           critical for FCP.
          - <noscript> fallback keeps fonts loading when JS is disabled. -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
       />
     </noscript>
   </head>

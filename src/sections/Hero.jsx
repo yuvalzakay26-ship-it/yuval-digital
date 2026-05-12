@@ -22,30 +22,34 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero" aria-labelledby="hero-title">
+      {/* Hero backdrop: a static gradient + grid mask + faint noise. The
+          three "orb" glow layers used to live here as 110px-blurred
+          floating divs — they were the dominant mobile paint cost on
+          the LCP frame (each is a ~500px composited layer with infinite
+          translate animation). They've been baked into --gradient-hero
+          as cheap, static radial gradients with the same colour story,
+          so the visual is preserved at a fraction of the render bill. */}
       <div className="hero__backdrop" aria-hidden="true">
-        <div className="hero__orb hero__orb--a" />
-        <div className="hero__orb hero__orb--b" />
-        <div className="hero__orb hero__orb--c" />
         <div className="hero__grid" />
         <div className="hero__noise" />
       </div>
 
       <Container className="hero__inner">
-        <div className="hero__badge anim-fade-down">
+        <div className="hero__badge">
           <span className="hero__badge-dot" aria-hidden="true" />
           <span>{t('hero.badge')}</span>
         </div>
 
-        <span className="eyebrow anim-fade-down hero__eyebrow">{t('hero.eyebrow')}</span>
+        <span className="eyebrow hero__eyebrow">{t('hero.eyebrow')}</span>
 
-        <h1 id="hero-title" className="hero__title anim-fade-up">
+        <h1 id="hero-title" className="hero__title">
           <span className="hero__title-lead">{t('hero.titleLead')}</span>
           <span className="hero__title-highlight text-gradient">{t('hero.titleHighlight')}</span>
         </h1>
 
-        <p className="hero__subtitle anim-fade-up">{t('hero.subtitle')}</p>
+        <p className="hero__subtitle">{t('hero.subtitle')}</p>
 
-        <div className="hero__cta anim-fade-up">
+        <div className="hero__cta">
           <Button
             as="a"
             href="#contact"
@@ -68,7 +72,7 @@ export default function Hero() {
           </Button>
         </div>
 
-        <p className="hero__microtrust anim-fade-up">
+        <p className="hero__microtrust">
           <span className="hero__microtrust-pulse" aria-hidden="true" />
           {t('hero.microtrust')}
         </p>

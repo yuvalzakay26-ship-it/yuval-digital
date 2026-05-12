@@ -5,18 +5,35 @@
   height: var(--navbar-h);
   display: flex;
   align-items: center;
-  background: color-mix(in oklab, var(--color-bg) 64%, transparent);
-  backdrop-filter: saturate(180%) blur(22px);
-  -webkit-backdrop-filter: saturate(180%) blur(22px);
+  /* Slightly more opaque base than before so the cheaper blur radius
+     still reads as proper "glass". Was 64% bg + 22px blur — both the
+     blur amount and the saturate filter were extremely expensive on
+     mobile because the navbar overlaps every scroll frame. */
+  background: color-mix(in oklab, var(--color-bg) 78%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition:
     background-color var(--dur-slow) var(--ease-out),
     border-color var(--dur-slow) var(--ease-out),
-    box-shadow var(--dur-slow) var(--ease-out),
-    backdrop-filter var(--dur-base) var(--ease-out);
-  will-change: background-color, box-shadow;
+    box-shadow var(--dur-slow) var(--ease-out);
   /* Honor iOS notch / safe-area on landscape so nothing clips at the edge. */
   padding-inline: max(0px, env(safe-area-inset-left)) max(0px, env(safe-area-inset-right));
+}
+
+/* On phones the navbar covers a large fraction of viewport pixels while
+   the user scrolls — reblurring that region every frame is the single
+   most expensive compositor operation outside the hero. Drop the blur
+   entirely on mobile and lean on a denser tinted background; the
+   visual reading is "frosted bar" either way, but mobile scroll
+   becomes noticeably smoother and the LCP frame doesn't fight a
+   composited filter layer. */
+@media (max-width: 720px) {
+  .nav {
+    background: color-mix(in oklab, var(--color-bg) 92%, transparent);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 .nav--scrolled {
@@ -170,14 +187,19 @@ body.drawer-open .nav {
 .nav__burger--open span:nth-child(2) { opacity: 0; }
 .nav__burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ---- scrim (backdrop overlay) ---- */
+/* ---- scrim (backdrop overlay) ----
+   Only appears while the mobile drawer is open (off the LCP path), so
+   the cost here is a deliberate tradeoff: a moderate blur keeps the
+   "darkroom" feel of the drawer interaction. Was blur(8px) saturate(140%);
+   trimmed to a single blur(4px) to keep the drawer animation buttery on
+   low-end devices without losing the cinematic seal. */
 .nav__scrim {
   position: fixed;
   inset: 0;
   z-index: var(--z-modal);
-  background: rgba(10, 13, 20, 0.48);
-  backdrop-filter: blur(8px) saturate(140%);
-  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  background: rgba(10, 13, 20, 0.52);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--dur-base) var(--ease-out);
