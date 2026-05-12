@@ -46,15 +46,12 @@
     <!--
       Per-route <title>, description, canonical, hreflang, OpenGraph,
       Twitter cards and JSON-LD structured data are emitted by
-      <Seo /> via react-helmet-async. The static fallback below covers
-      the brief moment before hydration on the SPA index, and crawlers
-      that fetch the prerendered HTML get the route-specific tags.
+      <Seo /> via react-helmet-async. No static fallback title or
+      description here on purpose: keeping them duplicates the head on
+      every prerendered page and trips SEO linters that flag multiple
+      <title> tags. Helmet swaps in route-specific tags both at
+      prerender time and on the SPA index before paint.
     -->
-    <title>Yuval Digital — יובל דיגיטל</title>
-    <meta
-      name="description"
-      content="Yuval Digital builds websites, automations and AI-assisted solutions for businesses ready to grow."
-    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

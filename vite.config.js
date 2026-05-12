@@ -67,12 +67,24 @@ export default defineConfig(({ isSsrBuild }) => ({
     /* The full set of paths to prerender at build time. Mirrors the
        route tree in `src/router/routes.jsx` but lives here as a flat
        list because vite.config runs in plain Node (it can't load JSX).
-       Future content-driven slugs (services, industries, insights) get
-       enumerated here — read from src/data/*.js via dynamic import. */
+       Service slugs are read from src/data/serviceCatalog.js and article
+       slugs from src/data/articleCatalog.js via dynamic import — both
+       modules are JSX-free so they load cleanly here. Only `published:
+       true` entries get prerendered; drafts stay out of both the build
+       output and the sitemap. The blog index itself is gated on
+       BLOG_HAS_PUBLISHED so we don't surface an empty editorial section. */
     includedRoutes: async () => {
+      const { PUBLISHED_SERVICES } = await import('./src/data/serviceCatalog.js');
+      const { PUBLISHED_ARTICLES, BLOG_HAS_PUBLISHED } = await import('./src/data/articleCatalog.js');
       const langs = ['he', 'en'];
-      const staticPages = ['', '/page/privacy', '/page/accessibility'];
-      return langs.flatMap(l => staticPages.map(p => `/${l}${p}`));
+      const staticPages = ['', '/about', '/page/privacy', '/page/accessibility'];
+      const servicePaths = PUBLISHED_SERVICES.map(s => `/services/${s.slug}`);
+      const blogPaths = BLOG_HAS_PUBLISHED
+        ? ['/blog', ...PUBLISHED_ARTICLES.map(a => `/blog/${a.slug}`)]
+        : [];
+      return langs.flatMap(l =>
+        [...staticPages, ...servicePaths, ...blogPaths].map(p => `/${l}${p}`)
+      );
     },
     entry: 'src/main.jsx'
   }

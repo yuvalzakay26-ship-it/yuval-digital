@@ -1,9 +1,15 @@
+import { Link } from 'react-router-dom';
 import Container from '@components/Container.jsx';
 import Button from '@components/Button.jsx';
 import Counter from '@components/Counter.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { track } from '@utils/analytics.js';
+import { SERVICE_CATALOG } from '@data/serviceCatalog.js';
 import './Hero.css';
+
+/* Look up the catalog entry by service id (used to derive the link
+   target for each hero topic chip). One-time computation. */
+const CATALOG_BY_ID = Object.fromEntries(SERVICE_CATALOG.map(s => [s.id, s]));
 
 const ArrowIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -18,7 +24,8 @@ const PlayIcon = () => (
 );
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { locale, dict, t } = useLanguage();
+  const topics = dict.hero.topics || [];
 
   return (
     <section id="home" className="hero" aria-labelledby="hero-title">
@@ -76,6 +83,25 @@ export default function Hero() {
           <span className="hero__microtrust-pulse" aria-hidden="true" />
           {t('hero.microtrust')}
         </p>
+
+        {topics.length > 0 && (
+          <nav className="hero__topics" aria-label={t('hero.topicsLabel')}>
+            <span className="hero__topics-label">{t('hero.topicsLabel')}</span>
+            <ul className="hero__topics-list">
+              {topics.map(topic => {
+                const entry = CATALOG_BY_ID[topic.id];
+                const to = entry?.published
+                  ? `/${locale}/services/${entry.slug}`
+                  : `/${locale}#services`;
+                return (
+                  <li key={topic.id}>
+                    <Link to={to} className="hero__topic">{topic.label}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        )}
 
         <div className="hero__metrics" role="list">
           <Metric text="<24h"    label={t('hero.metricResponse')} />

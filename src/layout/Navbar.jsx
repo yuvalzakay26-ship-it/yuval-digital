@@ -52,15 +52,27 @@ export default function Navbar() {
 
   const close = () => setOpen(false);
 
-  /* When on the home route the anchor is a same-page jump, so a plain
-     <a> is correct. Off home, react-router's <Link> handles the
-     route change and the hash is preserved via location.hash. */
-  const NavAnchor = ({ to, className, onClick, children }) =>
-    onHome ? (
+  /* Renders either an anchor link (#section, with same-page-vs-route
+     handling) or a hard sibling route link, based on the nav entry's
+     shape. Anchor links use a plain <a> on home so ScrollManager's
+     click delegation can fire the scroll; off home they become Link
+     navigations to `/:lang#anchor`. Route entries (e.g. About) are
+     always Link to `/:lang/<route>`. */
+  const NavEntry = ({ link, className, onClick, children }) => {
+    if (link.route) {
+      return (
+        <Link to={`${homePath}/${link.route}`} className={className} onClick={onClick}>
+          {children}
+        </Link>
+      );
+    }
+    const to = linkFor(link.anchor);
+    return onHome ? (
       <a href={to} className={className} onClick={onClick}>{children}</a>
     ) : (
       <Link to={to} className={className} onClick={onClick}>{children}</Link>
     );
+  };
 
   return (
     <>
@@ -74,9 +86,9 @@ export default function Navbar() {
             <ul>
               {navLinks.map(link => (
                 <li key={link.key}>
-                  <NavAnchor to={linkFor(link.anchor)} className="nav__link">
+                  <NavEntry link={link} className="nav__link">
                     {t(`nav.${link.key}`)}
-                  </NavAnchor>
+                  </NavEntry>
                 </li>
               ))}
             </ul>
@@ -152,14 +164,14 @@ export default function Navbar() {
           <ul className="nav__drawer-list">
             {navLinks.map((link, i) => (
               <li key={link.key} className="nav__drawer-item" style={{ '--i': i }}>
-                <NavAnchor to={linkFor(link.anchor)} className="nav__drawer-link" onClick={close}>
+                <NavEntry link={link} className="nav__drawer-link" onClick={close}>
                   <span className="nav__drawer-link-text">{t(`nav.${link.key}`)}</span>
                   <span className="nav__drawer-link-chev" aria-hidden>
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 6l6 6-6 6" />
                     </svg>
                   </span>
-                </NavAnchor>
+                </NavEntry>
               </li>
             ))}
           </ul>

@@ -1,0 +1,39 @@
+/* ============================================================
+   About-page closing CTA — centered, calm, editorial.
+   ============================================================ */
+.about-cta {
+  background: var(--color-bg);
+}
+
+.about-cta__inner {
+  max-inline-size: 56ch;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.about-cta__title {
+  font-size: clamp(1.8rem, 4.2vw, var(--fs-4xl));
+  font-weight: var(--fw-bold);
+  line-height: 1.16;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+
+.about-cta__body {
+  font-size: var(--fs-md);
+  color: var(--color-text-soft);
+  line-height: 1.7;
+  max-inline-size: 48ch;
+}
+
+.about-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-block-start: var(--space-3);
+}

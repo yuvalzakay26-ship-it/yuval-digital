@@ -1,0 +1,110 @@
+/* ============================================================
+   About-page hero — editorial founder header.
+   Portrait + identity card. Restrained, premium, no marketing noise.
+   ============================================================ */
+.about-hero {
+  position: relative;
+  padding-block: calc(var(--navbar-h) + var(--space-14)) var(--space-14);
+  background: var(--color-bg);
+  border-block-end: 1px solid var(--color-border);
+  overflow: hidden;
+  overflow: clip;
+}
+
+.about-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: var(--space-14);
+  align-items: center;
+}
+
+.about-hero__media {
+  display: flex;
+  justify-content: center;
+}
+
+.about-hero__portrait {
+  inline-size: clamp(220px, 22vw, 320px);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-circle);
+  object-fit: cover;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-lg);
+  user-select: none;
+}
+
+.about-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-inline-size: 56ch;
+}
+
+.about-hero__eyebrow {
+  display: inline-block;
+}
+
+.about-hero__name {
+  font-size: clamp(2.4rem, 6.4vw, var(--fs-6xl, 4rem));
+  font-weight: var(--fw-bold);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-block-end: var(--space-1);
+}
+
+.about-hero__role {
+  font-size: var(--fs-md);
+  color: var(--color-text-soft);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.005em;
+}
+
+.about-hero__lede {
+  font-size: var(--fs-lg);
+  color: var(--color-text);
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  text-wrap: pretty;
+}
+
+.about-hero__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-6);
+  margin-block-start: var(--space-3);
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.about-hero__fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.about-hero__fact-label {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+}
+
+.about-hero__fact-value {
+  font-size: var(--fs-sm);
+  color: var(--color-text-soft);
+  line-height: 1.6;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .about-hero { padding-block: calc(var(--navbar-h) + var(--space-10)) var(--space-12); }
+  .about-hero__inner { grid-template-columns: 1fr; gap: var(--space-8); justify-items: center; text-align: center; }
+  .about-hero__content { align-items: center; text-align: start; }
+}
+
+@media (max-width: 600px) {
+  .about-hero__facts { grid-template-columns: 1fr; gap: var(--space-3); }
+}

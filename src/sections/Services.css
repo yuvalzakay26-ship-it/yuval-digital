@@ -35,6 +35,31 @@
 
 .service-card-wrap { display: flex; }
 
+/* Linked variant — visually identical to the article card. Anchor reset
+   so it inherits typography/colour from the children and behaves as
+   a block surface, not an inline link. */
+.service-card--linked {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.service-card--linked:hover {
+  text-decoration: none;
+}
+
+.service-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  margin-top: var(--space-2);
+}
+
+[dir='rtl'] .service-card__more-arrow { transform: scaleX(-1); }
+
 /* ============================================================
    Service card — elite spacing
    Desktop padding: 32px (var(--space-8))

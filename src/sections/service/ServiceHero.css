@@ -1,0 +1,142 @@
+/* ============================================================
+   Service-page hero. Compact variant of the home hero.
+   Inherits the same backdrop language (radial gradients + grid)
+   so the brand stays consistent across the site.
+   ============================================================ */
+.svc-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
+  padding-block: clamp(4rem, 9vw, 7rem);
+  background: var(--color-bg);
+}
+
+.svc-hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(520px 520px at 95% -10%, rgba(37, 99, 235, 0.20), transparent 60%),
+    radial-gradient(440px 440px at 0% 110%, rgba(124, 58, 237, 0.16), transparent 60%),
+    var(--gradient-hero);
+}
+
+[data-theme='dark'] .svc-hero__backdrop {
+  background:
+    radial-gradient(520px 520px at 95% -10%, rgba(96, 165, 250, 0.26), transparent 60%),
+    radial-gradient(440px 440px at 0% 110%, rgba(124, 58, 237, 0.30), transparent 60%),
+    var(--gradient-hero);
+}
+
+.svc-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, #000 35%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 80%);
+  opacity: 0.16;
+}
+
+@media (max-width: 720px) {
+  .svc-hero__grid { display: none; }
+}
+
+.svc-hero__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  gap: var(--space-5);
+  max-width: 920px;
+}
+
+/* ---- Breadcrumbs ---- */
+.svc-hero__breadcrumbs {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.svc-hero__breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.svc-hero__breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.svc-hero__breadcrumbs a {
+  color: var(--color-text-soft);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.svc-hero__breadcrumbs a:hover {
+  color: var(--color-accent);
+}
+
+.svc-hero__breadcrumbs li[aria-current='page'] {
+  color: var(--color-text);
+  font-weight: var(--fw-semibold);
+}
+
+/* In RTL the inline chevron should mirror so the arrow points
+   from parent → current (i.e., toward the inline-end). */
+[dir='rtl'] .svc-hero__crumb-sep { transform: scaleX(-1); }
+
+.svc-hero__eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.svc-hero__title {
+  font-size: clamp(2.1rem, 5.4vw, 3.4rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.026em;
+  line-height: 1.08;
+  text-wrap: balance;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.svc-hero__title-lead { color: var(--color-text); }
+
+.svc-hero__lede {
+  font-size: var(--fs-md);
+  line-height: 1.75;
+  color: var(--color-text);
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+.svc-hero__subtitle {
+  font-size: var(--fs-base);
+  line-height: 1.75;
+  color: var(--color-text-soft);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.svc-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 640px) {
+  .svc-hero__cta { width: 100%; }
+  .svc-hero__cta > * { flex: 1 1 auto; }
+}

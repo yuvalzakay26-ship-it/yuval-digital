@@ -15,7 +15,10 @@ const en = {
     projects: 'Examples',
     process: 'Process',
     contact: 'Contact',
-    cta: "Let's talk"
+    blog: 'Blog',
+    cta: "Let's talk",
+    aboutPath: 'About Yuval',
+    blogPath: 'Blog'
   },
   brand: {
     name: 'YUVAL',
@@ -44,25 +47,32 @@ const en = {
     theme: 'Theme'
   },
   hero: {
-    badge: 'Business thinking before design · Developer & programming lecturer',
-    eyebrow: 'Digital presence for businesses',
-    titleLead: "Being a good business isn't enough.",
-    titleHighlight: 'They also have to find you.',
+    badge: 'Websites · Landing pages · Automation · AI',
+    eyebrow: 'Modern digital solutions for businesses',
+    titleLead: 'Websites, automation and AI —',
+    titleHighlight: 'one connected system for your business.',
     subtitle:
-      'Your clients are searching for you online before the first conversation. I build a digital presence that earns trust, gets found, and turns visits into inquiries.',
+      'I build modern websites, business automations and AI-assisted workflows — modern digital solutions that connect to each other and are built around the business goal. Not just looking good — built to actually work for your business.',
     primaryCta: "Let's talk about your business",
-    secondaryCta: 'See real projects',
+    secondaryCta: 'See example work',
     metricResponse: 'Response Time',
     metricCustom: 'Custom Built',
     metricLanguages: 'Fully Bilingual',
-    microtrust: 'Fast Reply • Direct Contact • Personal Service • No Middlemen',
+    microtrust: 'Response within 24h · Personal attention · No middlemen',
+    topicsLabel: 'Start with',
+    topics: [
+      { id: 'web',        label: 'Business websites' },
+      { id: 'automation', label: 'Business automation' },
+      { id: 'ai',         label: 'AI systems' },
+      { id: 'presence',   label: 'SEO & visibility' }
+    ],
     scrollHint: 'Scroll'
   },
   trustStrip: {
     ariaLabel: 'Core strengths',
     items: [
-      'Business thinking before design',
-      'A digital presence that earns trust',
+      'Websites, automation and AI as one system',
+      'Modern digital solutions, built to fit together',
       'Built around the business goal'
     ]
   },
@@ -105,38 +115,38 @@ const en = {
     ]
   },
   services: {
-    eyebrow: 'Digital solutions for businesses',
-    title: 'Not just a website. A presence that works for you.',
+    eyebrow: 'Digital systems for businesses',
+    title: 'Websites, automation and AI — built as one system.',
     subtitle:
-      "Most businesses don't lack a website — they lack one that works for them. Every service here is built around three things: trust, visibility, and inquiries.",
+      "Most businesses treat the website, the automations and the AI tools as three separate things. I build them together — a website, automations and AI tools connected to each other and matched to the real workflow of the business.",
     items: [
       {
         id: 'web',
-        title: 'Professional digital presence',
+        title: 'Modern business websites',
         description:
           'Fast, accurate, mobile-first websites — that strengthen trust in your business from the very first second.',
         bullets: ['Design that signals quality', 'Mobile-first', 'High performance', 'Trust from second one']
       },
       {
         id: 'landing',
-        title: 'UX that drives inquiries',
+        title: 'High-converting landing pages',
         description:
           'Every button, line of copy and section guides the visitor toward action. Landing pages and conversion paths that turn traffic into real inquiries.',
         bullets: ['Copy that sells', 'Smart forms', 'Focused user journey', 'A/B ready']
       },
       {
         id: 'automation',
-        title: 'Smart automation flows',
+        title: 'Smart business automation',
         description:
           'Connect tools, save hours of manual work, and prevent recurring mistakes. From form to WhatsApp, email to CRM.',
         bullets: ['Make · n8n · Zapier', 'API integrations', 'Internal flows', 'Live alerts']
       },
       {
         id: 'ai',
-        title: 'AI-assisted content systems',
+        title: 'AI systems for business',
         description:
-          'AI tools embedded into the content workflow: drafting, translation, summarization, fast generation of variants.',
-        bullets: ['LLMs in the flow', 'Bilingual HE/EN', 'Brand voice tuning', 'Connects to your tools']
+          'Generative models embedded into business workflows: assistants, content generation, conversation analysis, translation and summarization — tuned to your tone and your real needs.',
+        bullets: ['LLMs in the flow', 'Brand voice tuned', 'Bilingual HE/EN', 'Connects to your tools']
       },
       {
         id: 'systems',
@@ -147,7 +157,7 @@ const en = {
       },
       {
         id: 'presence',
-        title: 'Visibility on Google',
+        title: 'SEO & Google visibility',
         description:
           "Right structure, strong performance and SEO thinking — so your business shows up where clients actually search. If they can't find you on Google, they go to competitors.",
         bullets: ['Technical SEO foundation', 'Speed that affects ranking', 'Clear content structure', 'Tagging & analytics']
@@ -193,17 +203,89 @@ const en = {
     ]
   },
   about: {
-    eyebrow: 'About me',
+    eyebrow: 'About us',
     title: "I don't just build websites. I build digital systems for businesses.",
     portraitAlt: 'Portrait photo of Yuval Zakay',
     body:
-      "I'm Yuval Zakay, a college instructor in software development and a graduate of the practical software engineering program with distinction. My focus is where technology meets business — especially artificial intelligence and the next generation of digital businesses. I build modern digital infrastructure for businesses — websites, automations, and AI tools — that takes them into an era where a good site isn't just a face, but a system that works on its own.\n\nI believe small businesses in Israel deserve exactly this: not just a beautiful site, but a combination of website + automation + AI that work together. As someone who teaches programming at the college level, I know how to translate technical complexity into something clear — and that goes into every project. I work personally with each client, integrating AI tools where they create real value, not for the marketing line.",
+      'Yuval Digital builds modern websites, automations and AI-assisted workflows for businesses — modern digital solutions that connect to each other and match the real workflow of the business. Not "a site you then have to babysit", but a digital asset built to capture inquiries, cut manual work and bring AI tools in at the points where they actually add value — tailored per project, not a one-size-fits-all package.\n\nI\'m Yuval Zakay, the founder and the builder. A college instructor in software development and a graduate of the practical software engineering program with distinction. My focus is where technology meets business — especially artificial intelligence and the way it is changing how businesses work. I believe businesses in Israel deserve exactly this: not just a beautiful site, but a considered combination of website, automation and AI working together. I work personally with each client, integrating AI tools where they create real value — not for the marketing line.',
     pillars: [
-      { title: 'Developer and programming lecturer', body: "I teach programming while building production systems. Teaching sharpens thinking — and every decision in a site rests on it." },
-      { title: 'Systems-thinking for business', body: 'Every site is built around your goals and your audience. Not a design exercise — a digital asset built to produce real results.' },
+      { title: 'A system, not just a site', body: 'Website, automation and AI tools are designed together and connected from day one — not three separate tools you have to stitch together by hand.' },
+      { title: 'Systems-thinking for business', body: 'Every project is built around your goals and your audience. Not a design exercise — a digital asset built to produce real results.' },
       { title: 'Direct, personal communication', body: 'You talk to me. No coordinators, no reps. The same person who plans the work also builds it and stands behind every detail.' },
       { title: 'Quality-first delivery', body: 'Clean code, strong performance, and the small details that finish the picture. Better to do less, and do it excellently.' }
     ]
+  },
+  aboutPage: {
+    hero: {
+      eyebrow: 'About',
+      name: 'Yuval Zakay',
+      role: 'Founder of Yuval Digital · Developer · Software lecturer',
+      portraitAlt: 'Portrait photo of Yuval Zakay, founder of Yuval Digital',
+      lede: "I'm Yuval Zakay. I build modern websites, automations and AI-assisted tools for businesses — an independent digital studio focused on quality, on the details, and on the real connection between technology and business.",
+      facts: [
+        { label: 'Based',              value: 'Israel · serving businesses nationwide' },
+        { label: 'Working languages',  value: 'Hebrew · English' },
+        { label: 'Areas of interest',  value: 'Artificial intelligence · systems design · UX' },
+        { label: 'Background',         value: 'Practical software engineering, with distinction · programming lecturer' }
+      ]
+    },
+    story: {
+      eyebrow: 'Why the studio exists',
+      title: "I'm building the studio I'd want to work with.",
+      paragraphs: [
+        "Most businesses in Israel don't need a big agency or inflated systems. They need someone who understands what they do, who can translate it into a modern site that serves the business, and who brings automation and AI in where it actually contributes — not because it's trendy.",
+        "Yuval Digital was started to do that work differently: one project at a time, personal attention, real care for every detail. I believe a small business can hold a digital presence at the same level as a large brand — and I'm building the studio that helps make that happen.",
+        "This isn't a big company and it isn't a startup. It's a growing independent studio, focused, that develops over time with the clients it works with."
+      ]
+    },
+    philosophy: {
+      eyebrow: 'Approach',
+      title: 'How I think about the work.',
+      subtitle: 'Four principles that accompany every project — from the first call to long after launch.',
+      pillars: [
+        {
+          title: 'Clean systems',
+          body: "Readable code, considered architecture, simple solutions that hold up over time. Complexity is not a sign of technical depth — usually it's a sign that not enough thinking was done."
+        },
+        {
+          title: 'Performance and usability',
+          body: "A site that loads fast, is clear in the first second, and answers the visitor's need. Performance is not a luxury — it's the baseline for trust."
+        },
+        {
+          title: 'AI where it adds value',
+          body: 'Artificial intelligence is a tool, not a slogan. It enters a project only when it saves real time, improves a real experience, or solves a real problem.'
+        },
+        {
+          title: 'Technology in service of the business',
+          body: "Every decision — technical or visual — is measured against one question: does this help the business work better? If not, it doesn't make the cut."
+        }
+      ]
+    },
+    now: {
+      eyebrow: 'Where the studio stands today',
+      title: 'A growing studio. A constant learner.',
+      paragraphs: [
+        'Yuval Digital is in its first growth stage. I work with a limited number of projects at any time, develop technically in parallel, and build the studio slowly and deliberately.',
+        'The near-term direction is clear: keep building modern business websites, go deeper on automation and AI as parts of one connected system, and grow the studio into a single home for what a small or mid-sized business needs in the digital world.',
+        "I won't promise to be the biggest studio. I'll promise to be the studio that cares most about your project."
+      ],
+      directionsLabel: 'Current focus areas',
+      directions: [
+        'Modern business websites',
+        'Focused landing pages',
+        'Automation between tools',
+        'AI tools inside the workflow',
+        'Internal business systems',
+        'Google visibility and SEO foundations'
+      ]
+    },
+    cta: {
+      eyebrow: "Let's talk",
+      title: 'Have an idea, a project, or just a question?',
+      body: "I'm available for a short discovery call, no commitment. We'll see together what's right for your business.",
+      primary: "Let's talk",
+      secondary: 'Back to home'
+    }
   },
   projects: {
     eyebrow: 'Portfolio',
@@ -544,6 +626,511 @@ const en = {
       }
     ]
   },
+  servicePages: {
+    common: {
+      breadcrumbHome: 'Home',
+      breadcrumbServices: 'Services',
+      relatedTitle: 'Complementary services',
+      relatedSubtitle: 'Other surfaces that together form your business\'s digital presence.',
+      faqJumpCta: 'See more frequently asked questions',
+      inclusionsTitle: 'What\'s included',
+      flowTitle: 'How we build the site',
+      primaryCta: 'Let\'s talk about your site',
+      secondaryCta: 'See live examples'
+    },
+    businessWebsites: {
+      eyebrow: 'Business websites',
+      titleLead: 'A business site that works.',
+      titleHighlight: 'Not just one that looks good.',
+      lede:
+        'Your website is the first impression most clients form of your business. I build fast, mobile-first, search-friendly websites that build trust and generate real inquiries — not just visually impressive shells.',
+      subtitle:
+        'No generic templates, no anonymous "corporate site" nobody actually visits. Each site is built around the business goal — who the audience is, what impression it needs to leave, and what action the visitor should take.',
+      problem: {
+        eyebrow: 'The real problem',
+        title: 'Most business sites look fine. And don\'t work.',
+        body:
+          'They load slowly. They feel broken on phones. They don\'t explain in the first second why a client should pick you. Google can\'t tell what you do, so it doesn\'t send you traffic. Worst of all — they feel cheap. A good business that looks cheap online loses clients before the first call.',
+        items: [
+          {
+            id: 'speed',
+            title: 'Slowness that costs clients',
+            body: 'Every second of load time is a visitor leaving. Modern sites load under a second — which lifts both Google rankings and visitor trust.'
+          },
+          {
+            id: 'mobile',
+            title: 'A broken mobile experience',
+            body: 'Over 70% of visitors arrive from a phone. A site designed only for desktop quietly loses most of its audience.'
+          },
+          {
+            id: 'message',
+            title: 'An unclear message',
+            body: 'If a visitor can\'t tell what you offer and who it\'s for within five seconds, they go back to search. No matter how pretty the site is.'
+          },
+          {
+            id: 'invisible',
+            title: 'Invisible to Google',
+            body: 'A site without proper structure, metadata, and focused content won\'t appear in the searches that actually bring clients.'
+          }
+        ]
+      },
+      inclusions: {
+        eyebrow: 'What you get',
+        title: 'A full business site — not just a design, a digital asset that creates real value for the business.',
+        body:
+          'Every business-site project ships with the technical infrastructure, the content, the integrations and the post-launch support. No big words, no surprise items on the final invoice.',
+        items: [
+          {
+            id: 'design',
+            title: 'A design built for your business',
+            body: 'Not a template, not a copy of a competitor. A design built around your audience, tone and goal — with attention to typography, color, spacing and the details that create a premium feel.'
+          },
+          {
+            id: 'code',
+            title: 'Modern, clean code',
+            body: 'React + Vite, server-side rendering, top-tier performance. A site built like software, not like a document — so it can grow with you.'
+          },
+          {
+            id: 'mobile',
+            title: 'Mobile-first',
+            body: 'Built from the phone outward. Every decision is tested on mobile first and adapted to larger screens after — because that\'s where most of your audience is.'
+          },
+          {
+            id: 'seo',
+            title: 'Technical SEO baseline',
+            body: 'Correct heading structure, metadata, Schema.org markup, sitemap, robots, hreflang for Hebrew/English — everything Google needs to understand your site and send you traffic.'
+          },
+          {
+            id: 'forms',
+            title: 'A smart contact form',
+            body: 'Connects directly to email and WhatsApp, with anti-spam protection. Optional integration with CRM, automations and live notifications.'
+          },
+          {
+            id: 'multilang',
+            title: 'Truly bilingual',
+            body: 'Hebrew and English as equal citizens — full RTL support, correct hreflang, and a separate URL structure per language. Not auto-translation that says nothing.'
+          },
+          {
+            id: 'analytics',
+            title: 'Measurement from day one',
+            body: 'Privacy-respecting analytics, conversion tracking and a clear dashboard — so you know what works, not just that you have a site.'
+          },
+          {
+            id: 'accessibility',
+            title: 'Accessibility by standard',
+            body: 'Built to the Israeli accessibility standard, with semantic structure, keyboard navigation, contrast and an in-page accessibility toolbar. Because the law requires it — and because it\'s right.'
+          }
+        ]
+      },
+      flow: {
+        eyebrow: 'How we work',
+        title: 'Five steps. A clear timeline. No surprises.',
+        body:
+          'The same structured process that works on every project — tailored specifically to building a business site.',
+        steps: [
+          {
+            id: 'discovery',
+            index: '01',
+            title: 'Discovery call',
+            body: 'A 30–45 minute conversation about the business, the audience and the goal. By the end of the call you know what I recommend, the scope and the price. No commitment.'
+          },
+          {
+            id: 'plan',
+            index: '02',
+            title: 'Scope and proposal',
+            body: 'A short, clear document: site structure, first-screen story, desired action, timeline, budget. Sign-off before we start building.'
+          },
+          {
+            id: 'design',
+            index: '03',
+            title: 'Design and build',
+            body: 'From initial design into code. You see the site come up in a live preview, with structured review cycles — not a month of silence.'
+          },
+          {
+            id: 'launch',
+            index: '04',
+            title: 'QA and launch',
+            body: 'Performance, accessibility, SEO and mobile checks. Domain connection, analytics setup, Google sync. Launch with a closed checklist.'
+          },
+          {
+            id: 'support',
+            index: '05',
+            title: 'Post-launch support',
+            body: 'Fixes, adjustments, content additions. The site is built so you can add pages, features and integrations later — without starting over.'
+          }
+        ]
+      },
+      faq: {
+        eyebrow: 'Frequently asked questions',
+        title: 'Questions that come up before we start.',
+        items: [
+          {
+            id: 'whyCustom',
+            q: 'Why build a custom site instead of using WordPress / Wix?',
+            a: 'Template platforms suit a business that needs "something live" — not one that wants to stand out. A custom site loads faster, performs better in Google, looks distinctly yours, and most importantly — isn\'t locked to a platform. Your code, your domain, your freedom.'
+          },
+          {
+            id: 'duration',
+            q: 'How long does it take to build a business site?',
+            a: 'A full business site usually takes 3 to 5 weeks. A focused landing page takes 1 to 2. The actual timing depends on your review pace and content readiness. An exact timeline is agreed in the discovery call based on real scope.'
+          },
+          {
+            id: 'cost',
+            q: 'How much does a business site cost?',
+            a: 'A professional business site starts at ₪3,900 (Growth package) and scales with scope. A simple presence site with a focused landing page can cost less. The final proposal spells out exactly what\'s in and what\'s out — no hidden extras, no inflated retainers.'
+          },
+          {
+            id: 'seoIncluded',
+            q: 'Is the site search-optimised?',
+            a: 'Yes — the technical SEO baseline is included in every project: heading structure, metadata, Schema.org, sitemap, hreflang, strong performance, and a clear content structure. That doesn\'t guarantee a #1 ranking, but it makes the site "legible" to Google — the precondition for any later ranking work.'
+          },
+          {
+            id: 'content',
+            q: 'What if I don\'t have content or images?',
+            a: 'Very common. I help draft copy from one or two conversations about the business, point you to professional image libraries, and if needed connect you with a logo designer. We build the foundation together — no need to arrive ready.'
+          },
+          {
+            id: 'edits',
+            q: 'Can I edit the site myself after launch?',
+            a: 'Depends on the edit. Text changes on main pages are easy to update through me, and I\'m available for quick post-launch fixes. If frequent self-editing is needed, we can add a content management panel — we\'ll pick what fits the business.'
+          },
+          {
+            id: 'grow',
+            q: 'Can I add features to the site later?',
+            a: 'Absolutely — the site is built modularly so pages, integrations (CRM, automations, AI), shop, blog and more can be added later. No need to start over — you add on top of what exists. That\'s the difference between a template site and a digital asset that grows with you.'
+          }
+        ]
+      }
+    },
+    landingPages: {
+      eyebrow: 'Landing pages',
+      titleLead: 'One page.',
+      titleHighlight: 'One goal. One decision.',
+      lede:
+        "A landing page isn't a \"smaller website.\" It's a focused marketing tool built around a single action — getting the visitor to decide. No distracting menu, no filler content, no side trips. Just the right story, in the right order, with a clear offer at the end.",
+      subtitle:
+        'Fast, focused pages built around real conversion logic — structure, copy and design that work together. Suited to a specific campaign, a product launch, lead generation, or as a first entry point into the business before a full site.',
+      problem: {
+        eyebrow: 'The real problem',
+        title: "Most landing pages say everything. And sell nothing.",
+        body:
+          'They open with a giant logo, follow with ten buttons, and only reach the offer after four scrolls. They try to please everyone — so they end up speaking to no one. A good landing page knows who it\'s for, what holds the visitor back, and what gets them to click.',
+        items: [
+          {
+            id: 'focus',
+            title: 'No focus',
+            body: 'Too many buttons, too many offers, too much text — so the visitor doesn\'t know what to do and ends up doing nothing. Every landing page needs one clear action.'
+          },
+          {
+            id: 'message',
+            title: 'An unclear offer',
+            body: "Within five seconds the visitor needs to understand: what it is, who it's for, and why now. If they don't — they're back to scrolling."
+          },
+          {
+            id: 'trust',
+            title: 'Missing basic trust',
+            body: 'A page that feels fast, professional and technically clean builds trust before a single word is read. A slow, broken or amateurish page loses the visitor before they even start.'
+          },
+          {
+            id: 'mobile',
+            title: 'Neglected mobile experience',
+            body: 'Most campaign clicks come from mobile. A page not built mobile-first quietly burns ad budget.'
+          }
+        ]
+      },
+      inclusions: {
+        eyebrow: 'What you get',
+        title: 'A full landing page — built to convert, not just to display.',
+        body:
+          'Each landing page is built around one business goal. The technical foundation, the messaging and the measurement — all ship inside the same project.',
+        items: [
+          {
+            id: 'strategy',
+            title: 'Message strategy',
+            body: 'We define the audience, the objections, the offer and the desired action together. The page doesn\'t start with design — it starts with deciding who the visitor is and what should happen in their head.'
+          },
+          {
+            id: 'copy',
+            title: 'Professional copy',
+            body: 'A headline that stops, a sub-headline that explains, and blocks below that remove objections one by one. No marketing clichés, in real language.'
+          },
+          {
+            id: 'design',
+            title: 'Focused design',
+            body: 'Visuals that highlight the offer, not compete with it. Clear hierarchy, correct spacing, focus on the CTA. Design that serves the reading, not the other way around.'
+          },
+          {
+            id: 'speed',
+            title: 'Real speed',
+            body: 'A page that loads under a second. Modern code, optimized images, no unnecessary plugins. Every millisecond on a Facebook or Google campaign is money.'
+          },
+          {
+            id: 'forms',
+            title: 'Smart lead form',
+            body: 'Short, frictionless form that sends to email and WhatsApp. Optional CRM, automations, real-time notifications or campaign triggers.'
+          },
+          {
+            id: 'tracking',
+            title: 'Conversion tracking',
+            body: 'Pixels, GA4, event tracking and conversion setup — so you know exactly what a lead costs, not just that you have a page.'
+          },
+          {
+            id: 'aBtest',
+            title: 'Testing-ready',
+            body: 'The page is built so a headline, visual or CTA can be swapped easily. Real A/B testing instead of marketing guesswork.'
+          },
+          {
+            id: 'mobile',
+            title: 'Mobile-first',
+            body: 'Designed and tested on phone first, on a slow network, with one thumb. If it works there — it works everywhere.'
+          }
+        ]
+      },
+      flow: {
+        eyebrow: 'How we work',
+        title: 'Fast. Focused. Clear.',
+        body:
+          "A landing page shouldn't take months. With a clear offer and a defined audience — a quality page is live in two weeks.",
+        steps: [
+          {
+            id: 'discovery',
+            index: '01',
+            title: 'Define the goal',
+            body: "A short call: who's the audience, what's the offer, what are the main objections, where the campaign will come from. Without this — the page just looks nice."
+          },
+          {
+            id: 'message',
+            index: '02',
+            title: 'Structure and message',
+            body: 'We build the page skeleton together: headline, story, objection-removal, social proof, clear offer, action. Sign-off before any design.'
+          },
+          {
+            id: 'design',
+            index: '03',
+            title: 'Design and build',
+            body: 'From mobile design first, then desktop. All blocks connect into one story that leads the visitor to the click.'
+          },
+          {
+            id: 'launch',
+            index: '04',
+            title: 'Measurement and launch',
+            body: 'Tracking, pixels, conversion events. Performance and accessibility checks. Domain, SSL, tool connections. Launch with a closed checklist.'
+          },
+          {
+            id: 'optimize',
+            index: '05',
+            title: 'Post-launch optimization',
+            body: 'Once the campaign runs — we look at real data, identify drop-off points, and refine the critical spots. A landing page is an asset that sharpens over time.'
+          }
+        ]
+      },
+      faq: {
+        eyebrow: 'Frequently asked questions',
+        title: 'Questions that come up before building a landing page.',
+        items: [
+          {
+            id: 'difference',
+            q: "What's the difference between a landing page and a business site?",
+            a: "A business site is the home of the business — it shows everything the business does, the team, the process, and serves people who already know you and want to dig deeper. A landing page is a focused marketing tool — one page, one goal, no menu, built to convert specific traffic from a campaign or ad. They complement each other, they don't replace each other."
+          },
+          {
+            id: 'duration',
+            q: 'How long does it take to build a landing page?',
+            a: 'A quality landing page — one to two weeks usually, depending on offer complexity and content readiness. Urgent for a campaign? It can be compressed to three to four days with joint focus. Exact timing is agreed in the discovery call.'
+          },
+          {
+            id: 'cost',
+            q: 'How much does a landing page cost?',
+            a: "A professional landing page starts at ₪1,900 and scales with complexity — number of sections, integrations, copywriting, variations. The final quote spells out exactly what's in and what's out — no hidden extras."
+          },
+          {
+            id: 'copy',
+            q: 'Do I need to bring ready-made copy?',
+            a: 'No. I help craft all the messaging from one or two discovery calls — headlines, paragraphs, FAQs, objection handling. Copywriting is a critical part of the project, not something dumped on the client.'
+          },
+          {
+            id: 'integrations',
+            q: 'Can the form connect to a CRM or automation?',
+            a: 'Yes. The form can send directly to email, WhatsApp, Make/Zapier, HubSpot/monday/Pipedrive or any system you work with. Optional automatic notifications, basic lead filtering, and an auto-reply to the submitter.'
+          },
+          {
+            id: 'campaign',
+            q: 'Will the page work with a Facebook/Google campaign?',
+            a: "Absolutely — the landing page is built with campaign traffic in mind. High speed, correct meta tags for Facebook and Google, pixels ready, conversion events configured. If you'd like, I can also recommend media specialists I work with."
+          },
+          {
+            id: 'variations',
+            q: 'Can multiple versions of the same page be built?',
+            a: 'Yes — variations (headline, visual, CTA or full page) are easy to spin up on top of the same foundation. That allows real A/B testing instead of guessing what works. Variation cost is significantly lower than the first page.'
+          }
+        ]
+      }
+    },
+    aiAutomation: {
+      eyebrow: 'Business automation',
+      titleLead: 'The business works for you.',
+      titleHighlight: 'Not the other way around.',
+      lede:
+        "Business automation isn't a robot replacing an employee — it's a smart connection between tools you already use. Instead of manually copying between WhatsApp, email, spreadsheets, calendar and CRM — information flows automatically, alerts reach the right place, and repetitive actions perform themselves.",
+      subtitle:
+        'I build practical automations for small and mid-sized businesses — without grand promises, without "autonomous AI." Focused solutions using Make, n8n, Zapier and targeted LLMs that map your existing process and replace the parts that wasted the most time.',
+      problem: {
+        eyebrow: 'The real problem',
+        title: 'Small businesses waste hours on work that tools already know how to do.',
+        body:
+          "The problem isn't a lack of tools — there are plenty. The problem is each tool lives in its own world, and you stay in the middle: copying, updating, sending reminders, and tracking who replied to whom. Every manual action is a potential mistake and, more importantly, time that doesn't come back.",
+        items: [
+          {
+            id: 'copy',
+            title: 'Manual copying between systems',
+            body: 'A lead arrives in WhatsApp, gets jotted in a notebook, copied to a spreadsheet, typed into a CRM, and sent as an email. Same information, five times. Every time a chance to break something.'
+          },
+          {
+            id: 'followup',
+            title: 'Lead follow-up falls through the cracks',
+            body: 'Nobody reminds you to call back, nobody flags that a week passed without a reply, nobody marks a lead as "cold." Forgotten valuable leads are the biggest, quietest loss a business has.'
+          },
+          {
+            id: 'reporting',
+            title: 'Reports rebuilt from scratch every time',
+            body: 'At month-end someone spends three hours with a spreadsheet pulling numbers — instead of the report updating itself with one click.'
+          },
+          {
+            id: 'response',
+            title: 'Long response times',
+            body: "A lead waiting 12 hours is a client gone to a competitor. A first automatic reply within a minute — even if you're in a meeting — changes the closing rate."
+          }
+        ]
+      },
+      inclusions: {
+        eyebrow: "What's included",
+        title: 'Automation built from the real problem — not the tool.',
+        body:
+          "Every automation project starts by mapping the existing process. If the process isn't clear — there's nothing to automate. Once it's clear, we pick the right tools and build the connection.",
+        items: [
+          {
+            id: 'mapping',
+            title: 'Business process mapping',
+            body: "We sit down together and map: what happens today, where the time goes, which steps repeat. A short document with a clear flowchart before any code is written."
+          },
+          {
+            id: 'leadflow',
+            title: 'Automatic lead management',
+            body: 'From an incoming lead (site, WhatsApp, Facebook, Instagram, email) to CRM, personal notification, and an automatic first reply — the whole path connected.'
+          },
+          {
+            id: 'integrations',
+            title: 'Connect your existing tools',
+            body: 'Make, n8n or Zapier — based on complexity. Connections to Gmail, WhatsApp, Google Sheets, Notion, monday, HubSpot, Pipedrive, Calendly, Stripe and more.'
+          },
+          {
+            id: 'ai',
+            title: 'AI integrated where it actually helps',
+            body: "AI isn't everywhere — only where it adds real value: lead classification, conversation summaries, drafting reply templates, extracting data from emails. No theatre, no inflated promises."
+          },
+          {
+            id: 'reports',
+            title: 'Self-updating reports',
+            body: 'A dashboard in Google Sheets, Looker Studio or Notion that fills itself automatically from all the sources. No more manual data collection at month-end.'
+          },
+          {
+            id: 'alerts',
+            title: 'Smart alerts',
+            body: 'WhatsApp alert when a valuable lead arrives. Automatic reminder when a week passes without a reply. Noise filtering — only what really needs your attention.'
+          },
+          {
+            id: 'docs',
+            title: 'Simple, clear documentation',
+            body: "Every automation is documented — what it does, how to trigger it manually, how to stop it, how to see errors. You're not dependent on me to understand what's running on your account."
+          },
+          {
+            id: 'support',
+            title: 'Support and monitoring',
+            body: "After launch — a support window for fixes, adjustments and error monitoring. Automation isn't \"set and forget\" — it's tuned over time."
+          }
+        ]
+      },
+      flow: {
+        eyebrow: 'How we work',
+        title: 'From business process — to automation that works.',
+        body:
+          'The same structured process that works on every project, tuned to automation. The first point is to understand the business, not to pick a tool.',
+        steps: [
+          {
+            id: 'discovery',
+            index: '01',
+            title: 'Discovery and mapping',
+            body: "A 45–60 minute conversation about the existing process, the tools you use, and where time is lost. By the end it's clear which processes are ready to be automated."
+          },
+          {
+            id: 'plan',
+            index: '02',
+            title: 'Scope and plan',
+            body: "A short document: flowchart, recommended tools, scope, timeline, price. Sign-off before building, so there are no surprises."
+          },
+          {
+            id: 'build',
+            index: '03',
+            title: 'Build and testing',
+            body: "We build the automation in a test environment, run real scenarios, handle possible errors. Until it works — it doesn't go live."
+          },
+          {
+            id: 'launch',
+            index: '04',
+            title: 'Rollout and training',
+            body: "We promote to production, document, and walk you through how to work with it day-to-day. You know what's running, how to stop it, and where to check errors."
+          },
+          {
+            id: 'support',
+            index: '05',
+            title: 'Monitoring and adjustments',
+            body: "A support window for bug-fixes, adjustments to a changing process, and ongoing improvements. Automation is a living process — not a one-off."
+          }
+        ]
+      },
+      faq: {
+        eyebrow: 'Frequently asked questions',
+        title: 'Questions that come up before an automation project.',
+        items: [
+          {
+            id: 'whatIs',
+            q: 'What does "business automation" actually mean?',
+            a: 'Business automation is a smart connection between the tools you already use — so information flows between them automatically, alerts reach the right place, and repeating actions happen on their own. For example: a lead from a website form lands in the CRM automatically, gets a WhatsApp thank-you, and a personal alert is sent to me. All without a human touching it.'
+          },
+          {
+            id: 'duration',
+            q: 'How long does it take to build an automation?',
+            a: "A single focused automation — one to two weeks. A more complex system (leads, follow-ups, reports) — three to five weeks. The bulk of the time isn't writing code — it's mapping the process and running real-world tests."
+          },
+          {
+            id: 'cost',
+            q: 'How much does an automation project cost?',
+            a: "A focused automation starts at ₪1,500. A full automation system for a business — from ₪4,500 and up depending on scope. The proposal always spells out what's in and what's out, based on a flowchart we go through together."
+          },
+          {
+            id: 'tools',
+            q: 'Which tools do you work with?',
+            a: 'Make and n8n are the main tools for general automation — strong, flexible, low-code. Zapier when it fits. For deeper integrations I write scripts in Node.js or Python. For AI: GPT, Claude and Gemini based on the task.'
+          },
+          {
+            id: 'ai',
+            q: 'Is this "real AI"?',
+            a: "There's AI integration where it genuinely helps — lead classification, WhatsApp conversation summaries, draft templating, document data extraction. But I don't promise \"autonomous AI\" or \"smart agents\" that will run the business by themselves. Those are marketing claims that don't hold up in reality. AI here is a tool, not magic."
+          },
+          {
+            id: 'maintenance',
+            q: 'What happens if an automation breaks?',
+            a: 'Automations can break — due to a third-party platform update, a data-structure change, or a network error. That\'s why every automation includes an error-alert mechanism and documentation to understand what happened. Fixes are on me during the support window; afterwards, a monthly retainer or per-call rate.'
+          },
+          {
+            id: 'privacy',
+            q: 'What about the privacy of business data?',
+            a: 'Important topic. The tools themselves (Make, n8n, OpenAI) are vendors compliant with standard security frameworks. n8n can even be self-hosted if there\'s a specific regulatory requirement. I don\'t store your data — it flows between your tools through the connections I build.'
+          }
+        ]
+      }
+    }
+  },
   authority: {
     eyebrow: 'Why work with me',
     title: 'Real advantages, no posturing.',
@@ -762,6 +1349,34 @@ const en = {
       ],
       back: 'Back to home'
     }
+  },
+  blog: {
+    eyebrow: 'Blog',
+    titleLead: 'Practical writing on',
+    titleHighlight: 'websites, automation and AI for businesses.',
+    lede:
+      'Notes from real day-to-day work with small businesses — what works, what doesn\'t, and why.',
+    subtitle:
+      'No viral tips, no "10 reasons" listicles. Articles grounded in real work with small and mid-sized businesses in Israel — websites, automation, AI and Google visibility.',
+    empty: {
+      title: 'Blog launching soon.',
+      body: 'The first articles are in progress. When they ship — they\'ll show up here.',
+      cta: 'In the meantime, let\'s talk about your business'
+    },
+    listTitle: 'Recent articles',
+    readingTime: 'min read',
+    readMore: 'Read more',
+    publishedOn: 'Published',
+    updatedOn: 'Updated'
+  },
+  articlePage: {
+    breadcrumbHome: 'Home',
+    breadcrumbBlog: 'Blog',
+    relatedArticlesTitle: 'More articles',
+    relatedServicesTitle: 'Related services',
+    backToBlog: 'Back to blog',
+    primaryCta: 'Let\'s talk about your business',
+    secondaryCta: 'Back to blog'
   },
   legal: {
     privacy: 'Privacy Policy',

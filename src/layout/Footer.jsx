@@ -3,6 +3,7 @@ import Container from '@components/Container.jsx';
 import Logo from '@components/Logo.jsx';
 import { useLanguage } from '@hooks/useLanguage.js';
 import { navLinks } from '@data/nav.js';
+import { BLOG_HAS_PUBLISHED } from '@data/articleCatalog.js';
 import {
   EMAIL,
   EMAIL_HREF,
@@ -67,6 +68,16 @@ export default function Footer() {
             <h4 className="footer__title">{t('footer.nav')}</h4>
             <ul>
               {navLinks.map(link => {
+                /* Route entries (e.g. About) always link to /:lang/<route>;
+                   anchor entries become same-page jumps on home and
+                   /:lang#anchor navigations elsewhere. */
+                if (link.route) {
+                  return (
+                    <li key={link.key}>
+                      <Link to={`${homePath}/${link.route}`}>{t(`nav.${link.key}`)}</Link>
+                    </li>
+                  );
+                }
                 const to = anchorHref(link.anchor);
                 return (
                   <li key={link.key}>
@@ -76,6 +87,11 @@ export default function Footer() {
                   </li>
                 );
               })}
+              {BLOG_HAS_PUBLISHED && (
+                <li>
+                  <Link to={`${homePath}/blog`}>{t('nav.blog')}</Link>
+                </li>
+              )}
             </ul>
           </nav>
 

@@ -1,0 +1,106 @@
+/* ============================================================
+   About-page "now" section — current stage + focus list.
+   Two-column: narrative on the wide side, focus areas sidebar.
+   ============================================================ */
+.about-now {
+  background: var(--color-bg-alt);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.about-now__inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.about-now__narrative {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-inline-size: 60ch;
+}
+
+.about-now__title {
+  font-size: clamp(1.8rem, 4.2vw, var(--fs-4xl));
+  font-weight: var(--fw-bold);
+  line-height: 1.16;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+
+.about-now__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about-now__para {
+  font-size: var(--fs-md);
+  color: var(--color-text-soft);
+  line-height: 1.85;
+  letter-spacing: 0.005em;
+  text-wrap: pretty;
+}
+
+.about-now__directions {
+  position: sticky;
+  inset-block-start: calc(var(--navbar-h) + var(--space-8));
+  padding: var(--space-7);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-now__directions-title {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  margin-block-end: var(--space-5);
+}
+
+.about-now__directions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.about-now__direction {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+  padding-block: var(--space-2);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.about-now__direction:last-child {
+  border-block-end: none;
+  padding-block-end: 0;
+}
+
+.about-now__direction-dot {
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: var(--radius-circle);
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .about-now__inner { grid-template-columns: 1fr; gap: var(--space-8); }
+  .about-now__directions { position: static; }
+}
+
+@media (max-width: 600px) {
+  .about-now__directions { padding: var(--space-5); }
+}
