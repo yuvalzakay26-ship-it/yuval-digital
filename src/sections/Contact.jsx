@@ -14,7 +14,7 @@ import {
 import { track } from '@utils/analytics.js';
 import './Contact.css';
 
-const ENDPOINT = 'https://n8n-production-5418.up.railway.app/webhook/yd-lead-intake';
+const ENDPOINT = '/api/contact';
 
 const MailIcon = () => (
   <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
