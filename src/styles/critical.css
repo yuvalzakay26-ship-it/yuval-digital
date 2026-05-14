@@ -111,3 +111,22 @@ p{color:var(--color-text-soft);line-height:1.78;letter-spacing:var(--tracking-so
 .btn--ghost{background:transparent;color:var(--color-text);border-color:var(--color-border-strong)}
 :where(#trust,#services,#packages,#projects,#process,#stack,#about,#faq,#contact){content-visibility:auto;contain-intrinsic-size:auto 900px}
 @media (max-width:720px){body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}}
+/* Floating UI — first-paint defaults.
+   Markup for the a11y panel, WhatsApp FAB, scroll-top FAB, and mobile
+   action bar is in the prerendered HTML. Without these defaults the
+   panel, FABs, and bar flash visible in the gap between first paint and
+   the non-blocking app stylesheet landing. Mirrors the closed/hidden
+   states from the component CSS and includes the reveal modifiers so JS
+   class toggles (--open, --visible) still work before app.css applies. */
+.a11y-fab{position:fixed;z-index:60;inset-inline-start:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);width:52px;height:52px;border-radius:999px;background:#2563eb;color:#fff;border:2px solid #fff;display:inline-grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px rgba(37,99,235,.42),0 4px 8px rgba(37,99,235,.24)}
+.a11y-fab__icon{display:inline-flex;color:#fff}
+.a11y-fab__icon svg{width:24px;height:24px}
+.a11y-panel{position:fixed;inset-block-end:clamp(16px,3vw,28px);inset-inline-start:clamp(16px,3vw,28px);width:min(360px,calc(100vw - 32px));max-height:min(78vh,720px);transform:translateY(16px) scale(.96);opacity:0;visibility:hidden;pointer-events:none;z-index:61}
+.a11y-panel--open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1)}
+.a11y-panel__scrim{position:fixed;inset:0;background:rgba(10,13,20,.32);opacity:0;visibility:hidden;pointer-events:none;z-index:59}
+.wa-fab,.stt-fab{position:fixed;opacity:0;visibility:hidden;pointer-events:none}
+.wa-fab{inset-inline-end:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);width:56px;height:56px;border-radius:999px}
+.stt-fab{inset-inline-end:clamp(16px,3vw,28px);bottom:calc(clamp(16px,3vw,28px) + 70px);width:56px;height:56px;border-radius:999px}
+.wa-fab--visible,.stt-fab--visible{opacity:1;visibility:visible;pointer-events:auto}
+.mab{display:none}
+@media (max-width:720px){.a11y-fab{width:44px;height:44px;inset-inline-start:12px;bottom:calc(max(env(safe-area-inset-bottom),12px) + 74px)}.a11y-fab__icon svg{width:22px;height:22px}.wa-fab{display:none}.stt-fab{width:44px;height:44px;inset-inline-end:12px;bottom:calc(max(env(safe-area-inset-bottom),12px) + 74px)}.mab{display:flex;position:fixed;inset-inline:0;bottom:max(env(safe-area-inset-bottom,0px),12px);margin-inline:auto;width:max-content;max-width:calc(100vw - 32px);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(140%);z-index:50}.mab--visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}}
