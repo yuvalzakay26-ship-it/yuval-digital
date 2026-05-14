@@ -249,6 +249,21 @@ a, button {
   }
 }
 
+/* Mobile: skip the cinematic theme-transition blur entirely. The 5px
+   blur establishes a containing block and re-rasterises the whole
+   content layer mid-paint — fine on desktop, expensive on phones, and
+   it can interleave with the LCP frame on slow CPUs. The instant token
+   swap reads cleanly at this screen size. */
+@media (max-width: 720px) {
+  .app-shell__content,
+  .theme-transitioning .app-shell__content {
+    filter: none !important;
+    transform: none !important;
+    transition: opacity 160ms var(--ease-out) !important;
+  }
+  .theme-transitioning .app-shell__content { opacity: 0.96; }
+}
+
 /* ---------- Scrollbar (subtle) ---------- */
 * {
   scrollbar-width: thin;

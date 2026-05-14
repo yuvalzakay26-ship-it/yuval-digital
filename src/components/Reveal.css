@@ -39,6 +39,26 @@
   }
 }
 
+/* Mobile: drop the reveal animation entirely. Filter/transform reveals
+   below the fold trigger compositor work that competes with the LCP
+   frame on phones, and the visual reading is fine without it — sections
+   already pop in via content-visibility skip-and-reveal. */
+@media (max-width: 720px) {
+  .reveal,
+  .reveal--up,
+  .reveal--down,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale,
+  .reveal--fade,
+  .reveal--blur {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;
